@@ -47,7 +47,7 @@
 - [x] No instructor-only content in attendee-facing files
 - [x] docs/ directory confirmed gitignored
 - [x] PROJECT_STATE.md written
-- [ ] Initial commit to staging
+- [x] Initial commit to staging (899bb11)
 
 ## Decisions Made
 - .gitignore updated to allow .claude/settings.json (negation pattern)

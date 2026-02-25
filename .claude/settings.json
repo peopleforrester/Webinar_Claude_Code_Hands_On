@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.env)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  }
+}

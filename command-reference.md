@@ -1,0 +1,148 @@
+# Claude Code — Command Reference Card
+
+A printable cheat sheet for the Disney DXT AI Day workshop.
+
+---
+
+## Starting a Session
+
+| Action | Command |
+|--------|---------|
+| Start Claude Code | `claude` (in any project directory) |
+| Check version | `claude --version` |
+| Check backend status | `claude /status` |
+| See available models | `claude /model` |
+| Get help | `claude /help` |
+
+---
+
+## Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Shift+Tab` x2 | Toggle Plan Mode |
+| `Tab` | Toggle thinking display |
+| `Shift+Enter` | New line in input |
+| `Ctrl+B` | Background a task |
+| `Alt+P` (or `Option+P` on Mac) | Quick model switch |
+| `#` | Quick-add note to CLAUDE.md |
+
+---
+
+## Slash Commands
+
+### Context Management
+| Command | Purpose |
+|---------|---------|
+| `/context` | See what's loaded and context usage |
+| `/compact` | Compress conversation, keep critical details |
+| `/clear` | Full conversation reset |
+
+### Planning & Reasoning
+| Command | Purpose |
+|---------|---------|
+| `/plan` | Enter Plan Mode (read everything, modify nothing) |
+| `/effort low` | Simple edits, formatting, typos |
+| `/effort medium` | Standard development tasks |
+| `/effort high` | Complex logic, multi-file changes |
+| `/effort max` | Architecture decisions, hard debugging |
+
+### Project Setup
+| Command | Purpose |
+|---------|---------|
+| `/init` | Bootstrap a CLAUDE.md for the current project |
+
+### Diagnostics
+| Command | Purpose |
+|---------|---------|
+| `/debug` | Troubleshoot session issues |
+| `/insights` | Usage analytics (run monthly) |
+
+---
+
+## Context Management Rules of Thumb
+
+| Context Level | What To Do |
+|---------------|------------|
+| 0-65% | Work normally |
+| 65-70% | Compact or start fresh |
+| 70-80% | `/compact` NOW — quality is already degrading |
+| 80%+ | You've waited too long |
+
+**Rule:** One feature per session. If Claude starts giving worse answers, it's likely context rot, not the model.
+
+---
+
+## CLAUDE.md Hierarchy
+
+| Level | Location | Scope |
+|-------|----------|-------|
+| User | `~/.claude/CLAUDE.md` | All your projects |
+| Project | `./CLAUDE.md` | Team-shared (commit this) |
+| Local | `./CLAUDE.local.md` | Personal (gitignored) |
+
+---
+
+## Skills
+
+Skills are reusable workflow definitions stored in `.claude/skills/*/SKILL.md`.
+
+```bash
+# Create a skill directory
+mkdir -p .claude/skills/my-skill
+
+# Create the skill file
+# (use Claude Code to help write it!)
+```
+
+Skills hot-reload — edit the file and changes apply immediately, no restart needed.
+
+---
+
+## Plan Mode Workflow
+
+```
+1. Enter Plan Mode (Shift+Tab x2 or /plan)
+2. Ask Claude to analyze the project and plan the approach
+3. Review the plan — ask questions, request changes
+4. Exit Plan Mode (Shift+Tab x2)
+5. Tell Claude to implement the approved plan
+```
+
+In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes a strategic advisor.
+
+---
+
+## Effort Levels
+
+| Setting | When to Use |
+|---------|-------------|
+| `/effort low` | Simple edits, formatting, typos |
+| `/effort medium` | Standard development tasks |
+| `/effort high` | Complex logic, multi-file changes |
+| `/effort max` | Architecture decisions, debugging hard problems |
+
+Thinking is on by default with max budget. Use `/effort` to control reasoning depth.
+
+**Pro tip:** If Sonnet 4.6 is available (`Alt+P` to check), use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
+
+---
+
+## Files to Commit to Your Repos
+
+- `CLAUDE.md` — Project standards
+- `.claude/settings.json` — Permissions and security
+- `.claude/skills/` — Shared skills
+
+---
+
+## Common Workflow Pattern
+
+```
+1. /plan          → Think before coding
+2. /effort high   → Set appropriate reasoning depth
+3. Build          → Let Claude implement
+4. /context       → Check context health
+5. /compact       → Compress if needed
+6. Iterate        → Refine and improve
+```

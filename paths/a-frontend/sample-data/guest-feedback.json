@@ -1,0 +1,17 @@
+[
+  {"id": 1, "category": "Attractions", "rating": 5, "sentiment": "positive", "comment": "Space Mountain was incredible! Short wait too.", "date": "2026-03-15"},
+  {"id": 2, "category": "Dining", "rating": 2, "sentiment": "negative", "comment": "Waited 45 minutes for a table at the reserved restaurant.", "date": "2026-03-15"},
+  {"id": 3, "category": "Service", "rating": 5, "sentiment": "positive", "comment": "Cast member went above and beyond helping us find a lost item.", "date": "2026-03-16"},
+  {"id": 4, "category": "Facilities", "rating": 3, "sentiment": "neutral", "comment": "Restrooms near Adventureland could use more frequent cleaning.", "date": "2026-03-16"},
+  {"id": 5, "category": "Attractions", "rating": 4, "sentiment": "positive", "comment": "Haunted Mansion was fun but the line moved slowly.", "date": "2026-03-16"},
+  {"id": 6, "category": "Dining", "rating": 5, "sentiment": "positive", "comment": "The Dole Whip was worth every minute in line.", "date": "2026-03-17"},
+  {"id": 7, "category": "Service", "rating": 1, "sentiment": "negative", "comment": "Guest relations was unhelpful with our Lightning Lane issue.", "date": "2026-03-17"},
+  {"id": 8, "category": "Facilities", "rating": 4, "sentiment": "positive", "comment": "The new charging stations throughout the park are a great addition.", "date": "2026-03-17"},
+  {"id": 9, "category": "Attractions", "rating": 3, "sentiment": "neutral", "comment": "Pirates was closed for maintenance during our visit. Disappointing.", "date": "2026-03-18"},
+  {"id": 10, "category": "Dining", "rating": 4, "sentiment": "positive", "comment": "Mobile ordering worked smoothly at Cosmic Rays.", "date": "2026-03-18"},
+  {"id": 11, "category": "Service", "rating": 5, "sentiment": "positive", "comment": "Character meet and greet was magical for our kids.", "date": "2026-03-18"},
+  {"id": 12, "category": "Facilities", "rating": 2, "sentiment": "negative", "comment": "Parking tram was overcrowded and took forever.", "date": "2026-03-19"},
+  {"id": 13, "category": "Attractions", "rating": 5, "sentiment": "positive", "comment": "TRON was the highlight of our whole trip.", "date": "2026-03-19"},
+  {"id": 14, "category": "Dining", "rating": 3, "sentiment": "neutral", "comment": "Food quality was fine but prices are getting out of hand.", "date": "2026-03-19"},
+  {"id": 15, "category": "Service", "rating": 4, "sentiment": "positive", "comment": "Disability access was well-handled and respectful.", "date": "2026-03-20"}
+]

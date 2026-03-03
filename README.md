@@ -46,8 +46,8 @@ Pick the path that matches your role:
 | DevOps / SRE / platform | **C: Infrastructure** — Deployment Config Generator | `paths/c-infrastructure/` |
 | Data engineer / analyst | **D: Data/Analysis** — Operations Log Analyzer | `paths/d-data/` |
 
-### 4. Follow the path README
-Each path has its own `README.md` with step-by-step guided build instructions. Open your path's README and follow along with the instructor.
+### 4. Follow the guided build
+Each path has its own `guided-brief.md` with step-by-step build instructions. Open your path's `README.md` for an overview, then follow `guided-brief.md` along with the instructor.
 
 ### 5. Try the independent challenge
 After the guided build, each path has an `independent-brief.md` with a standalone challenge you can start in session and take home to finish.
@@ -65,25 +65,35 @@ Disney_Claude_Code_Course/
 │   └── settings.json             ← Starter security settings
 ├── paths/
 │   ├── a-frontend/               ← Path A: Guest Feedback Dashboard
-│   │   ├── README.md             ← Guided build steps
+│   │   ├── README.md             ← Path overview & quick start
+│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   ├── independent-brief.md  ← Park Wait Times challenge
 │   │   └── sample-data/
 │   │       └── guest-feedback.json
 │   ├── b-backend/                ← Path B: Reservation Validation API
-│   │   ├── README.md             ← Guided build steps
+│   │   ├── README.md             ← Path overview & quick start
+│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   └── independent-brief.md  ← Dining Preferences challenge
 │   ├── c-infrastructure/         ← Path C: Deployment Config Generator
-│   │   ├── README.md             ← Guided build steps
+│   │   ├── README.md             ← Path overview & quick start
+│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   └── independent-brief.md  ← Health Dashboard Configs challenge
 │   └── d-data/                   ← Path D: Operations Log Analyzer
-│       ├── README.md             ← Guided build steps
+│       ├── README.md             ← Path overview & quick start
+│       ├── guided-brief.md       ← Step-by-step guided build (20 min)
 │       ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │       ├── independent-brief.md  ← Guest Flow Simulator challenge
 │       └── sample-data/
 │           └── operations-logs.json
+├── reference/                    ← Quick reference handouts
+│   ├── command-card.md           ← Compact command & shortcut card
+│   ├── three-pillars.md          ← The three pillars of effectiveness
+│   └── effort-guide.md           ← /effort level selection guide
+├── slides/                       ← Instructor slide deck (added before workshop)
+│   └── README.md
 └── skills-examples/              ← Example Skills to copy into your project
     ├── explain-code/SKILL.md     ← General purpose: code explanation
     ├── ui-component/SKILL.md     ← Path A: UI component conventions
@@ -102,7 +112,7 @@ Everything in this workshop is built around three effectiveness pillars:
 |--------|---------------|----------------|
 | **Manage Context** | Compact at 65-70%, not 90%. One feature per session. | LLM performance degrades at 20-40% capacity — "context rot" is real |
 | **Plan Before Code** | Plan Mode (`Shift+Tab` x2 or `/plan`) before implementation | Forces architecture thinking, catches dependency issues early |
-| **Externalize Decisions** | CLAUDE.md, Skills, files — not just conversation | Memory persists across sessions; teams share standards automatically |
+| **Externalize Decisions** | CLAUDE.md, Skills, auto-memory, files — not just conversation | Memory persists across sessions; teams share standards automatically |
 
 ---
 

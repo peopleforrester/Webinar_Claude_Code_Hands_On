@@ -24,6 +24,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | `Tab` | Toggle thinking display |
 | `Shift+Enter` | New line in input |
 | `Ctrl+B` | Background a task |
+| `Ctrl+F` | Kill all background agents |
 | `Alt+P` (or `Option+P` on Mac) | Quick model switch |
 | `#` | Quick-add note to CLAUDE.md |
 
@@ -47,10 +48,22 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | `/effort high` | Complex logic, multi-file changes |
 | `/effort max` | Architecture decisions, hard debugging |
 
+### Memory & Output
+| Command | Purpose |
+|---------|---------|
+| `/memory` | View and manage auto-memory (persistent learnings) |
+| `/copy` | Copy last response to clipboard |
+
 ### Project Setup
 | Command | Purpose |
 |---------|---------|
 | `/init` | Bootstrap a CLAUDE.md for the current project |
+
+### Code Quality
+| Command | Purpose |
+|---------|---------|
+| `/simplify` | Review changed code for reuse, quality, and efficiency |
+| `/batch` | Run a prompt across multiple files |
 
 ### Diagnostics
 | Command | Purpose |
@@ -70,6 +83,20 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | 80%+ | You've waited too long |
 
 **Rule:** One feature per session. If Claude starts giving worse answers, it's likely context rot, not the model.
+
+---
+
+## Auto-Memory
+
+Claude Code automatically remembers learnings across sessions. It stores these in `~/.claude/projects/<project>/memory/MEMORY.md`.
+
+| Action | How |
+|--------|-----|
+| View what Claude remembers | `/memory` |
+| Add a memory manually | Tell Claude: "Remember that we use snake_case" |
+| Remove a memory | `/memory`, then ask Claude to remove the entry |
+
+Auto-memory is part of Pillar 3 (Externalize Decisions) — Claude learns your project conventions over time without you repeating them.
 
 ---
 
@@ -124,7 +151,7 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 
 Thinking is on by default with max budget. Use `/effort` to control reasoning depth.
 
-**Pro tip:** If Sonnet 4.6 is available (`Alt+P` to check), use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
+**Pro tip:** Sonnet 4.6 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 ---
 

@@ -1,11 +1,11 @@
 # PROJECT STATE — Disney DXT Workshop Companion Repo
 
-## Current Status: Build Complete — Branches Synced
+## Current Status: v5 Content Update — Ready to Commit
 
 **Last updated:** 2026-03-03
-**Branch:** staging (main synced at 3c5123e)
-**Next step:** Dry-run exercises in Bedrock-like environment before April 1
-**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git (both branches pushed)
+**Branch:** staging (changes pending commit)
+**Next step:** Commit v5 updates, push staging, sync main
+**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git
 
 ## Task Checklist
 
@@ -17,16 +17,20 @@
 - [x] .gitignore updated — allows .claude/settings.json through
 
 ### Phase 2: Path Materials
-- [x] paths/a-frontend/README.md — guided build steps
+- [x] paths/a-frontend/README.md — path overview landing page
+- [x] paths/a-frontend/guided-brief.md — step-by-step guided build (20 min)
 - [x] paths/a-frontend/CLAUDE.md — path-specific conventions
 - [x] paths/a-frontend/independent-brief.md — Park Wait Times challenge
-- [x] paths/b-backend/README.md — guided build steps
+- [x] paths/b-backend/README.md — path overview landing page
+- [x] paths/b-backend/guided-brief.md — step-by-step guided build (20 min)
 - [x] paths/b-backend/CLAUDE.md — path-specific conventions
 - [x] paths/b-backend/independent-brief.md — Dining Preferences challenge
-- [x] paths/c-infrastructure/README.md — guided build steps
+- [x] paths/c-infrastructure/README.md — path overview landing page
+- [x] paths/c-infrastructure/guided-brief.md — step-by-step guided build (20 min)
 - [x] paths/c-infrastructure/CLAUDE.md — path-specific conventions
 - [x] paths/c-infrastructure/independent-brief.md — Health Dashboard challenge
-- [x] paths/d-data/README.md — guided build steps
+- [x] paths/d-data/README.md — path overview landing page
+- [x] paths/d-data/guided-brief.md — step-by-step guided build (20 min)
 - [x] paths/d-data/CLAUDE.md — path-specific conventions
 - [x] paths/d-data/independent-brief.md — Guest Flow Simulator challenge
 
@@ -47,17 +51,38 @@
 - [x] Relative links in path READMEs corrected (../../ prefix)
 - [x] No instructor-only content in attendee-facing files
 - [x] docs/ directory confirmed gitignored
-- [x] PROJECT_STATE.md written
 - [x] Initial commit to staging (899bb11)
+
+### v5 Content Update
+- [x] guided-brief.md created for all 4 paths (extracted from original READMEs)
+- [x] Path READMEs trimmed to landing pages with file directory tables
+- [x] reference/command-card.md — compact command & shortcut card
+- [x] reference/three-pillars.md — pillar summary with auto-memory
+- [x] reference/effort-guide.md — /effort level selection guide
+- [x] slides/README.md — placeholder for instructor deck
+- [x] command-reference.md updated — /memory, /copy, /simplify, /batch, Ctrl+F, Sonnet confirmed
+- [x] README.md updated — structure diagram, guided-brief references, auto-memory in Pillar 3
+- [ ] Commit v5 changes to staging
+- [ ] Push staging to remote
+- [ ] Sync main with staging
 
 ## Decisions Made
 - .gitignore updated to allow .claude/settings.json (negation pattern)
-- Per-path READMEs with full guided build steps (not combined)
+- Per-path READMEs refactored: landing pages pointing to guided-brief.md
 - Skills in skills-examples/ (not .claude/skills/) — attendees copy what they need
 - No finished project code — briefs, data, and conventions only
 - CLAUDE.md at two levels: root (workshop-wide) + per-path (language-specific)
+- Hybrid approach for v5: both README.md AND guided-brief.md per path
+- reference/ directory for quick reference handouts (3 files)
+- slides/ directory with placeholder README
 
 ## Known Issues in Instructor Docs (gitignored, not distributed)
 - docs/specfile.md line 76: Path A labeled "(React/HTML)" — should be "(HTML/JS)"
 - docs/specfile.md line 338: mentions Express/Flask — contradicts stdlib-only constraint
 - These are in the gitignored docs/ directory and do not affect attendees
+
+## Verification Method
+- Research-based content derived from v5 spec reconciliation
+- File structure verified via git status
+- JSON sample data validated with python -m json.tool
+- All relative links manually verified in prior session

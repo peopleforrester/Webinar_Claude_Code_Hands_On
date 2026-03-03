@@ -2,10 +2,10 @@
 
 ## Current Status: Build Complete — Branches Synced
 
-**Last updated:** 2026-02-25
-**Branch:** staging (main synced at f462511)
-**Next step:** Add remote origin and push both branches
-**Remote:** Not yet configured — no remote origin set
+**Last updated:** 2026-03-03
+**Branch:** staging (main synced at 3c5123e)
+**Next step:** Dry-run exercises in Bedrock-like environment before April 1
+**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git (both branches pushed)
 
 ## Task Checklist
 

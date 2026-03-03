@@ -1,11 +1,11 @@
 # PROJECT STATE — Disney DXT Workshop Companion Repo
 
-## Current Status: v5 Content Update — Ready to Commit
+## Current Status: v5 Content Update Complete — Branches Synced
 
 **Last updated:** 2026-03-03
-**Branch:** staging (changes pending commit)
-**Next step:** Commit v5 updates, push staging, sync main
-**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git
+**Branch:** staging (main synced at 26b1919)
+**Next step:** Dry-run exercises in Bedrock-like environment before April 1
+**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git (both branches pushed)
 
 ## Task Checklist
 
@@ -62,9 +62,9 @@
 - [x] slides/README.md — placeholder for instructor deck
 - [x] command-reference.md updated — /memory, /copy, /simplify, /batch, Ctrl+F, Sonnet confirmed
 - [x] README.md updated — structure diagram, guided-brief references, auto-memory in Pillar 3
-- [ ] Commit v5 changes to staging
-- [ ] Push staging to remote
-- [ ] Sync main with staging
+- [x] Commit v5 changes to staging (26b1919)
+- [x] Push staging to remote
+- [x] Sync main with staging
 
 ## Decisions Made
 - .gitignore updated to allow .claude/settings.json (negation pattern)

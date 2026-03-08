@@ -1,6 +1,6 @@
 # Independent Challenge: Guest Dining Preferences Microservice
 
-You have **7 minutes**. The goal is to practice the Claude Code workflow, not to finish the entire service. Prioritize planning and iterating over completeness.
+The goal is to practice the Claude Code workflow, not to finish the entire service. Prioritize planning and iterating over completeness.
 
 ---
 
@@ -35,10 +35,10 @@ Build a microservice that stores guest dining preferences and recommends restaur
 
 ## Workflow Reminders
 
-1. **Check context first** -- if your context window is above 65%, run `/compact` or `/clear` before starting
-2. **Start in Plan Mode** -- review this brief with Claude, have it plan the approach before writing code
-3. **Externalize the plan** -- create a `PLAN.md` with your task breakdown before coding starts
-4. **You won't finish in 7 minutes** -- that's fine. Practice the workflow (plan, build, test, iterate). Take the project home to complete it.
+1. **Check context first** — if your context window is above 65%, run `/compact` or `/clear` before starting
+2. **Start in Plan Mode** — review this brief with Claude, have it plan the approach before writing code
+3. **Externalize the plan** — create a `PLAN.md` with your task breakdown before coding starts
+4. **You won't finish in 7 minutes** — that's fine. Practice the workflow (plan, build, test, iterate). Take the project home to complete it.
 
 ---
 
@@ -54,5 +54,5 @@ Build a microservice that stores guest dining preferences and recommends restaur
      "dietaryOptions": ["gluten-free", "vegetarian"]
    }
    ```
-3. **Recommendation = filter.** A restaurant matches if any of its tags overlap with the guest's preferences. Start with a simple intersection check -- you can rank by overlap count later.
+3. **Recommendation = filter.** A restaurant matches if any of its tags overlap with the guest's preferences. Start with a simple intersection check — you can rank by overlap count later.
 4. **Use `/effort high`** for the matching logic. Tell Claude to spend more time reasoning through edge cases (guest with no matching restaurants, guest not found, etc.).

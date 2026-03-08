@@ -1,6 +1,6 @@
 # Guided Build: Deployment Config Generator
 
-Build a CLI tool (Python, stdlib only) that generates production-ready deployment configuration files from a simple project description. You provide an app name, language, and port -- it outputs a Dockerfile, docker-compose.yml, and a GitHub Actions CI pipeline config. This is a file generator, not a deployment tool. It does not require Docker to be installed.
+Build a CLI tool (Python, stdlib only) that generates production-ready deployment configuration files from a simple project description. You provide an app name, language, and port — it outputs a Dockerfile, docker-compose.yml, and a GitHub Actions CI pipeline config. This is a file generator, not a deployment tool. It does not require Docker to be installed.
 
 **Time estimate:** 20 minutes
 
@@ -18,7 +18,7 @@ claude /init
 When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude to attach notes:
 
 - This is a CLI tool that generates deployment configs
-- It outputs files -- it does NOT run Docker or deploy anything
+- It outputs files — it does NOT run Docker or deploy anything
 - Support: Dockerfile, docker-compose.yml, and a basic CI pipeline config
 - Use Python with no external dependencies (stdlib only)
 
@@ -46,12 +46,12 @@ Review Claude's plan. Does it cover input validation? Does it separate each gene
 
 ## Step 3: Build (10 min)
 
-Exit Plan Mode (press `Shift+Tab`). Tell Claude to implement the plan.
+Exit Plan Mode (press `Shift+Tab` twice). Tell Claude to implement the plan.
 
 Key points to watch for during the build:
 
-- **Templating**: Python `string.Template` or f-strings -- no Jinja2
-- **CLI**: `argparse` for argument parsing -- no Click or Typer
+- **Templating**: Python `string.Template` or f-strings — no Jinja2
+- **CLI**: `argparse` for argument parsing — no Click or Typer
 - **Structure**: Each generator should be a separate function (`generate_dockerfile()`, `generate_compose()`, `generate_ci()`)
 - **Tests**: After each generator is built, ask Claude to write a test that verifies the output contains expected sections
 
@@ -99,7 +99,7 @@ Once created, you can invoke it from any project with `/docker-review`.
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit -- managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
 
 ---
 

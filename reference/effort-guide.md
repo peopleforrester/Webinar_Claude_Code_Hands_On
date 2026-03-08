@@ -32,6 +32,6 @@ Claude Code includes extended thinking in every response. The old keywords (`thi
 
 ## Pro Tip: Model Switching
 
-If Sonnet 4.6 is available (Alt+P to check), use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
+Sonnet 4.6 is available on Bedrock (Alt+P to switch). Use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 The combination of the right model and the right effort level gives you the best balance of speed, quality, and cost.

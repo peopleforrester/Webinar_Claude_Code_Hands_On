@@ -27,7 +27,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | `/context` | See what's loaded and context usage |
 | `/compact` | Compress conversation, keep critical details |
 | `/clear` | Full conversation reset |
-| `/memory` | View loaded memory files, toggle auto-memory |
+| `/memory` | View and manage auto-memory (persistent learnings) |
 
 ### Planning & Reasoning
 

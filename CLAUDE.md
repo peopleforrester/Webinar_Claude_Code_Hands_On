@@ -1,9 +1,9 @@
 # Disney DXT — Workshop Project
 
 ## Build & Test
-- Language: [Python/Node.js/Bash] (choose based on your path)
-- Run: [python main.py / node index.js / bash generate.sh]
-- Test: [python -m pytest / npm test / bash test.sh]
+- Language: Depends on your chosen path — see your path's CLAUDE.md
+- Run: See your path's CLAUDE.md for the correct run command
+- Test: See your path's CLAUDE.md for the correct test command
 
 ## Conventions
 - No external dependencies (stdlib only)

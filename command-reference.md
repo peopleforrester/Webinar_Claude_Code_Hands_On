@@ -122,6 +122,17 @@ mkdir -p .claude/skills/my-skill
 # (use Claude Code to help write it!)
 ```
 
+A skill file uses YAML frontmatter to declare its name and description:
+
+```markdown
+---
+name: my-skill
+description: What this skill does (shown in /help output)
+---
+
+Your skill instructions here...
+```
+
 Skills hot-reload — edit the file and changes apply immediately, no restart needed.
 
 ---
@@ -141,6 +152,8 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 ---
 
 ## Effort Levels
+
+> For detailed guidance on choosing effort levels, see [reference/effort-guide.md](reference/effort-guide.md).
 
 | Setting | When to Use |
 |---------|-------------|

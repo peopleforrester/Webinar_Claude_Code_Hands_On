@@ -1,6 +1,6 @@
 # Guided Build: Reservation Validation API
 
-Build a REST API that validates Disney theme park reservation requests. The API enforces business rules (date ranges, party size limits, park validation) and returns clear error messages. You will build this entirely with stdlib -- no frameworks, no databases, no package installs.
+Build a REST API that validates Disney theme park reservation requests. The API enforces business rules (date ranges, party size limits, park validation) and returns clear error messages. You will build this entirely with stdlib — no frameworks, no databases, no package installs.
 
 **Time estimate:** 20 minutes
 
@@ -18,8 +18,8 @@ claude /init
 When Claude generates `CLAUDE.md`, press **#** (the context mention key) to add project context. Include these points:
 
 - This is a **[Node.js / Python]** REST API (pick one and stick with it)
-- No external database -- use in-memory data structures
-- No external packages -- stdlib only
+- No external database — use in-memory data structures
+- No external packages — stdlib only
 - All endpoints must have input validation and proper error responses
 - Include tests for every endpoint
 
@@ -33,10 +33,10 @@ Enter **Plan Mode** by pressing `Shift+Tab` twice (or type `plan` at the prompt)
 
 > Build a reservation validation API with these endpoints:
 >
-> - **POST /reservations** -- Create a reservation (validate: date, party size 1-20, park name)
-> - **GET /reservations** -- List all reservations (filter by date, park)
-> - **GET /reservations/:id** -- Get one reservation
-> - **DELETE /reservations/:id** -- Cancel a reservation
+> - **POST /reservations** — Create a reservation (validate: date, party size 1-20, park name)
+> - **GET /reservations** — List all reservations (filter by date, park)
+> - **GET /reservations/:id** — Get one reservation
+> - **DELETE /reservations/:id** — Cancel a reservation
 >
 > Business rules:
 > - No reservations more than 60 days out
@@ -53,7 +53,7 @@ Review the plan Claude produces. Look for:
 - A consistent error format
 - A test strategy
 
-Ask questions or request changes while still in Plan Mode. This is free -- no code is written until you leave.
+Ask questions or request changes while still in Plan Mode. This is free — no code is written until you leave.
 
 ---
 
@@ -110,7 +110,7 @@ Tell Claude:
 
 > Create a Claude Code skill at `.claude/skills/api-scaffold/SKILL.md` that captures our API conventions: the input validation pattern, the error response format, the test structure, and the middleware order.
 
-This skill becomes reusable context for future API work. Review what Claude generates -- it should codify the patterns from this build, not just copy code.
+This skill becomes reusable context for future API work. Review what Claude generates — it should codify the patterns from this build, not just copy code.
 
 ---
 

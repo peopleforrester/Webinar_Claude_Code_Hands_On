@@ -1,6 +1,6 @@
 # Guided Build: Guest Feedback Dashboard
 
-Build a single-page Guest Feedback Dashboard using plain HTML, CSS, and JavaScript. No frameworks, no build tools, no server -- open `index.html` in a browser and it works.
+Build a single-page Guest Feedback Dashboard using plain HTML, CSS, and JavaScript. No frameworks, no build tools, no server — open `index.html` in a browser and it works.
 
 **Time estimate:** 20 minutes
 
@@ -78,7 +78,7 @@ This skill can be reused in future projects to enforce the same standards.
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit -- managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
 
 ---
 

@@ -1,5 +1,7 @@
 # Independent Challenge: Guest Dining Preferences Microservice
 
+## The Brief
+
 The goal is to practice the Claude Code workflow, not to finish the entire service. Prioritize planning and iterating over completeness.
 
 ---
@@ -42,7 +44,7 @@ Build a microservice that stores guest dining preferences and recommends restaur
 
 ---
 
-## Hints (If Stuck)
+## Hints (if stuck)
 
 1. **Plan Mode first.** Design the matching algorithm before writing any code. How will you score or filter restaurants against preferences?
 2. **Model restaurants as objects** with `cuisineTags` and `dietaryOptions` arrays. Example:

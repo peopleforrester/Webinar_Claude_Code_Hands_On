@@ -114,7 +114,13 @@ This skill becomes reusable context for future API work. Review what Claude gene
 
 ---
 
+## Check Your Context
+
+Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
+
+---
+
 ## What's Next
 
-- **Independent challenge:** Open [independent-brief.md](independent-brief.md) for a self-directed microservice build using the workflow you just practiced.
-- **Skill reference:** See [skills-examples/api-scaffold/SKILL.md](../../skills-examples/api-scaffold/SKILL.md) for an example of a well-structured API scaffold skill.
+- **Independent challenge:** Open [independent-brief.md](independent-brief.md) for a Guest Dining Preferences Microservice you can build on your own.
+- **Skill reference:** See [skills-examples/api-scaffold/SKILL.md](../../skills-examples/api-scaffold/SKILL.md) in the repo root for an example of a well-structured API scaffold skill.

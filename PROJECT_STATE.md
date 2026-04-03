@@ -1,88 +1,67 @@
 # PROJECT STATE — Disney DXT Workshop Companion Repo
 
-## Current Status: v5 Content Update Complete — Branches Synced
+## Current Status: v5.1 Environment Update Complete
 
-**Last updated:** 2026-03-03
-**Branch:** staging (main synced at 26b1919)
-**Next step:** Dry-run exercises in Bedrock-like environment before April 1
-**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git (both branches pushed)
+**Last updated:** 2026-04-03
+**Branch:** staging
+**Workshop date:** Wednesday, April 8, 2026 (12:00-1:00 PM ET)
+**Next step:** Dry-run exercises in Bedrock-like config, then grant attendees repo access
+**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git
+
+## Confirmed Environment (from Greg, March 2026)
+
+```bash
+CLAUDE_CODE_DISABLE_AUTO_MEMORY=true      # Auto-memory is OFF
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=true  # Agent Teams is ON
+CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
+```
+
+- Opus 4.6 + Sonnet 4.6 via Bedrock (200K context)
+- No internet/egress — all exercises self-contained
+- No rate limit concerns for 30 simultaneous users
+- Some observers expected without CLI access
 
 ## Task Checklist
 
-### Phase 1: Shared Foundation
-- [x] README.md — repo overview, quickstart, path selection guide
-- [x] CLAUDE.md — generic workshop CLAUDE.md
-- [x] .claude/settings.json — starter security deny list
-- [x] command-reference.md — printable cheat sheet
-- [x] .gitignore updated — allows .claude/settings.json through
+### Phase 1-4: v5 Content (Complete)
+- [x] README.md, CLAUDE.md, settings.json, command-reference.md, .gitignore
+- [x] All 4 path directories: README, guided-brief, CLAUDE.md, independent-brief
+- [x] Sample data: guest-feedback.json (Path A), operations-logs.json (Path D)
+- [x] Skills examples: explain-code, ui-component, api-scaffold, docker-review, data-report
+- [x] Reference handouts: command-card, three-pillars, effort-guide
+- [x] slides/README.md placeholder
 
-### Phase 2: Path Materials
-- [x] paths/a-frontend/README.md — path overview landing page
-- [x] paths/a-frontend/guided-brief.md — step-by-step guided build (20 min)
-- [x] paths/a-frontend/CLAUDE.md — path-specific conventions
-- [x] paths/a-frontend/independent-brief.md — Park Wait Times challenge
-- [x] paths/b-backend/README.md — path overview landing page
-- [x] paths/b-backend/guided-brief.md — step-by-step guided build (20 min)
-- [x] paths/b-backend/CLAUDE.md — path-specific conventions
-- [x] paths/b-backend/independent-brief.md — Dining Preferences challenge
-- [x] paths/c-infrastructure/README.md — path overview landing page
-- [x] paths/c-infrastructure/guided-brief.md — step-by-step guided build (20 min)
-- [x] paths/c-infrastructure/CLAUDE.md — path-specific conventions
-- [x] paths/c-infrastructure/independent-brief.md — Health Dashboard challenge
-- [x] paths/d-data/README.md — path overview landing page
-- [x] paths/d-data/guided-brief.md — step-by-step guided build (20 min)
-- [x] paths/d-data/CLAUDE.md — path-specific conventions
-- [x] paths/d-data/independent-brief.md — Guest Flow Simulator challenge
+### Phase 5: v5.1 Environment Alignment
+- [x] Auto-memory references qualified as "when enabled" across all files
+- [x] README.md Pillar 3 row — removed auto-memory as assumed-working feature
+- [x] command-reference.md — auto-memory section adds enterprise caveat
+- [x] reference/three-pillars.md — auto-memory note rewritten for enterprise awareness
+- [x] reference/command-card.md — /memory qualified, Ctrl+F clarified
+- [x] Path B guided-brief — normalized Plan Mode instructions (removed `plan`/`code` keywords)
+- [x] Path B sample data added (sample-reservations.json — 10 entries, valid + invalid)
+- [x] Path B README updated with sample data file reference
+- [x] Ctrl+F shortcut clarified as destructive action in command-reference.md and command-card.md
+- [x] `#` shortcut description clarified in command-reference.md
+- [x] Independent briefs (all 4 paths) — timing context added ("about 7 minutes")
 
-### Phase 3: Sample Data
-- [x] paths/a-frontend/sample-data/guest-feedback.json — 15 entries, validated
-- [x] paths/d-data/sample-data/operations-logs.json — 10 entries, validated
-
-### Phase 4: Skills Examples
-- [x] skills-examples/explain-code/SKILL.md — general purpose demo
-- [x] skills-examples/ui-component/SKILL.md — Path A skill
-- [x] skills-examples/api-scaffold/SKILL.md — Path B skill
-- [x] skills-examples/docker-review/SKILL.md — Path C skill
-- [x] skills-examples/data-report/SKILL.md — Path D skill
-
-### Phase 5: Validation
-- [x] JSON files parse with python -m json.tool
-- [x] Markdown reviewed for broken tables, orphan references
-- [x] Relative links in path READMEs corrected (../../ prefix)
-- [x] No instructor-only content in attendee-facing files
-- [x] docs/ directory confirmed gitignored
-- [x] Initial commit to staging (899bb11)
-
-### v5 Content Update
-- [x] guided-brief.md created for all 4 paths (extracted from original READMEs)
-- [x] Path READMEs trimmed to landing pages with file directory tables
-- [x] reference/command-card.md — compact command & shortcut card
-- [x] reference/three-pillars.md — pillar summary with auto-memory
-- [x] reference/effort-guide.md — /effort level selection guide
-- [x] slides/README.md — placeholder for instructor deck
-- [x] command-reference.md updated — /memory, /copy, /simplify, /batch, Ctrl+F, Sonnet confirmed
-- [x] README.md updated — structure diagram, guided-brief references, auto-memory in Pillar 3
-- [x] Commit v5 changes to staging (26b1919)
-- [x] Push staging to remote
-- [x] Sync main with staging
+### Remaining Before April 8
+- [ ] Dry-run exercises in Bedrock-like environment
+- [ ] Grant attendees access to GitHub repo (coordinate with Derek)
+- [ ] Add presentation deck to slides/ directory
 
 ## Decisions Made
-- .gitignore updated to allow .claude/settings.json (negation pattern)
-- Per-path READMEs refactored: landing pages pointing to guided-brief.md
+- .gitignore allows .claude/settings.json through (negation pattern)
+- Per-path READMEs: landing pages pointing to guided-brief.md
 - Skills in skills-examples/ (not .claude/skills/) — attendees copy what they need
 - No finished project code — briefs, data, and conventions only
 - CLAUDE.md at two levels: root (workshop-wide) + per-path (language-specific)
-- Hybrid approach for v5: both README.md AND guided-brief.md per path
-- reference/ directory for quick reference handouts (3 files)
-- slides/ directory with placeholder README
+- Hybrid approach: both README.md AND guided-brief.md per path
+- reference/ directory for quick reference handouts
+- Auto-memory: mentioned as "exists outside enterprise config" — not demoed live
+- Agent Teams: ON in their env — mention briefly, don't build instruction around it
+- Observers: acknowledged in instructor docs — repo content is self-explanatory
 
 ## Known Issues in Instructor Docs (gitignored, not distributed)
 - docs/specfile.md line 76: Path A labeled "(React/HTML)" — should be "(HTML/JS)"
 - docs/specfile.md line 338: mentions Express/Flask — contradicts stdlib-only constraint
 - These are in the gitignored docs/ directory and do not affect attendees
-
-## Verification Method
-- Research-based content derived from v5 spec reconciliation
-- File structure verified via git status
-- JSON sample data validated with python -m json.tool
-- All relative links manually verified in prior session

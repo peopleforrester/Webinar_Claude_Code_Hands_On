@@ -14,7 +14,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | Ctrl+B | Background a task |
 | Alt+P (Option+P on Mac) | Quick model switch |
 | # | Quick-add note to CLAUDE.md |
-| Ctrl+F | Kill all background agents |
+| Ctrl+F | Kill all background agents (terminates all running agents) |
 
 ---
 
@@ -27,7 +27,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | `/context` | See what's loaded and context usage |
 | `/compact` | Compress conversation, keep critical details |
 | `/clear` | Full conversation reset |
-| `/memory` | View and manage auto-memory (persistent learnings) |
+| `/memory` | View auto-memory (when enabled) |
 
 ### Planning & Reasoning
 

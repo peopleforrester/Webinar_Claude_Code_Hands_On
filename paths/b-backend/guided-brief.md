@@ -29,7 +29,7 @@ Claude will update `CLAUDE.md` with these constraints. Confirm the file looks ri
 
 ## Step 2: Plan First (3 min)
 
-Enter **Plan Mode** by pressing `Shift+Tab` twice (or type `plan` at the prompt). Give Claude the full specification:
+Enter **Plan Mode** (press `Shift+Tab` twice, or type `/plan`). Give Claude the full specification:
 
 > Build a reservation validation API with these endpoints:
 >
@@ -59,7 +59,7 @@ Ask questions or request changes while still in Plan Mode. This is free — no c
 
 ## Step 3: Build (10 min)
 
-Exit Plan Mode (press `Shift+Tab` twice or type `code`). Tell Claude:
+Exit Plan Mode (press `Shift+Tab` twice). Tell Claude:
 
 > Implement the plan. Start with the data model, then routes, then validation, then tests. After writing each file, run the tests and fix any failures before moving on.
 

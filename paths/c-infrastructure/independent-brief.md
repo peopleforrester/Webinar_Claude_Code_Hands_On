@@ -42,7 +42,7 @@ Build a CLI tool that generates monitoring and observability configuration files
 1. **Check context first** — if above 65%, `/compact` or `/clear`
 2. **Start in Plan Mode** — review this brief, have Claude plan the approach
 3. **Externalize** — create a `PLAN.md` with your task breakdown before coding
-4. **You won't finish in 7 minutes** — practice the workflow, take it home to finish
+4. **You have about 7 minutes of session time for this** — you won't finish, and that's fine. Practice the workflow, take it home to finish
 
 ---
 

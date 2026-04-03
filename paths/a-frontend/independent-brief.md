@@ -21,7 +21,7 @@ Build a **Park Wait Times** display board — a single-page dashboard that shows
 1. **Check context first** — if above 65%, run `/compact` or `/clear` before starting
 2. **Start in Plan Mode** — review this brief, have Claude plan the approach before writing code
 3. **Externalize** — create a `PLAN.md` with your task breakdown before coding
-4. **You won't finish in 7 minutes** — and that's fine. The goal is to practice the workflow, not complete the project. Take it home and keep building.
+4. **You have about 7 minutes of session time for this** — you won't finish, and that's fine. The goal is to practice the workflow, not complete the project. Take it home and keep building.
 
 ## Hints (if stuck)
 

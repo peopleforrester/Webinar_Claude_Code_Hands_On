@@ -40,7 +40,7 @@ Build a microservice that stores guest dining preferences and recommends restaur
 1. **Check context first** — if your context window is above 65%, run `/compact` or `/clear` before starting
 2. **Start in Plan Mode** — review this brief with Claude, have it plan the approach before writing code
 3. **Externalize the plan** — create a `PLAN.md` with your task breakdown before coding starts
-4. **You won't finish in 7 minutes** — that's fine. Practice the workflow (plan, build, test, iterate). Take the project home to complete it.
+4. **You have about 7 minutes of session time for this** — you won't finish, and that's fine. Practice the workflow (plan, build, test, iterate). Take the project home to complete it.
 
 ---
 

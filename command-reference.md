@@ -24,9 +24,9 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | `Tab` | Toggle thinking display |
 | `Shift+Enter` | New line in input |
 | `Ctrl+B` | Background a task |
-| `Ctrl+F` | Kill all background agents |
+| `Ctrl+F` | Kill all background agents (terminates all running agents) |
 | `Alt+P` (or `Option+P` on Mac) | Quick model switch |
-| `#` | Quick-add note to CLAUDE.md |
+| `#` | Add a context note (Claude incorporates into CLAUDE.md) |
 
 ---
 
@@ -51,7 +51,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 ### Memory & Output
 | Command | Purpose |
 |---------|---------|
-| `/memory` | View and manage auto-memory (persistent learnings) |
+| `/memory` | View auto-memory (when enabled — may be disabled in enterprise environments) |
 | `/copy` | Copy last response to clipboard |
 
 ### Project Setup
@@ -88,7 +88,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 
 ## Auto-Memory
 
-Claude Code automatically remembers learnings across sessions. It stores these in `~/.claude/projects/<project>/memory/MEMORY.md`.
+When enabled, Claude Code automatically remembers learnings across sessions. It stores these in `~/.claude/projects/<project>/memory/MEMORY.md`.
 
 | Action | How |
 |--------|-----|
@@ -97,6 +97,8 @@ Claude Code automatically remembers learnings across sessions. It stores these i
 | Remove a memory | `/memory`, then ask Claude to remove the entry |
 
 Auto-memory is part of Pillar 3 (Externalize Decisions) — Claude learns your project conventions over time without you repeating them.
+
+**Note:** Auto-memory may be disabled in some enterprise environments. Run `/memory` to check whether it's active in your setup. Even when disabled, CLAUDE.md and Skills provide the same externalization benefits — you control those directly.
 
 ---
 

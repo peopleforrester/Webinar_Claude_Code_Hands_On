@@ -17,6 +17,7 @@ Build a REST API that validates Disney theme park reservation requests. The API 
 | [guided-brief.md](guided-brief.md) | Step-by-step guided build (20 min, instructor-led) |
 | [independent-brief.md](independent-brief.md) | Self-directed challenge: Guest Dining Preferences Microservice |
 | [CLAUDE.md](CLAUDE.md) | Path-specific project conventions — copy into your build directory |
+| [sample-data/sample-reservations.json](sample-data/sample-reservations.json) | 10 example reservation requests (valid and invalid) |
 
 ## Quick Start
 

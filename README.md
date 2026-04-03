@@ -112,7 +112,7 @@ Everything in this workshop is built around three effectiveness pillars:
 |--------|---------------|----------------|
 | **Manage Context** | Compact at 65-70%, not 90%. One feature per session. | LLM performance degrades at 20-40% capacity — "context rot" is real |
 | **Plan Before Code** | Plan Mode (`Shift+Tab` x2 or `/plan`) before implementation | Forces architecture thinking, catches dependency issues early |
-| **Externalize Decisions** | CLAUDE.md, Skills, auto-memory, files — not just conversation | Memory persists across sessions; teams share standards automatically |
+| **Externalize Decisions** | CLAUDE.md, Skills, files — not just conversation | Files persist across sessions; teams share standards automatically |
 
 ---
 

@@ -21,7 +21,7 @@ Build a simulation tool that models guest arrivals at theme park attractions and
 1. **Check context first** — if you're above 65% context usage, run `/compact` or `/clear` before starting
 2. **Start in Plan Mode** — review this brief, have Claude plan the simulation approach before writing code
 3. **Externalize your plan** — create a `PLAN.md` with your task breakdown before coding begins
-4. **You won't finish in 7 minutes** — focus on practicing the workflow (plan, build, iterate). Take it home to finish the full implementation
+4. **You have about 7 minutes of session time for this** — you won't finish, and that's fine. Focus on practicing the workflow (plan, build, iterate). Take it home to finish the full implementation
 
 ## Hints (if stuck)
 

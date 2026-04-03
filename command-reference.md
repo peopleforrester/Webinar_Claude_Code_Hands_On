@@ -24,7 +24,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | `Tab` | Toggle thinking display |
 | `Shift+Enter` | New line in input |
 | `Ctrl+B` | Background a task |
-| `Ctrl+F` | Kill all background agents (terminates all running agents) |
+| `Ctrl+F` | Terminate all background agents |
 | `Alt+P` (or `Option+P` on Mac) | Quick model switch |
 | `#` | Add a context note (Claude incorporates into CLAUDE.md) |
 

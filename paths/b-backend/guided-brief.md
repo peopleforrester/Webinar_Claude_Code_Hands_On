@@ -55,6 +55,8 @@ Review the plan Claude produces. Look for:
 
 Ask questions or request changes while still in Plan Mode. This is free — no code is written until you leave.
 
+> **Note:** See `sample-data/sample-reservations.json` in this directory for example requests (both valid and invalid) that demonstrate the business rules.
+
 ---
 
 ## Step 3: Build (10 min)

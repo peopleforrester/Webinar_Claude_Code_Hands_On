@@ -13,8 +13,8 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | Shift+Enter | New line in input |
 | Ctrl+B | Background a task |
 | Alt+P (Option+P on Mac) | Quick model switch |
-| # | Quick-add note to CLAUDE.md |
-| Ctrl+F | Kill all background agents (terminates all running agents) |
+| # | Add a context note (Claude incorporates into CLAUDE.md) |
+| Ctrl+F | Terminate all background agents |
 
 ---
 

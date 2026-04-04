@@ -1,38 +1,33 @@
-# Disney DXT — Workshop Project
+# Disney DXT Workshop
 
-## Build & Test
-- Language: Depends on your chosen path — see your path's CLAUDE.md
-- Run: See your path's CLAUDE.md for the correct run command
-- Test: See your path's CLAUDE.md for the correct test command
+Workshop project for Disney DXT team demonstrating Claude Code capabilities.
+
+**Stack**: Depends on participant's chosen path (Python or JavaScript, stdlib only)
 
 ## Conventions
+
 - No external dependencies (stdlib only)
-- All output goes to ./output/ directory
+- All output goes to `./output/` directory
+- No network requests, no files outside project directory, no hardcoded absolute paths
+- No package installs (no pip, no npm)
+- No Docker or external runtime required to test
 - Error handling: log warnings, never crash on bad input
-- Include sample/mock data for testing
-- Single-responsibility functions — keep them small and focused
-- Use descriptive names for variables and functions
 
-## Don't
-- Don't make network requests
-- Don't access files outside project directory
-- Don't use hardcoded absolute paths
-- Don't install packages (no pip install, no npm install)
-- Don't require Docker or any external runtime to test
+## Project Structure
 
-## Project Structure Pattern
 ```
 your-project/
-├── CLAUDE.md           ← Copy from your path's CLAUDE.md
+├── CLAUDE.md
 ├── main.py/index.js    ← Entry point
-├── output/             ← Generated output goes here
-├── tests/              ← Test files
+├── output/             ← Generated output
+├── tests/
 └── .claude/
-    ├── settings.json   ← Security settings
-    └── skills/         ← Your custom skills
+    ├── settings.json
+    └── skills/
 ```
 
-## CLAUDE.md Hierarchy
+## CLAUDE.md Hierarchy (Teaching Reference)
+
 | Level | Location | Scope |
 |-------|----------|-------|
 | User | `~/.claude/CLAUDE.md` | All your projects |

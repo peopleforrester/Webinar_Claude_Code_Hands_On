@@ -52,7 +52,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | Command | Purpose |
 |---------|---------|
 | `/memory` | View auto-memory (when enabled — may be disabled in enterprise environments) |
-| `/copy` | Copy last response to clipboard |
+| `/copy` | Copy code blocks from last response to clipboard |
 
 ### Project Setup
 | Command | Purpose |

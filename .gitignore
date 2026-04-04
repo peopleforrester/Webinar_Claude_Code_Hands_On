@@ -29,6 +29,13 @@ build/
 node_modules/
 npm-debug.log*
 
+# Attendee-generated output (keep .gitkeep, ignore everything else)
+output/*
+!output/.gitkeep
+
+# Personal CLAUDE.md overrides
+CLAUDE.local.md
+
 # Environment
 .env
 .env.*

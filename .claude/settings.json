@@ -5,7 +5,11 @@
       "Read(~/.aws/**)",
       "Read(~/.env)",
       "Bash(curl *)",
-      "Bash(wget *)"
+      "Bash(wget *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(npm *)",
+      "Bash(git clone *)"
     ]
   }
 }

@@ -51,7 +51,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 |---------|-------------|
 | `/debug` | Troubleshoot session issues |
 | `/insights` | Usage analytics |
-| `/copy` | Copy code blocks from last response |
+| `/copy` | Copy code blocks from last response to clipboard |
 | `/simplify` | Simplify selected code |
 | `/batch` | Batch operations on multiple files |
 

@@ -1,0 +1,14 @@
+# Personal Overrides (not committed to git)
+#
+# Copy this file to CLAUDE.local.md and customize for your local setup.
+# CLAUDE.local.md is gitignored — it won't affect other team members.
+#
+# Examples of what goes here:
+# - Your preferred language (Python vs JavaScript)
+# - Editor-specific conventions
+# - Local file paths or environment quirks
+
+## My Preferences
+
+- I prefer Python for all exercises
+- When generating output, include timestamps in filenames

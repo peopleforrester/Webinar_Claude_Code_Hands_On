@@ -20,6 +20,8 @@ This is a **file generator**, not a deployment tool. It does not require Docker 
 | [independent-brief.md](independent-brief.md) | Self-directed challenge: Service Health Dashboard Config Generator |
 | [CLAUDE.md](CLAUDE.md) | Path-specific project conventions — copy into your build directory |
 
+> **Note:** This path has no sample data directory — input comes from CLI arguments (`--app`, `--lang`, `--port`, `--db`), not from a data file.
+
 ## Quick Start
 
 1. Read the [guided-brief.md](guided-brief.md) and follow along with the instructor

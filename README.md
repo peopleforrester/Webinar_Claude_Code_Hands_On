@@ -2,7 +2,7 @@
 
 **Disney DXT AI Day — Workshop Companion Repo**
 
-A hands-on workshop focused entirely on Claude Code CLI in a restricted enterprise environment. Attendees learn the three pillars of effectiveness (context management, planning discipline, externalizing decisions), then apply them immediately through a choose-your-own-adventure build exercise.
+A hands-on workshop focused entirely on Claude Code CLI in a restricted enterprise environment. Attendees learn the four pillars of effectiveness (context management, planning discipline, externalizing decisions, and output verification), then apply them immediately through a choose-your-own-adventure build exercise.
 
 ---
 
@@ -90,7 +90,7 @@ Disney_Claude_Code_Course/
 │           └── operations-logs.json
 ├── reference/                    ← Quick reference handouts
 │   ├── command-card.md           ← Compact command & shortcut card
-│   ├── three-pillars.md          ← The three pillars of effectiveness
+│   ├── four-pillars.md           ← The four pillars of effectiveness
 │   └── effort-guide.md           ← /effort level selection guide
 ├── slides/                       ← Instructor slide deck (added before workshop)
 │   └── README.md
@@ -104,15 +104,16 @@ Disney_Claude_Code_Course/
 
 ---
 
-## The Three Pillars
+## The Four Pillars
 
-Everything in this workshop is built around three effectiveness pillars:
+Everything in this workshop is built around four effectiveness pillars:
 
 | Pillar | What It Means | Why It Matters |
 |--------|---------------|----------------|
 | **Manage Context** | Compact at 65-70%, not 90%. One feature per session. | LLM performance degrades as context fills — "context rot" is real |
 | **Plan Before Code** | Plan Mode (`Shift+Tab` to cycle modes, or `/plan`) before implementation | Forces architecture thinking, catches dependency issues early |
 | **Externalize Decisions** | CLAUDE.md, Skills, files — not just conversation | Files persist across sessions; teams share standards automatically |
+| **Verify Output** | Tests, linting, type-checking — give Claude feedback loops | Advisory instructions work ~80% of the time; deterministic verification works 100% |
 
 ---
 

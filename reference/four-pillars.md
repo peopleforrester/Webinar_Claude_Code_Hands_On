@@ -1,6 +1,6 @@
-# The Three Pillars of Effectiveness
+# The Four Pillars of Effectiveness
 
-A concise reference for the workshop's three pillars framework.
+A concise reference for the workshop's four pillars framework.
 
 ---
 
@@ -64,4 +64,39 @@ When enabled, Claude Code automatically writes notes to itself as it works — b
 
 ---
 
-*These three pillars are not sequential steps — they are habits. Practice them together and they compound.*
+## Pillar 4: Verify Output
+
+**Give Claude feedback loops so it catches its own mistakes.**
+
+Advisory instructions (CLAUDE.md rules, prompt guidance) work about 80% of the time. Deterministic verification (tests, linting, type-checking, hooks) works 100%. The single highest-leverage thing you can do is give Claude a way to verify its work.
+
+### Verification Methods
+
+| Method | What It Does | When to Use |
+|--------|-------------|-------------|
+| **Tests** | Run after every implementation step | Always — write tests first, then implement |
+| **Type checking** | Catch type errors before runtime | Any typed language (Python with mypy, TypeScript) |
+| **Linting** | Enforce style and catch common bugs | Every commit — configure as a pre-commit hook |
+| **Build commands** | Verify the project compiles/runs | After any structural change |
+| **Manual review** | Read the diff before accepting | Complex logic, security-sensitive code |
+
+### Workshop Workflow
+
+The build exercises in this workshop follow this pattern:
+
+1. **Plan** — Plan Mode, review the approach
+2. **Implement** — Claude writes the code
+3. **Verify** — Run the tests, check the output, fix failures
+4. **Iterate** — Repeat from step 2 with enhancements
+
+Tell Claude your test command in CLAUDE.md (e.g., `python -m pytest tests/`) and it will run tests automatically after implementation steps.
+
+### Why This Matters
+
+Without verification, Claude has no signal about whether its output is correct. It is working from language patterns, not executing logic. Tests and type-checks provide the ground truth that closes the loop.
+
+**The key insight:** Don't just tell Claude what to do — give it a way to confirm it did it right.
+
+---
+
+*These four pillars are not sequential steps — they are habits. Practice them together and they compound.*

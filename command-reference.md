@@ -1,6 +1,6 @@
 # Claude Code — Command Reference Card
 
-A printable cheat sheet for the Disney DXT AI Day workshop.
+A printable cheat sheet for the Claude Code hands-on workshop.
 
 ---
 

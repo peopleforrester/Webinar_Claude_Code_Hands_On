@@ -1,4 +1,4 @@
-# PROJECT STATE — Disney DXT Workshop Companion Repo
+# PROJECT STATE — Claude Code Workshop Companion Repo
 
 ## Current Status: v5.3 Fact-Check Reconciliation Complete
 
@@ -73,7 +73,7 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
 
 ### Remaining Before April 8
 - [ ] Dry-run exercises in Bedrock-like environment
-- [ ] Grant attendees access to GitHub repo (coordinate with Derek)
+- [ ] Grant attendees access to GitHub repo
 - [ ] Add presentation deck to slides/ directory (separate Remotion project)
 
 ## Decisions Made

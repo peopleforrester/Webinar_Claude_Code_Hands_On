@@ -46,7 +46,7 @@
     "park": "Disneyland",
     "date": "2026-04-30",
     "partySize": 6,
-    "_note": "INVALID — park not in valid list (Disneyland is not WDW)"
+    "_note": "INVALID — park not in valid list"
   },
   {
     "guestEmail": "henry.kim@example.com",

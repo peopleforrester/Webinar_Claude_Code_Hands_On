@@ -1,6 +1,6 @@
 # Build with Claude Code: No Pitches, Just Practice
 
-**Disney DXT AI Day — Workshop Companion Repo**
+**Claude Code Hands-On Workshop — Companion Repo**
 
 A hands-on workshop focused entirely on Claude Code CLI in a restricted enterprise environment. Attendees learn the four pillars of effectiveness (context management, planning discipline, externalizing decisions, and output verification), then apply them immediately through a choose-your-own-adventure build exercise.
 

@@ -1,6 +1,6 @@
 # Claude Code Quick Reference Card
 
-Printable command and shortcut reference for the Disney DXT AI Day workshop.
+Printable command and shortcut reference for the Claude Code hands-on workshop.
 
 ---
 

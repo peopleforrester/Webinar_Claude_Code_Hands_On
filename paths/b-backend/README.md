@@ -2,7 +2,7 @@
 
 ## Overview
 
-Build a REST API that validates Disney theme park reservation requests. The API enforces business rules (date ranges, party size limits, park validation) and returns clear error messages. You will build this entirely with stdlib — no frameworks, no databases, no package installs.
+Build a REST API that validates theme park reservation requests. The API enforces business rules (date ranges, party size limits, park validation) and returns clear error messages. You will build this entirely with stdlib — no frameworks, no databases, no package installs.
 
 **Best for:** Backend developers, API engineers, anyone who wants to see Claude Code drive a server-side build from plan to working tests.
 

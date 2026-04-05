@@ -1,6 +1,6 @@
-# Disney DXT Workshop
+# Claude Code Hands-On Workshop
 
-Workshop project for Disney DXT team demonstrating Claude Code capabilities.
+Workshop project demonstrating Claude Code capabilities in a restricted enterprise environment.
 
 **Stack**: Depends on participant's chosen path (Python or JavaScript, stdlib only)
 

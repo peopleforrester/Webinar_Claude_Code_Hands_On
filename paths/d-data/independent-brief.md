@@ -28,4 +28,4 @@ Build a simulation tool that models guest arrivals at theme park attractions and
 1. **Use Plan Mode for the simulation model** — get the math right before writing any code. Ask Claude to explain the queuing theory behind wait times.
 2. **Use `random.gauss()` for realistic arrival distributions.** A Poisson process is more accurate, but Gaussian is simpler and good enough for a workshop.
 3. **Model each attraction with a `capacity_per_hour` attribute.** Utilization = actual arrivals / capacity. When utilization exceeds 1.0, a queue forms.
-4. **Use `/effort max` for the bottleneck detection and staffing algorithm.** These are the hardest parts — give Claude room to think through the optimization.
+4. **Use `/effort high` for the bottleneck detection and staffing algorithm.** These are the hardest parts — give Claude room to think through the optimization.

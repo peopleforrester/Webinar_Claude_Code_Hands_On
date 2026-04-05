@@ -20,7 +20,7 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 
 | Shortcut | Action |
 |----------|--------|
-| `Shift+Tab` x2 | Toggle Plan Mode |
+| `Shift+Tab` | Cycle modes: Default → Accept Edits → Plan (→ Auto, if enabled) |
 | `Tab` | Toggle thinking display |
 | `Shift+Enter` | New line in input |
 | `Ctrl+B` | Background a task |
@@ -45,8 +45,8 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | `/plan` | Enter Plan Mode (read everything, modify nothing) |
 | `/effort low` | Simple edits, formatting, typos |
 | `/effort medium` | Standard development tasks |
-| `/effort high` | Complex logic, multi-file changes |
-| `/effort max` | Architecture decisions, hard debugging |
+| `/effort high` | Complex logic, architecture decisions, hard debugging |
+| `/effort auto` | Reset to default reasoning depth |
 
 ### Memory & Output
 | Command | Purpose |
@@ -142,10 +142,10 @@ Skills hot-reload — edit the file and changes apply immediately, no restart ne
 ## Plan Mode Workflow
 
 ```
-1. Enter Plan Mode (Shift+Tab x2 or /plan)
+1. Enter Plan Mode (Shift+Tab to cycle modes, or /plan)
 2. Ask Claude to analyze the project and plan the approach
 3. Review the plan — ask questions, request changes
-4. Exit Plan Mode (Shift+Tab x2)
+4. Exit Plan Mode (Shift+Tab to cycle back, or /plan again)
 5. Tell Claude to implement the approved plan
 ```
 
@@ -161,10 +161,10 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 |---------|-------------|
 | `/effort low` | Simple edits, formatting, typos |
 | `/effort medium` | Standard development tasks |
-| `/effort high` | Complex logic, multi-file changes |
-| `/effort max` | Architecture decisions, debugging hard problems |
+| `/effort high` | Complex logic, architecture decisions, hard debugging |
+| `/effort auto` | Reset to default reasoning depth |
 
-Thinking is on by default with max budget. Use `/effort` to control reasoning depth.
+Thinking is on by default. Use `/effort` to control reasoning depth.
 
 **Pro tip:** Sonnet 4.6 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
 

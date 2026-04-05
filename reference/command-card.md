@@ -8,7 +8,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 
 | Shortcut | Action |
 |----------|--------|
-| Shift+Tab x2 | Toggle Plan Mode |
+| Shift+Tab | Cycle modes: Default → Accept Edits → Plan |
 | Tab | Toggle thinking display |
 | Shift+Enter | New line in input |
 | Ctrl+B | Background a task |
@@ -36,8 +36,8 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | `/plan` | Enter Plan Mode |
 | `/effort low` | Simple edits, formatting, typos |
 | `/effort medium` | Standard development tasks |
-| `/effort high` | Complex logic, multi-file changes |
-| `/effort max` | Architecture decisions, hard debugging |
+| `/effort high` | Complex logic, architecture decisions, hard debugging |
+| `/effort auto` | Reset to default reasoning depth |
 
 ### Project Setup
 

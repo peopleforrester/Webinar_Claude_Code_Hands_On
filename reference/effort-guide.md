@@ -16,8 +16,8 @@ Claude Code includes extended thinking in every response. The old keywords (`thi
 |---------|-------------|---------|
 | `/effort low` | Simple edits, formatting, typos | Fix a typo, reformat a list, rename a variable |
 | `/effort medium` | Standard development tasks | Add a function, update a config, write a test |
-| `/effort high` | Complex logic, multi-file changes | Refactor a module, debug a tricky issue, add a feature touching multiple files |
-| `/effort max` | Architecture decisions, hard debugging | Design a system, debug a race condition, plan a migration |
+| `/effort high` | Complex logic, architecture decisions, hard debugging | Refactor a module, debug a race condition, design a system, plan a migration |
+| `/effort auto` | Reset to default reasoning depth | Return to default after manually setting a level |
 
 ---
 
@@ -25,8 +25,8 @@ Claude Code includes extended thinking in every response. The old keywords (`thi
 
 - **Start with medium** — it covers most development work.
 - **Drop to low** when the task is mechanical and you want faster responses.
-- **Raise to high** when you notice Claude missing details or making mistakes.
-- **Use max sparingly** — it produces the deepest reasoning but takes the longest and uses the most tokens.
+- **Raise to high** when you notice Claude missing details or making mistakes, or for architecture and hard debugging.
+- **Use `/effort auto`** to reset to default behavior after manually setting a level.
 
 ---
 

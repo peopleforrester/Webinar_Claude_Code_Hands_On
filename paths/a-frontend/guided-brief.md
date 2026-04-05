@@ -25,7 +25,7 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 
 ## Step 2: Plan First (3 min)
 
-Enter **Plan Mode** (press `Shift+Tab` twice), then give Claude this prompt:
+Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
 > I'm building a guest feedback dashboard. Here are the requirements:
 >

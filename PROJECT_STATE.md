@@ -1,8 +1,8 @@
 # PROJECT STATE — Disney DXT Workshop Companion Repo
 
-## Current Status: v5.1 Environment Update Complete
+## Current Status: v5.2 Release Notes Reconciliation Complete
 
-**Last updated:** 2026-04-03
+**Last updated:** 2026-04-05
 **Branch:** staging
 **Workshop date:** Wednesday, April 8, 2026 (12:00-1:00 PM ET)
 **Next step:** Dry-run exercises in Bedrock-like config, then grant attendees repo access
@@ -44,10 +44,25 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
 - [x] `#` shortcut description clarified in command-reference.md
 - [x] Independent briefs (all 4 paths) — timing context added ("about 7 minutes")
 
+### Phase 6: v5.2 Release Notes Reconciliation
+- [x] `/effort max` removed — levels are now low/medium/high/auto (max was removed from CLI)
+- [x] Shift+Tab updated from "toggle Plan Mode" to "cycle modes" (Default → Accept Edits → Plan → Auto)
+- [x] Auto Mode noted as unavailable on Bedrock in command-reference.md
+- [x] All guided briefs updated: "press Shift+Tab twice" → "use Shift+Tab to cycle to Plan Mode"
+- [x] Exit Plan Mode instructions updated to "cycle back to Default"
+- [x] Path D independent-brief: `/effort max` → `/effort high`
+- [x] effort-guide.md rewritten for 3 levels + auto
+- [x] Path B curl example dates updated (2026-03-15 → 2026-04-20)
+- [x] `/copy` description standardized across command-reference.md and command-card.md
+- [x] settings.json deny list expanded (pip, npm, git clone)
+- [x] output/.gitkeep added to all 4 paths, .gitignore updated
+- [x] Path C README: note about CLI args vs sample data
+- [x] CLAUDE.local.md.example added as teaching reference
+
 ### Remaining Before April 8
 - [ ] Dry-run exercises in Bedrock-like environment
 - [ ] Grant attendees access to GitHub repo (coordinate with Derek)
-- [ ] Add presentation deck to slides/ directory
+- [ ] Add presentation deck to slides/ directory (separate Remotion project)
 
 ## Decisions Made
 - .gitignore allows .claude/settings.json through (negation pattern)

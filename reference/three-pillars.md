@@ -25,19 +25,19 @@ A concise reference for the workshop's three pillars framework.
 
 ## Pillar 2: Plan Before Code
 
-Use Plan Mode (Shift+Tab x2 or `/plan`) before implementation.
+Use Plan Mode (`Shift+Tab` to cycle modes, or `/plan`) before implementation.
 
 **In Plan Mode:** Claude reads everything but modifies nothing. It can explore the codebase, analyze files, and reason about architecture — without touching a single line of code.
 
 ### Workflow
 
-1. **Enter Plan Mode** — Shift+Tab x2 or `/plan`
+1. **Enter Plan Mode** — `Shift+Tab` to cycle modes, or `/plan`
 2. **Describe what you want** — be specific about the outcome
 3. **Review the plan** — Claude proposes an approach; you refine it
-4. **Exit Plan Mode** — Shift+Tab x2 again
+4. **Exit Plan Mode** — `Shift+Tab` to cycle back, or `/plan` again
 5. **Implement** — Claude executes the agreed plan
 
-Use `/effort` to control reasoning depth. Low effort for simple tasks, max effort for architecture decisions.
+Use `/effort` to control reasoning depth. Low effort for simple tasks, high effort for architecture decisions.
 
 ---
 

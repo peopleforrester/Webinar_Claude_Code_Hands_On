@@ -25,7 +25,7 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 
 ## Step 2: Plan First (3 min)
 
-Enter **Plan Mode** (press `Shift+Tab` twice), then give Claude this prompt:
+Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
 > I'm building a log analyzer for park operations.
 >
@@ -51,7 +51,7 @@ Review the plan. Ask questions. Adjust before writing a single line of code.
 
 ## Step 3: Build (10 min)
 
-Exit Plan Mode (press `Shift+Tab` twice). Build in this order:
+Exit Plan Mode (use `Shift+Tab` to cycle back to Default). Build in this order:
 
 1. **Sample data generator** — so you have something to analyze immediately
 2. **Log parser** with error handling — malformed entries get warned and skipped

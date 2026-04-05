@@ -28,7 +28,7 @@ This gives Claude the constraints it needs to stay on track.
 
 ## Step 2: Plan First (3 min)
 
-Enter **Plan Mode** (press `Shift+Tab` twice), then give Claude this prompt:
+Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
 > Build a config generator CLI that:
 >
@@ -46,7 +46,7 @@ Review Claude's plan. Does it cover input validation? Does it separate each gene
 
 ## Step 3: Build (10 min)
 
-Exit Plan Mode (press `Shift+Tab` twice). Tell Claude to implement the plan.
+Exit Plan Mode (use `Shift+Tab` to cycle back to Default). Tell Claude to implement the plan.
 
 Key points to watch for during the build:
 

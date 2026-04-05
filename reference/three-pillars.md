@@ -6,11 +6,11 @@ A concise reference for the workshop's three pillars framework.
 
 ## Pillar 1: Manage Context
 
-**Problem:** LLM performance degrades when the context window reaches 20-40% capacity — a phenomenon called "context rot." By the time you hit 80%, the model is already losing track of earlier instructions and decisions.
+**Problem:** LLM performance degrades as the context window fills — a phenomenon called "context rot." Well before the window is full, the model starts losing track of earlier instructions and decisions.
 
 **Rule:** Compact at 65-70%, not 90%. One feature per session.
 
-**Commands:** `/context`, `/compact`, `/clear`, `/effort low`
+**Commands:** `/context`, `/compact`, `/clear`, `/btw`, `/effort low`
 
 ### Context Level Guide
 
@@ -37,7 +37,7 @@ Use Plan Mode (`Shift+Tab` to cycle modes, or `/plan`) before implementation.
 4. **Exit Plan Mode** — `Shift+Tab` to cycle back, or `/plan` again
 5. **Implement** — Claude executes the agreed plan
 
-Use `/effort` to control reasoning depth. Low effort for simple tasks, high effort for architecture decisions.
+Use `/effort` to control reasoning depth. Default is medium — set `/effort high` for complex work. Use `ultrathink` in your prompt for max effort on a single turn.
 
 ---
 
@@ -49,11 +49,12 @@ Conversations are ephemeral. Files are permanent. Every decision that stays only
 
 | What | Where | Why |
 |------|-------|-----|
-| Project standards | `CLAUDE.md` | Loaded every session automatically |
-| Reusable workflows | `.claude/skills/*/SKILL.md` | Auto-invoked when relevant |
+| Project standards | `CLAUDE.md` (under 200 lines) | Loaded every session automatically |
+| Reusable workflows | `.claude/skills/*/SKILL.md` | Loaded on-demand when invoked |
 | Current task state | `PLAN.md` | Survives `/clear` and context resets |
 | Decisions made | `DECISIONS.md` or commit messages | Permanent record |
 | Claude's learnings | `~/.claude/projects/<project>/memory/` | Auto-saved, loaded next session (when enabled) |
+| Org-wide policy | `/etc/claude-code/CLAUDE.md` | Managed, cannot be overridden |
 
 ### A Note on Auto-Memory
 

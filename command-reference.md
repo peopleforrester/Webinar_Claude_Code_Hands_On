@@ -21,11 +21,11 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | Shortcut | Action |
 |----------|--------|
 | `Shift+Tab` | Cycle modes: Default → Accept Edits → Plan (→ Auto, if enabled) |
-| `Tab` | Toggle thinking display |
+| `Alt+T` (`Option+T` on Mac) | Toggle extended thinking display |
 | `Shift+Enter` | New line in input |
 | `Ctrl+B` | Background a task |
-| `Ctrl+F` | Terminate all background agents |
-| `Alt+P` (or `Option+P` on Mac) | Quick model switch |
+| `Ctrl+X` then `Ctrl+K` | Terminate all background agents (press twice within 3 seconds) |
+| `Alt+P` (`Option+P` on Mac) | Quick model switch |
 | `#` | Add a context note (Claude incorporates into CLAUDE.md) |
 
 ---
@@ -36,8 +36,9 @@ A printable cheat sheet for the Disney DXT AI Day workshop.
 | Command | Purpose |
 |---------|---------|
 | `/context` | See what's loaded and context usage |
-| `/compact` | Compress conversation, keep critical details |
+| `/compact` | Compress conversation, keep critical details (supports focus hints: `/compact retain the error handling patterns`) |
 | `/clear` | Full conversation reset |
+| `/btw` | Ask a side question without adding to conversation history or context |
 
 ### Planning & Reasoning
 | Command | Purpose |
@@ -106,9 +107,12 @@ Auto-memory is part of Pillar 3 (Externalize Decisions) — Claude learns your p
 
 | Level | Location | Scope |
 |-------|----------|-------|
+| Managed policy | `/etc/claude-code/CLAUDE.md` (Linux) | Organization-wide, cannot be overridden |
 | User | `~/.claude/CLAUDE.md` | All your projects |
 | Project | `./CLAUDE.md` | Team-shared (commit this) |
 | Local | `./CLAUDE.local.md` | Personal (gitignored) |
+
+Subdirectory CLAUDE.md files load on-demand when Claude reads files in those directories. Keep each file **under 200 lines** — longer files consume more context and may reduce adherence.
 
 ---
 
@@ -164,7 +168,7 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 | `/effort high` | Complex logic, architecture decisions, hard debugging |
 | `/effort auto` | Reset to default reasoning depth |
 
-Thinking is on by default. Use `/effort` to control reasoning depth.
+Thinking is on by default at **medium** effort. Set `/effort high` at the start of a session for more thorough reasoning. The keyword `ultrathink` in your prompt triggers max effort for a single turn.
 
 **Pro tip:** Sonnet 4.6 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
 

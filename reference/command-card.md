@@ -9,12 +9,12 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | Shortcut | Action |
 |----------|--------|
 | Shift+Tab | Cycle modes: Default → Accept Edits → Plan |
-| Tab | Toggle thinking display |
+| Alt+T (Option+T on Mac) | Toggle extended thinking display |
 | Shift+Enter | New line in input |
 | Ctrl+B | Background a task |
+| Ctrl+X then Ctrl+K | Terminate all background agents |
 | Alt+P (Option+P on Mac) | Quick model switch |
 | # | Add a context note (Claude incorporates into CLAUDE.md) |
-| Ctrl+F | Terminate all background agents |
 
 ---
 
@@ -27,6 +27,7 @@ Printable command and shortcut reference for the Disney DXT AI Day workshop.
 | `/context` | See what's loaded and context usage |
 | `/compact` | Compress conversation, keep critical details |
 | `/clear` | Full conversation reset |
+| `/btw` | Side question — doesn't enter context |
 | `/memory` | View auto-memory (when enabled) |
 
 ### Planning & Reasoning

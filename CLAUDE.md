@@ -30,8 +30,9 @@ your-project/
 
 | Level | Location | Scope |
 |-------|----------|-------|
+| Managed policy | `/etc/claude-code/CLAUDE.md` (Linux) | Organization-wide, cannot be overridden |
 | User | `~/.claude/CLAUDE.md` | All your projects |
 | Project | `./CLAUDE.md` | Team-shared (commit this) |
 | Local | `./CLAUDE.local.md` | Personal (gitignored) |
 
-Keep CLAUDE.md under 4000 words. Every instruction competes for attention.
+Keep each CLAUDE.md under 200 lines. Every instruction competes for attention.

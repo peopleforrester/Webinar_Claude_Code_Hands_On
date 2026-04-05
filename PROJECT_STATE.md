@@ -1,6 +1,6 @@
 # PROJECT STATE — Disney DXT Workshop Companion Repo
 
-## Current Status: v5.2 Release Notes Reconciliation Complete
+## Current Status: v5.3 Fact-Check Reconciliation Complete
 
 **Last updated:** 2026-04-05
 **Branch:** staging
@@ -58,6 +58,18 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
 - [x] output/.gitkeep added to all 4 paths, .gitignore updated
 - [x] Path C README: note about CLI args vs sample data
 - [x] CLAUDE.local.md.example added as teaching reference
+
+### Phase 7: v5.3 Fact-Check Reconciliation
+- [x] Tab shortcut corrected: was "toggle thinking" → now Alt+T / Option+T (Tab is autocomplete)
+- [x] Ctrl+F corrected: was "kill agents" → now Ctrl+X then Ctrl+K
+- [x] Default effort documented as medium (not max) — added /effort high recommendation
+- [x] Ultrathink re-introduced: removed "deprecated" claim, added as per-turn override
+- [x] CLAUDE.md hierarchy expanded to 4 levels (added Managed policy for enterprise)
+- [x] "Under 4000 words" → "under 200 lines" (official guidance) across all files
+- [x] Context rot "20-40%" removed — real phenomenon but unverified threshold
+- [x] /btw added to command-reference.md and command-card.md
+- [x] /compact focus hints documented
+- [x] Skills described as "loaded on-demand" not "auto-invoked"
 
 ### Remaining Before April 8
 - [ ] Dry-run exercises in Bedrock-like environment

@@ -66,6 +66,11 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 | `/simplify` | Review changed code for reuse, quality, and efficiency |
 | `/batch` | Run a prompt across multiple files |
 
+### Learning
+| Command | Purpose |
+|---------|---------|
+| `/powerup` | Interactive lessons on Claude Code features |
+
 ### Diagnostics
 | Command | Purpose |
 |---------|---------|

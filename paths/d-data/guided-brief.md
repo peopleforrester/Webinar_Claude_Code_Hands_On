@@ -2,11 +2,11 @@
 
 Build a Python tool (stdlib only) that parses structured log data from theme park operations, identifies patterns (peak hours, common errors, slow operations), and generates a clean Markdown report. No external libraries required — everything runs on Python's standard library.
 
-**Time estimate:** 20 minutes
+**Time estimate:** 28 minutes
 
 ---
 
-## Step 1: Set Up (2 min)
+## Step 1: Set Up + Externalize (3 min)
 
 Create your project directory and initialize Claude Code:
 
@@ -20,10 +20,13 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 - This is a Python log analysis tool. No external dependencies (stdlib only).
 - Input: JSON log files. Output: Markdown report.
 - Handle malformed entries gracefully — log warnings, don't crash.
+- Run python -m pytest after every change. Never skip.
+
+> **Pillar 3 in action:** You just externalized your project conventions. Claude loads this every session.
 
 ---
 
-## Step 2: Plan First (3 min)
+## Step 2: Plan First (4 min)
 
 Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
@@ -47,9 +50,11 @@ You can use `sample-data/operations-logs.json` in this directory as seed data or
 
 Review the plan. Ask questions. Adjust before writing a single line of code.
 
+> **Pillar 2 in action:** You planned before coding. The plan identifies the analysis pipeline and data model before a single line is written.
+
 ---
 
-## Step 3: Build (10 min)
+## Step 3: Build + Verify (12 min)
 
 Exit Plan Mode (use `Shift+Tab` to cycle back to Default). Build in this order:
 
@@ -66,9 +71,11 @@ Run tests after each component:
 python -m pytest tests/ -v
 ```
 
+> **Pillar 4 in action:** Tests verify each analysis function's output. When a test fails, Claude self-corrects before moving on.
+
 ---
 
-## Step 4: Iterate (3 min)
+## Step 4: Iterate + Verify (5 min)
 
 Ask Claude to add these enhancements:
 
@@ -102,7 +109,9 @@ Ask Claude to create `.claude/skills/data-report/SKILL.md` with these convention
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, run `/compact` before moving on to the independent build.
+
+> **Pillar 1 in action:** The context window is finite. Monitor it. One feature per session. Quality degrades as it fills.
 
 ---
 

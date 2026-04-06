@@ -2,11 +2,11 @@
 
 Build a single-page Guest Feedback Dashboard using plain HTML, CSS, and JavaScript. No frameworks, no build tools, no server — open `index.html` in a browser and it works.
 
-**Time estimate:** 20 minutes
+**Time estimate:** 28 minutes
 
 ---
 
-## Step 1: Set Up (2 min)
+## Step 1: Set Up + Externalize (3 min)
 
 Create your project directory and initialize Claude Code:
 
@@ -20,10 +20,13 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 - This is a standalone HTML/CSS/JS dashboard. No build tools, no npm.
 - Must work by opening `index.html` directly in a browser.
 - Use modern vanilla JS (ES6+). No external CDN dependencies.
+- After every change, list the files created/modified.
+
+> **Pillar 3 in action:** You just externalized your project conventions. Claude loads this every session.
 
 ---
 
-## Step 2: Plan First (3 min)
+## Step 2: Plan First (4 min)
 
 Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
@@ -38,9 +41,11 @@ Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude th
 
 Review the plan Claude produces. Approve it or ask for changes before moving on.
 
+> **Pillar 2 in action:** You planned before coding. Compare this to just saying "build me a dashboard."
+
 ---
 
-## Step 3: Build (10 min)
+## Step 3: Build + Verify (12 min)
 
 Exit Plan Mode. Tell Claude to implement the plan:
 
@@ -50,11 +55,13 @@ Exit Plan Mode. Tell Claude to implement the plan:
 
 > **Note:** You can copy the sample data from `sample-data/guest-feedback.json` in this directory as a starting point for your embedded data.
 
-Open `index.html` in your browser to verify it works after Claude finishes.
+Open `index.html` in your browser to verify it works after each file Claude creates.
+
+> **Pillar 4 in action:** You're verifying after each step. Claude sees whether it works and self-corrects.
 
 ---
 
-## Step 4: Iterate (3 min)
+## Step 4: Iterate + Verify (5 min)
 
 Ask Claude to polish the dashboard with these enhancements:
 
@@ -78,7 +85,9 @@ This skill can be reused in future projects to enforce the same standards.
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, run `/compact` before moving on to the independent build.
+
+> **Pillar 1 in action:** The context window is finite. Monitor it. One feature per session. Quality degrades as it fills.
 
 ---
 

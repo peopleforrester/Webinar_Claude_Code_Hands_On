@@ -2,11 +2,11 @@
 
 Build a REST API that validates theme park reservation requests. The API enforces business rules (date ranges, party size limits, park validation) and returns clear error messages. You will build this entirely with stdlib — no frameworks, no databases, no package installs.
 
-**Time estimate:** 20 minutes
+**Time estimate:** 28 minutes
 
 ---
 
-## Step 1: Set Up (2 min)
+## Step 1: Set Up + Externalize (3 min)
 
 Create a fresh project directory and initialize Claude Code context:
 
@@ -21,13 +21,15 @@ When Claude generates `CLAUDE.md`, press **#** (the context mention key) to add 
 - No external database — use in-memory data structures
 - No external packages — stdlib only
 - All endpoints must have input validation and proper error responses
-- Include tests for every endpoint
+- Run tests after every change. Never skip.
 
 Claude will update `CLAUDE.md` with these constraints. Confirm the file looks right before moving on.
 
+> **Pillar 3 in action:** You just externalized your project conventions. Claude loads this every session.
+
 ---
 
-## Step 2: Plan First (3 min)
+## Step 2: Plan First (4 min)
 
 Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode, or type `/plan`). Give Claude the full specification:
 
@@ -57,9 +59,11 @@ Ask questions or request changes while still in Plan Mode. This is free — no c
 
 > **Note:** See `sample-data/sample-reservations.json` in this directory for example requests (both valid and invalid) that demonstrate the business rules.
 
+> **Pillar 2 in action:** You planned before coding. The plan identifies dependencies and order of operations before a single line is written.
+
 ---
 
-## Step 3: Build (10 min)
+## Step 3: Build + Verify (12 min)
 
 Exit Plan Mode (use `Shift+Tab` to cycle back to Default). Tell Claude:
 
@@ -70,6 +74,8 @@ Watch Claude work through the build. Key things to observe:
 - Tests run after each file and failures are fixed inline
 - Validation logic enforces every business rule
 - Error responses follow the format from the plan
+
+> **Pillar 4 in action:** Claude runs tests after each change because of the rule you externalized. When a test fails, Claude self-corrects.
 
 Test the API yourself once Claude finishes:
 
@@ -93,7 +99,7 @@ curl -X POST http://localhost:3000/reservations \
 
 ---
 
-## Step 4: Iterate (3 min)
+## Step 4: Iterate + Verify (5 min)
 
 Add three enhancements. Give Claude this prompt:
 
@@ -118,7 +124,9 @@ This skill becomes reusable context for future API work. Review what Claude gene
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, run `/compact` before moving on to the independent build.
+
+> **Pillar 1 in action:** The context window is finite. Monitor it. One feature per session. Quality degrades as it fills.
 
 ---
 

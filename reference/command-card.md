@@ -55,6 +55,17 @@ Printable command and shortcut reference for the Claude Code hands-on workshop.
 | `/copy` | Copy code blocks from last response to clipboard |
 | `/simplify` | Simplify selected code |
 | `/batch` | Batch operations on multiple files |
+| `/powerup` | Interactive lessons on Claude Code features |
+
+---
+
+## Tips & Tricks
+
+| What | How |
+|------|-----|
+| Max reasoning for one turn | Type `ultrathink` in your prompt |
+| Toggle Plan Mode quickly | `Shift+Tab` twice |
+| Quick model switch | `Alt+P` (`Option+P` on Mac) |
 
 ---
 

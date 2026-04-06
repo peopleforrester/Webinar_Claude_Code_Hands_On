@@ -36,7 +36,10 @@ cd Disney_Claude_Code_Course
 ### 2. Read the root CLAUDE.md
 The `CLAUDE.md` at repo root contains workshop-wide conventions. Skim it before starting.
 
-### 3. Choose your adventure path
+### 3. Do the warmup exercises
+Open `warmup-exercises.md` and follow along with the instructor through four rapid exercises (effort levels, Plan Mode, externalization, verification). These take about 10 minutes.
+
+### 4. Choose your adventure path
 Pick the path that matches your role:
 
 | If you are... | Pick Path... | Directory |
@@ -46,10 +49,10 @@ Pick the path that matches your role:
 | DevOps / SRE / platform | **C: Infrastructure** — Deployment Config Generator | `paths/c-infrastructure/` |
 | Data engineer / analyst | **D: Data/Analysis** — Operations Log Analyzer | `paths/d-data/` |
 
-### 4. Follow the guided build
+### 5. Follow the guided build
 Each path has its own `guided-brief.md` with step-by-step build instructions. Open your path's `README.md` for an overview, then follow `guided-brief.md` along with the instructor.
 
-### 5. Try the independent challenge
+### 6. Try the independent challenge
 After the guided build, each path has an `independent-brief.md` with a standalone challenge you can start in session and take home to finish.
 
 ---
@@ -60,30 +63,31 @@ After the guided build, each path has an `independent-brief.md` with a standalon
 Disney_Claude_Code_Course/
 ├── README.md                     ← You are here
 ├── CLAUDE.md                     ← Workshop-wide conventions (loaded by Claude Code)
+├── warmup-exercises.md           ← Four rapid exercises (effort, planning, externalize, verify)
 ├── command-reference.md          ← Printable cheat sheet of all commands & shortcuts
 ├── .claude/
 │   └── settings.json             ← Starter security settings
 ├── paths/
 │   ├── a-frontend/               ← Path A: Guest Feedback Dashboard
 │   │   ├── README.md             ← Path overview & quick start
-│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
+│   │   ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   ├── independent-brief.md  ← Park Wait Times challenge
 │   │   └── sample-data/
 │   │       └── guest-feedback.json
 │   ├── b-backend/                ← Path B: Reservation Validation API
 │   │   ├── README.md             ← Path overview & quick start
-│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
+│   │   ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   └── independent-brief.md  ← Dining Preferences challenge
 │   ├── c-infrastructure/         ← Path C: Deployment Config Generator
 │   │   ├── README.md             ← Path overview & quick start
-│   │   ├── guided-brief.md       ← Step-by-step guided build (20 min)
+│   │   ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   └── independent-brief.md  ← Health Dashboard Configs challenge
 │   └── d-data/                   ← Path D: Operations Log Analyzer
 │       ├── README.md             ← Path overview & quick start
-│       ├── guided-brief.md       ← Step-by-step guided build (20 min)
+│       ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │       ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │       ├── independent-brief.md  ← Guest Flow Simulator challenge
 │       └── sample-data/
@@ -92,6 +96,9 @@ Disney_Claude_Code_Course/
 │   ├── command-card.md           ← Compact command & shortcut card
 │   ├── four-pillars.md           ← The four pillars of effectiveness
 │   └── effort-guide.md           ← /effort level selection guide
+├── instructor/                   ← Instructor-only materials
+│   ├── instructor-guide.md       ← Full workshop script with timing and notes
+│   └── dry-run.md                ← Pre-workshop testing checklist
 ├── slides/                       ← Instructor slide deck (added before workshop)
 │   └── README.md
 └── skills-examples/              ← Example Skills to copy into your project

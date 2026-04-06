@@ -2,11 +2,11 @@
 
 Build a CLI tool (Python, stdlib only) that generates production-ready deployment configuration files from a simple project description. You provide an app name, language, and port — it outputs a Dockerfile, docker-compose.yml, and a GitHub Actions CI pipeline config. This is a file generator, not a deployment tool. It does not require Docker to be installed.
 
-**Time estimate:** 20 minutes
+**Time estimate:** 28 minutes
 
 ---
 
-## Step 1: Set Up (2 min)
+## Step 1: Set Up + Externalize (3 min)
 
 Create your project directory and initialize Claude Code:
 
@@ -21,12 +21,15 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 - It outputs files — it does NOT run Docker or deploy anything
 - Support: Dockerfile, docker-compose.yml, and a basic CI pipeline config
 - Use Python with no external dependencies (stdlib only)
+- Run python -m pytest after every change. Never skip.
 
 This gives Claude the constraints it needs to stay on track.
 
+> **Pillar 3 in action:** You just externalized your project conventions. Claude loads this every session.
+
 ---
 
-## Step 2: Plan First (3 min)
+## Step 2: Plan First (4 min)
 
 Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude this prompt:
 
@@ -42,9 +45,11 @@ Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode), then give Claude th
 
 Review Claude's plan. Does it cover input validation? Does it separate each generator into its own function? Adjust before moving on.
 
+> **Pillar 2 in action:** You planned before coding. The plan identifies dependencies and structure before a single line is written.
+
 ---
 
-## Step 3: Build (10 min)
+## Step 3: Build + Verify (12 min)
 
 Exit Plan Mode (use `Shift+Tab` to cycle back to Default). Tell Claude to implement the plan.
 
@@ -65,9 +70,11 @@ Run tests after each generator:
 python -m pytest tests/ -v
 ```
 
+> **Pillar 4 in action:** Tests verify each generator's output. When a test fails, Claude self-corrects before moving on.
+
 ---
 
-## Step 4: Iterate (3 min)
+## Step 4: Iterate + Verify (5 min)
 
 Ask Claude to add these enhancements:
 
@@ -99,7 +106,9 @@ Once created, you can invoke it from any project with `/docker-review`.
 
 ## Check Your Context
 
-Run `/context` to see how much of your context window is used. If you are above **65%**, demonstrate `/compact` before moving on to the independent build. This is a key workflow habit — managing context keeps Claude effective on longer tasks.
+Run `/context` to see how much of your context window is used. If you are above **65%**, run `/compact` before moving on to the independent build.
+
+> **Pillar 1 in action:** The context window is finite. Monitor it. One feature per session. Quality degrades as it fills.
 
 ---
 

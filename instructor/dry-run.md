@@ -80,21 +80,60 @@ Paste the same prompt again.
 
 ---
 
-## PHASE 2: Plan Mode Exercise (5 min)
+## PHASE 2: Plan Mode Exercise (4 min)
 
-> **CRITICAL — start in a fresh directory.** If you stay in the Phase 1 directory and Claude's high-effort run already produced tests + CLI, this exercise becomes a no-op and the contrast disappears. This matches `warmup-exercises.md` Exercise 2.
+> **CRITICAL — start in a fresh directory.** If you stay in the Phase 1 directory and Claude's high-effort run already produced tests + CLI, this exercise becomes a no-op and the contrast disappears. **Exit your Phase 1 session first** (`Ctrl+D` or `/exit`).
 
 ```bash
 mkdir -p ~/workshop-dryrun/warmup-plan && cd ~/workshop-dryrun/warmup-plan
+```
+
+Seed the baseline with one paste (matches `warmup-exercises.md` Exercise 2):
+
+```bash
+cat > validate.py <<'PY'
+from datetime import date, timedelta
+
+BLACKOUT = {(12, 24), (12, 25), (12, 31), (7, 4)}
+
+def validate_date(d):
+    today = date.today()
+    if d < today:
+        return False, "past date"
+    if (d - today).days > 60:
+        return False, "more than 60 days out"
+    if (d.month, d.day) in BLACKOUT:
+        return False, "blackout date"
+    return True, ""
+PY
+
+cat > test_validate.py <<'PY'
+import unittest
+from datetime import date, timedelta
+from validate import validate_date
+
+class TestValidateDate(unittest.TestCase):
+    def test_future_date_valid(self):
+        ok, _ = validate_date(date.today() + timedelta(days=10))
+        self.assertTrue(ok)
+
+    def test_past_date_rejected(self):
+        ok, _ = validate_date(date.today() - timedelta(days=1))
+        self.assertFalse(ok)
+
+if __name__ == "__main__":
+    unittest.main()
+PY
+
 claude
 ```
 
-Recreate the baseline at default effort (paste the Phase 1 prompt one more time) so there is a single-function `validate.py` to extend. Then continue:
+- [ ] **VERIFY:** `validate.py` and `test_validate.py` exist before continuing
 
 **Step 2.1 — WITHOUT Plan Mode:**
 
 Ask Claude:
-> Add error handling for malformed input, unit tests covering every rule, and a CLI wrapper to the reservation validator. The CLI should accept a date string as an argument and print whether it's valid.
+> Add error handling for malformed input, more thorough unit tests covering every rule, and a CLI wrapper to the reservation validator. The CLI should accept a date string as an argument and print whether it's valid.
 
 Watch it for ~30 seconds — **do not let it finish**. Press `Esc` to interrupt. The point is to see Claude diving in, not the final output.
 
@@ -103,13 +142,13 @@ Watch it for ~30 seconds — **do not let it finish**. Press `Esc` to interrupt.
 
 **Step 2.2 — WITH Plan Mode:**
 
-Press **Shift+Tab** twice to enter Plan Mode. Ask:
-> Before making any changes, analyze what's here. What files exist? What would need to change to add malformed-input handling, unit tests covering every rule, and a CLI wrapper? What's the right order of operations? What could go wrong?
+Press `Shift+Tab` until `plan mode` shows in the input bar (or type `/plan`). Ask:
+> Before making any changes, analyze what's here. What files exist? What would need to change to add malformed-input handling, more thorough unit tests covering every rule, and a CLI wrapper? What's the right order of operations? What could go wrong?
 
 - [ ] **VERIFY:** Claude read the file but did **NOT** modify it
 - [ ] **VERIFY:** Plan includes file breakdown and implementation order
 
-Exit Plan Mode (Shift+Tab), then tell Claude:
+Press `Shift+Tab` again until `plan mode` disappears from the input bar, then tell Claude:
 > Implement the plan you just described.
 
 - [ ] **VERIFY:** **CRITICAL** — Is the planned output noticeably better than the half-finished unplanned attempt? (yes / no)
@@ -133,9 +172,12 @@ Exit Plan Mode (Shift+Tab), then tell Claude:
 
 **Step 3.2 — # shortcut to add a rule:**
 
-Type `#` then add the canonical warmup rule:
-> Always run python -m pytest after every code change. Never skip tests.
+Type `#` as the **first character of a brand-new prompt**, then paste the canonical warmup rule:
+> # Always run python -m pytest after every code change. Never skip tests.
 
+Claude will ask which CLAUDE.md to save it to — choose the **project-level** one.
+
+- [ ] **VERIFY:** Memory-target picker appeared (not just inline text)
 - [ ] **VERIFY:** Rule added to `CLAUDE.md`
 
 **Step 3.3 — Create a skill:**
@@ -146,9 +188,10 @@ Skills must live in their own named subdirectory under `.claude/skills/`. A bare
 mkdir -p .claude/skills/explain-code
 ```
 Then ask Claude to create the skill file:
-> Create a skill file at .claude/skills/explain-code/SKILL.md with: name: explain-code, description: Explains code with diagrams and analogies, instructions: start with an everyday analogy, draw an ASCII diagram, walk through step-by-step, highlight one common gotcha.
+> Create a skill file at .claude/skills/explain-code/SKILL.md. It must start with YAML front matter between --- fences, with two fields: name: explain-code and description: Explains code with diagrams and analogies. After the closing ---, add markdown instructions: start with an everyday analogy, draw an ASCII diagram, walk through step-by-step, highlight one common gotcha.
 
 - [ ] **VERIFY:** File exists at `.claude/skills/explain-code/SKILL.md` (note the subdirectory)
+- [ ] **VERIFY:** File begins with `---` and has both `name:` and `description:` inside the front matter block
 - [ ] **VERIFY:** After exiting and restarting `claude`, the skill is in the available list (skills are scanned at session start — there is no hot-reload in this build)
 
 ### Issue Log — Phase 3
@@ -159,7 +202,13 @@ Then ask Claude to create the skill file:
 
 ## PHASE 4: Verify Exercise (2 min)
 
-> Stay in `~/workshop-dryrun/warmup-plan` — that's where the validator + tests + the new CLAUDE.md rule live. After the Phase 3 restart, you should be back in this directory.
+> Stay in `~/workshop-dryrun/warmup-plan` — that's where the validator + tests + the new CLAUDE.md rule live. After the Phase 3 restart, you should be back in this directory with a fresh `claude` session.
+
+**Sanity check first:**
+```bash
+ls test_*.py
+```
+- [ ] **VERIFY:** At least one test file exists. If not, paste Phase 2's "Implement the plan" prompt again before continuing — Phase 4's whole point collapses without tests on disk.
 
 Ask Claude:
 > Refactor the validator function to return a dataclass instead of a tuple. Update the tests to match.
@@ -311,12 +360,12 @@ Ask Claude:
 
 | Section | Target | Actual | Verdict |
 |---------|--------|--------|---------|
-| Effort levels | 3 min | ______ | ______ |
-| Plan Mode | 3 min | ______ | ______ |
+| Effort levels | 5 min | ______ | ______ |
+| Plan Mode | 4 min | ______ | ______ |
 | Externalize | 3 min | ______ | ______ |
-| Verify | 1 min | ______ | ______ |
+| Verify | 2 min | ______ | ______ |
 | Guided build | 28 min | ______ | ______ |
-| **Total** | **~38 min** | ______ | ______ |
+| **Total** | **~42 min** | ______ | ______ |
 
 ### Adjustments Needed
 

@@ -43,37 +43,75 @@ The default is **medium**. You control the dial. For max reasoning on a single t
 
 ---
 
-## Exercise 2: Plan Mode (3 min)
+## Exercise 2: Plan Mode (4 min)
 
-**Important:** Use a fresh directory so the prior turn's output doesn't make this a no-op:
+**Exit your Exercise 1 session first** (`Ctrl+D` or `/exit`). Then start fresh in a new directory so leftover state from Exercise 1 doesn't make this a no-op:
 
 ```bash
 mkdir ~/workshop-warmup-plan && cd ~/workshop-warmup-plan
-claude
 ```
 
-Recreate the validator first (paste the Exercise 1 prompt again at default effort), so there's something to extend.
+Seed a minimal baseline with one paste so we can spend Exercise 2's time on the Plan Mode contrast, not on regenerating Exercise 1:
+
+```bash
+cat > validate.py <<'PY'
+from datetime import date, timedelta
+
+BLACKOUT = {(12, 24), (12, 25), (12, 31), (7, 4)}
+
+def validate_date(d):
+    today = date.today()
+    if d < today:
+        return False, "past date"
+    if (d - today).days > 60:
+        return False, "more than 60 days out"
+    if (d.month, d.day) in BLACKOUT:
+        return False, "blackout date"
+    return True, ""
+PY
+
+cat > test_validate.py <<'PY'
+import unittest
+from datetime import date, timedelta
+from validate import validate_date
+
+class TestValidateDate(unittest.TestCase):
+    def test_future_date_valid(self):
+        ok, _ = validate_date(date.today() + timedelta(days=10))
+        self.assertTrue(ok)
+
+    def test_past_date_rejected(self):
+        ok, _ = validate_date(date.today() - timedelta(days=1))
+        self.assertFalse(ok)
+
+if __name__ == "__main__":
+    unittest.main()
+PY
+
+claude
+```
 
 **Step 1:** Without Plan Mode, ask Claude:
 
 ```
-Add error handling for malformed input, unit tests covering every
-rule, and a CLI wrapper to the reservation validator. The CLI should
-accept a date string as an argument and print whether it's valid.
+Add error handling for malformed input, more thorough unit tests
+covering every rule, and a CLI wrapper to the reservation validator.
+The CLI should accept a date string as an argument and print whether
+it's valid.
 ```
 
 Watch it for ~30 seconds — you don't have to wait for it to finish. The point is to see Claude diving in without a plan, not the final output. Interrupt with `Esc` once you've seen enough.
 
-**Step 2:** Enter Plan Mode (`Shift+Tab` twice, or `/plan`). Ask:
+**Step 2:** Enter Plan Mode by pressing `Shift+Tab` until you see `plan mode` indicated in the input bar (or type `/plan`). Ask:
 
 ```
 Before making any changes, analyze what's here. What files exist?
-What would need to change to add malformed-input handling, unit tests
-covering every rule, and a CLI wrapper? What's the right order of
-operations? What could go wrong?
+What would need to change to add malformed-input handling, more
+thorough unit tests covering every rule, and a CLI wrapper? What's
+the right order of operations? What could go wrong?
 ```
 
-Read the plan. Exit Plan Mode (`Shift+Tab` twice). Then:
+Read the plan. Press `Shift+Tab` again to leave Plan Mode (watch the input bar — when `plan mode` disappears, you're out). Then:
 
 ```
 Implement the plan you just described.
@@ -87,18 +125,19 @@ Compare. Without planning, Claude dives in and may miss dependencies. With Plan 
 
 This one is mechanical — no waiting on Claude to think. Move quickly.
 
-
 **Step 1:** Bootstrap a CLAUDE.md:
 
 ```
 /init
 ```
 
-**Step 2:** Add a rule using `#`:
+**Step 2:** Add a rule using the `#` memory shortcut. Type `#` as the **first character of a brand-new prompt** (not pasted into the middle of another message), then this text:
 
 ```
 # Always run python -m pytest after every code change. Never skip tests.
 ```
+
+Claude will ask which CLAUDE.md to save it to — choose the **project-level** one.
 
 That rule is now in a file. It survives `/compact`, `/clear`, and session resets. The conversation is temporary. The file is permanent.
 
@@ -111,11 +150,13 @@ mkdir -p .claude/skills/explain-code
 Then ask Claude to create `.claude/skills/explain-code/SKILL.md`:
 
 ```
-Create a skill file at .claude/skills/explain-code/SKILL.md with:
-- name: explain-code
-- description: Explains code with diagrams and analogies
-- Instructions: start with an everyday analogy, draw an ASCII diagram,
-  walk through step-by-step, highlight one common gotcha
+Create a skill file at .claude/skills/explain-code/SKILL.md. It must
+start with YAML front matter between --- fences, with two fields:
+  name: explain-code
+  description: Explains code with diagrams and analogies
+After the closing ---, add markdown instructions: start with an
+everyday analogy, draw an ASCII diagram, walk through step-by-step,
+highlight one common gotcha.
 ```
 
 Skills are discovered when a session starts. After creating a new skill, exit and restart `claude` so the registry picks it up. Anything you teach Claude in conversation gets compacted away. Anything you write to a file persists.
@@ -124,7 +165,9 @@ Skills are discovered when a session starts. After creating a new skill, exit an
 
 ## Exercise 4: Verify (1 min)
 
-Stay in the Exercise 2 directory (`~/workshop-warmup-plan`) — that's where the validator + tests live. Ask Claude:
+Still in `~/workshop-warmup-plan` with a fresh `claude` session (you just restarted it at the end of Exercise 3 to load the skill). Confirm there's a test file on disk before continuing — `ls test_*.py` should show at least one. If not, paste Exercise 2's "Implement the plan" prompt again first.
+
+Then ask Claude:
 
 ```
 Refactor the validator function to return a dataclass instead of a

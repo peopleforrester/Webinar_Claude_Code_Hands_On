@@ -40,6 +40,8 @@ claude /status
 
 ## PHASE 1: Effort Levels Exercise (5 min)
 
+> **This phase mirrors `warmup-exercises.md` Exercise 1 verbatim.** Run the canonical script — do not improvise prompts.
+
 ```bash
 mkdir -p ~/workshop-dryrun/warmup && cd ~/workshop-dryrun/warmup
 claude
@@ -49,8 +51,8 @@ claude
 ```
 /effort low
 ```
-Paste this prompt:
-> Write a theme park reservation validator in Python. It should check date format, party size (1-20), and park name against a known list.
+Paste this prompt (the exact one from `warmup-exercises.md`):
+> Write a Python function that validates a theme park reservation date. Rules: no past dates, no more than 60 days out, no blackout dates (Dec 24-25, Dec 31, Jul 4). Return a tuple of (bool, error_message).
 
 - [ ] **VERIFY:** Minimal output — short function, few comments, no extras
 - [ ] Note response time: ______ seconds
@@ -80,28 +82,37 @@ Paste the same prompt again.
 
 ## PHASE 2: Plan Mode Exercise (5 min)
 
+> **CRITICAL — start in a fresh directory.** If you stay in the Phase 1 directory and Claude's high-effort run already produced tests + CLI, this exercise becomes a no-op and the contrast disappears. This matches `warmup-exercises.md` Exercise 2.
+
+```bash
+mkdir -p ~/workshop-dryrun/warmup-plan && cd ~/workshop-dryrun/warmup-plan
+claude
+```
+
+Recreate the baseline at default effort (paste the Phase 1 prompt one more time) so there is a single-function `validate.py` to extend. Then continue:
+
 **Step 2.1 — WITHOUT Plan Mode:**
 
 Ask Claude:
-> Add input validation with clear error messages, a full test suite, and a CLI wrapper to the reservation validator.
+> Add error handling for malformed input, unit tests covering every rule, and a CLI wrapper to the reservation validator. The CLI should accept a date string as an argument and print whether it's valid.
 
-Let it run to completion.
+Watch it for ~30 seconds — **do not let it finish**. Press `Esc` to interrupt. The point is to see Claude diving in, not the final output.
 
-- [ ] **VERIFY:** Note output quality — did it produce everything? Was it well-structured?
-- [ ] Quality notes: _________________________________
+- [ ] **VERIFY:** Claude started writing files immediately, without reading first
+- [ ] Notes: _________________________________
 
 **Step 2.2 — WITH Plan Mode:**
 
 Press **Shift+Tab** twice to enter Plan Mode. Ask:
-> Analyze the current code and plan how you would add input validation, a test suite, and a CLI wrapper. Do not make changes yet — just plan.
+> Before making any changes, analyze what's here. What files exist? What would need to change to add malformed-input handling, unit tests covering every rule, and a CLI wrapper? What's the right order of operations? What could go wrong?
 
 - [ ] **VERIFY:** Claude read the file but did **NOT** modify it
 - [ ] **VERIFY:** Plan includes file breakdown and implementation order
 
 Exit Plan Mode (Shift+Tab), then tell Claude:
-> Implement the plan you just created.
+> Implement the plan you just described.
 
-- [ ] **VERIFY:** **CRITICAL** — Is the planned output noticeably better than the unplanned version? (yes / no)
+- [ ] **VERIFY:** **CRITICAL** — Is the planned output noticeably better than the half-finished unplanned attempt? (yes / no)
 - [ ] Quality comparison notes: _________________________________
 
 ### Issue Log — Phase 2
@@ -112,6 +123,8 @@ Exit Plan Mode (Shift+Tab), then tell Claude:
 
 ## PHASE 3: Externalize Exercise (3 min)
 
+> Stay in `~/workshop-dryrun/warmup-plan` from Phase 2. Do not change directories.
+
 **Step 3.1 — /init:**
 ```
 /init
@@ -120,19 +133,23 @@ Exit Plan Mode (Shift+Tab), then tell Claude:
 
 **Step 3.2 — # shortcut to add a rule:**
 
-Type `#` then add a rule like:
-> Always run tests after making changes
+Type `#` then add the canonical warmup rule:
+> Always run python -m pytest after every code change. Never skip tests.
 
 - [ ] **VERIFY:** Rule added to `CLAUDE.md`
 
 **Step 3.3 — Create a skill:**
-```bash
-mkdir -p .claude/skills
-```
-Create `.claude/skills/SKILL.md` with a simple skill definition (e.g., a code review checklist).
 
-- [ ] **VERIFY:** Skill is picked up when referenced
-- [ ] **VERIFY:** Hot-reload works — edit the skill file and confirm Claude sees the update without restart
+Skills must live in their own named subdirectory under `.claude/skills/`. A bare `.claude/skills/SKILL.md` is **not** loaded by the registry.
+
+```bash
+mkdir -p .claude/skills/explain-code
+```
+Then ask Claude to create the skill file:
+> Create a skill file at .claude/skills/explain-code/SKILL.md with: name: explain-code, description: Explains code with diagrams and analogies, instructions: start with an everyday analogy, draw an ASCII diagram, walk through step-by-step, highlight one common gotcha.
+
+- [ ] **VERIFY:** File exists at `.claude/skills/explain-code/SKILL.md` (note the subdirectory)
+- [ ] **VERIFY:** After exiting and restarting `claude`, the skill is in the available list (skills are scanned at session start — there is no hot-reload in this build)
 
 ### Issue Log — Phase 3
 - [ ] _________________________________
@@ -142,12 +159,14 @@ Create `.claude/skills/SKILL.md` with a simple skill definition (e.g., a code re
 
 ## PHASE 4: Verify Exercise (2 min)
 
-Ask Claude:
-> Refactor the reservation validator to use a Python dataclass instead of a plain dict. Update the tests to match.
+> Stay in `~/workshop-dryrun/warmup-plan` — that's where the validator + tests + the new CLAUDE.md rule live. After the Phase 3 restart, you should be back in this directory.
 
-- [ ] **VERIFY:** **CRITICAL** — Did Claude run `pytest` (or equivalent) after making the change?
+Ask Claude:
+> Refactor the validator function to return a dataclass instead of a tuple. Update the tests to match.
+
+- [ ] **VERIFY:** **CRITICAL** — Did Claude run `python -m pytest` (or equivalent) after making the change, *because of the CLAUDE.md rule*?
 - [ ] Tests pass? (yes / no)
-- [ ] If tests failed, did Claude attempt to fix them? (yes / no)
+- [ ] If tests failed, did Claude attempt to fix them and re-run? (yes / no)
 
 ### Issue Log — Phase 4
 - [ ] _________________________________
@@ -272,8 +291,8 @@ Ask Claude:
 | Effort level differences visible | [ ] | [ ] |
 | Plan Mode quality improvement clear | [ ] | [ ] |
 | CLAUDE.md rules picked up | [ ] | [ ] |
-| Tests run automatically | [ ] | [ ] |
-| Skills hot-reload works | [ ] | [ ] |
+| Tests run automatically (per CLAUDE.md rule) | [ ] | [ ] |
+| Skill loaded after restart (in correct subdir) | [ ] | [ ] |
 | Guided build fits in 28 min | [ ] | [ ] |
 | Context usage below 65% | [ ] | [ ] |
 | Keyboard shortcuts work (Shift+Tab) | [ ] | [ ] |

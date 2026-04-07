@@ -45,12 +45,21 @@ The default is **medium**. You control the dial. For max reasoning on a single t
 
 ## Exercise 2: Plan Mode (3 min)
 
+**Important:** Use a fresh directory so the prior turn's output doesn't make this a no-op:
+
+```bash
+mkdir ~/workshop-warmup-plan && cd ~/workshop-warmup-plan
+claude
+```
+
+Recreate the validator first (paste the Exercise 1 prompt again at default effort), so there's something to extend.
+
 **Step 1:** Without Plan Mode, ask Claude:
 
 ```
-Add input validation, unit tests, and a CLI wrapper to the reservation
-validator. The CLI should accept a date string as an argument and print
-whether it's valid.
+Add error handling for malformed input, unit tests covering every
+rule, and a CLI wrapper to the reservation validator. The CLI should
+accept a date string as an argument and print whether it's valid.
 ```
 
 Watch it for ~30 seconds — you don't have to wait for it to finish. The point is to see Claude diving in without a plan, not the final output. Interrupt with `Esc` once you've seen enough.
@@ -59,9 +68,9 @@ Watch it for ~30 seconds — you don't have to wait for it to finish. The point 
 
 ```
 Before making any changes, analyze what's here. What files exist?
-What would need to change to add input validation, unit tests,
-and a CLI wrapper? What's the right order of operations?
-What could go wrong?
+What would need to change to add malformed-input handling, unit tests
+covering every rule, and a CLI wrapper? What's the right order of
+operations? What could go wrong?
 ```
 
 Read the plan. Exit Plan Mode (`Shift+Tab` twice). Then:
@@ -93,7 +102,7 @@ This one is mechanical — no waiting on Claude to think. Move quickly.
 
 That rule is now in a file. It survives `/compact`, `/clear`, and session resets. The conversation is temporary. The file is permanent.
 
-**Step 3:** Create a skill:
+**Step 3:** Create a skill. Skills live in their own named subdirectory under `.claude/skills/` — a bare `SKILL.md` directly in `.claude/skills/` will not be loaded.
 
 ```bash
 mkdir -p .claude/skills/explain-code
@@ -109,17 +118,17 @@ Create a skill file at .claude/skills/explain-code/SKILL.md with:
   walk through step-by-step, highlight one common gotcha
 ```
 
-Skills hot-reload — edit the file, changes apply immediately. Anything you teach Claude in conversation gets compacted away. Anything you write to a file persists.
+Skills are discovered when a session starts. After creating a new skill, exit and restart `claude` so the registry picks it up. Anything you teach Claude in conversation gets compacted away. Anything you write to a file persists.
 
 ---
 
 ## Exercise 4: Verify (1 min)
 
-Ask Claude:
+Stay in the Exercise 2 directory (`~/workshop-warmup-plan`) — that's where the validator + tests live. Ask Claude:
 
 ```
-Refactor the validate_date function to use a dataclass for the result
-instead of a tuple. Update the tests to match.
+Refactor the validator function to return a dataclass instead of a
+tuple. Update the tests to match.
 ```
 
 Watch what happens. Claude should run the tests after the change because of the rule you added to CLAUDE.md. When a test fails, Claude sees the failure and fixes it. When there are no tests, Claude guesses.

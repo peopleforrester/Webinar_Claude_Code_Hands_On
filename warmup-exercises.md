@@ -53,7 +53,7 @@ validator. The CLI should accept a date string as an argument and print
 whether it's valid.
 ```
 
-Let it run. Don't stop it.
+Watch it for ~30 seconds — you don't have to wait for it to finish. The point is to see Claude diving in without a plan, not the final output. Interrupt with `Esc` once you've seen enough.
 
 **Step 2:** Enter Plan Mode (`Shift+Tab` twice, or `/plan`). Ask:
 
@@ -74,7 +74,10 @@ Compare. Without planning, Claude dives in and may miss dependencies. With Plan 
 
 ---
 
-## Exercise 3: Externalize (3 min)
+## Exercise 3: Externalize (2 min)
+
+This one is mechanical — no waiting on Claude to think. Move quickly.
+
 
 **Step 1:** Bootstrap a CLAUDE.md:
 

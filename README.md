@@ -16,12 +16,15 @@ A hands-on workshop focused entirely on Claude Code CLI in a restricted enterpri
 | **Network** | No internet required — all exercises are self-contained |
 | **Dependencies** | None — stdlib only, no package installs |
 
-Verify your setup:
+Verify your setup (run these on the command line, **not** inside a Claude session):
 ```bash
-claude --version    # Should show 2.1.x
-claude /status      # Verify backend connection
-claude /model       # See available models
+claude --version              # CLI version — should show 2.1.x (prints and exits)
+claude -p "reply with OK"     # End-to-end ping — confirms auth, backend, and model in one shot
 ```
+
+When you launch `claude` interactively later, the startup banner shows the active model and backend — glance at it to confirm Opus 4.6 + Bedrock.
+
+> Note: `/model`, `/status`, and other slash commands only work **inside** an active Claude session — running `claude /model` on the shell drops you into the REPL with the command queued, which breaks one-shot verification flow. Use `--version` and `-p` for pre-session checks.
 
 ---
 

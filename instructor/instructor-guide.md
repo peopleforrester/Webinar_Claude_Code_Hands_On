@@ -59,12 +59,14 @@
 
 **Acknowledge the room.** This is a hands-on session. Observers are welcome — they can follow along or just watch.
 
-**Quick check** — everyone runs:
+**Quick check** — everyone runs these on the **command line**, not inside a Claude session:
 
 ```bash
-claude --version
-claude /model
+claude --version              # CLI version — 2.1.x expected
+claude -p "reply with OK"     # End-to-end ping — confirms auth, backend, and model
 ```
+
+Both are one-shot commands that print and exit. Do **not** tell them to run `claude /model` or `claude /status` on the shell — those drop you into the interactive REPL with the slash command queued, which breaks flow. The model and backend will also appear in the startup banner when they launch `claude` for the warmup.
 
 If anyone fails here, defer to the IT team while continuing with the rest of the group.
 

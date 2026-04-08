@@ -10,9 +10,9 @@ operational — what to say, what to paste, what to point at, in order.
 
 ## T-5 min — Pre-flight Checklist
 
-- [ ] Claude CLI version: `claude --version` → 2.1.x
-- [ ] Model set to Opus 4.6: `claude /model`
-- [ ] Backend connected: `claude /status`
+- [ ] Claude CLI version: `claude --version` → 2.1.x (one-shot, prints and exits)
+- [ ] End-to-end ping: `claude -p "reply with OK"` → should print `OK` and exit (confirms auth + backend + model in one shot)
+- [ ] **Do NOT run `claude /model` or `claude /status` on the shell** — those drop you into the REPL and break pre-flight flow. When you launch `claude` live, the banner shows model and backend.
 - [ ] Terminal font size cranked up (20pt+ for share-readability)
 - [ ] Scratch directory ready: `mkdir -p ~/workshop-live && cd ~/workshop-live`
 - [ ] **`~/.claude/CLAUDE.md` skill installation policy temporarily commented out** — otherwise Ex3 skill creation will refuse on your machine. (Attendees don't have this, only you.)
@@ -34,16 +34,18 @@ operational — what to say, what to paste, what to point at, in order.
 
 > Claude Code is an agentic coding tool that runs in your terminal. It reads files, writes code, runs commands, and iterates — through natural language. It's not autocomplete. It executes multi-step tasks autonomously. Today you'll control that autonomy with four patterns we'll name at the end.
 
-**Do — everyone runs together:**
+**Do — everyone runs together (these are one-shot shell commands, NOT slash commands):**
 
 ```bash
 claude --version
-claude /model
+claude -p "reply with OK"
 ```
 
 **Say:**
 
-> If you see 2.1.x and Opus 4.6 in that list, you're in. If not, chat us and we'll fix it after.
+> `--version` should show 2.1.x. The second command sends a test prompt to the model and prints the response — if you see `OK`, your auth, backend, and model routing are all working. When we launch `claude` in a minute for the warmup, the startup banner will show Opus 4.6 and Bedrock — glance at it then. If either command fails, chat us and we'll fix it after.
+
+> **Important — do not tell them to run `claude /model` or `claude /status` on the shell.** Those drop them into the interactive REPL with the slash command queued, and the flow of this orientation block falls apart. Use `--version` and `-p` only for pre-session checks. Slash commands belong inside an active session.
 
 **30-second tour — put this table on screen or call it out verbally:**
 

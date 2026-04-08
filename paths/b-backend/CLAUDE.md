@@ -3,7 +3,7 @@
 ## Build & Test
 - Language: Python (stdlib + http.server) OR Node.js (stdlib + http module)
 - Run: python main.py / node index.js
-- Test: Python: `python -m pytest tests/` | Node.js: `node test.js`
+- Test: Python: `python3 -m unittest discover -s tests` | Node.js: `node test.js`
 - Port: 3000
 
 ## Conventions

@@ -82,14 +82,22 @@ If anyone fails here, defer to the IT team while continuing with the rest of the
 
 ---
 
-### 5:00–8:00 — Effort Levels (3 min)
+### 5:00–15:00 — Warmup Block (10 min, one Claude session)
 
-Create a scratch directory and start a Claude session:
+**Critical flow rule:** The entire warmup runs inside **one Claude session** and **one directory**. No exits, no restarts, no `cd`. The exercises are deliberately non-code so both developers and non-developers in the room can follow along and feel the same contrasts.
+
+Attendees open `warmup-exercises.md` and start the shared session:
 
 ```bash
-mkdir -p scratch && cd scratch
+mkdir -p ~/workshop-warmup && cd ~/workshop-warmup
 claude
 ```
+
+The shared task across all four exercises is drafting a short workshop retrospective document (`retro.md`) — everyone in the room is literally living a workshop, so they can all relate to the content.
+
+---
+
+#### 5:00–8:00 — Effort Levels (3 min)
 
 Run the same prompt at two effort levels:
 
@@ -98,40 +106,44 @@ Run the same prompt at two effort levels:
 
 **The prompt:**
 
-> Write a Python function that validates a theme park reservation date. Rules: no past dates, maximum 60 days in advance, blackout dates are Dec 24–25, Dec 31, and Jul 4.
+> Write a short retrospective document for a 1-hour hands-on workshop. Cover what went well, what didn't, and what to change next time.
 
 **What to observe:**
 
-- **Low effort**: Bare function, minimal validation, no edge cases.
-- **High effort**: Thorough implementation with edge cases, docstrings, error messages.
+- **Low effort**: Bare bullet list, three short sections, no nuance.
+- **High effort**: Structured sections with an executive framing, nuanced observations, and concrete suggestions.
 
-**Instructor note**: Default effort is medium. Mention that `ultrathink` (typed directly in the prompt) gives maximum single-turn reasoning depth.
+No files are written in this exercise — the contrast lives entirely in the chat window.
 
----
-
-### 8:00–11:00 — Plan Mode (3 min)
-
-Same project, more complex task. Two steps — **order matters**.
-
-**Step 1: WITHOUT Plan Mode.**
-
-Ask Claude:
-
-> Add input validation for date format, comprehensive unit tests with pytest, and a CLI wrapper that accepts a date argument.
-
-Let it run. Watch the output.
-
-**Step 2: WITH Plan Mode.**
-
-Enter Plan Mode (Shift+Tab twice or `/plan`), then submit the same request. Claude will analyze first, show a plan, and only implement after you approve.
-
-**Key**: The without-then-with order is critical. Attendees must feel the contrast. If someone's output looks the same planned vs. unplanned, the task wasn't complex enough — have them add more requirements.
+**Instructor note**: Default effort is medium. Mention that `ultrathink` (typed directly in the prompt) gives maximum single-turn reasoning depth. Reset the dial with `/effort medium` before Exercise 2.
 
 ---
 
-### 11:00–14:00 — Externalize (3 min)
+#### 8:00–11:00 — Plan Mode (3 min)
 
-**Bootstrap CLAUDE.md:**
+Same session, same directory. First, seed the baseline — ask Claude to create `retro.md` with four specific section headers:
+
+> Create a file retro.md in the current directory with these four sections and two or three bullet points in each: "## What Went Well", "## What Didn't", "## Action Items", "## Metrics". Treat it as a retrospective for a 1-hour hands-on Claude Code workshop.
+
+Those exact headers matter — the `check.sh` script in Exercise 3 greps for them.
+
+**Step 1: WITHOUT Plan Mode.** Ask Claude:
+
+> Rewrite retro.md: add an executive summary at the top, fill in the Action Items with realistic owners and deadlines, populate the Metrics section with sensible numbers, and tighten the language everywhere. Do not remove or rename any of the existing section headers.
+
+Watch for ~30 seconds, then `Esc` to interrupt. The point is seeing Claude dive in without a plan, not the final output.
+
+**Step 2: WITH Plan Mode.** Press `Shift+Tab` until `plan mode` shows (or type `/plan`). Submit the same request. Claude reads the file, produces a coordinated plan, and modifies nothing. Exit Plan Mode (Shift+Tab again until `plan mode` disappears), then tell Claude "Implement the plan you just described."
+
+**Key**: The without-then-with order is critical. Attendees must feel the contrast. If someone's output looks the same planned vs. unplanned, the task wasn't complex enough — have them add more requirements to the rewrite ask.
+
+---
+
+#### 11:00–14:00 — Externalize (3 min)
+
+Still in the same session, same directory. Three things get written to disk here: a CLAUDE.md, a verification script, and a skill.
+
+**Step 1 — Bootstrap CLAUDE.md:**
 
 ```
 /init
@@ -139,39 +151,41 @@ Enter Plan Mode (Shift+Tab twice or `/plan`), then submit the same request. Clau
 
 This creates a starter `CLAUDE.md` in the project root.
 
-**Add a persistent rule using `#`:**
+**Step 2 — Create the verification script first** (the rule in Step 3 will point at it):
 
-Type `#` in the prompt, then:
+> Create a shell script check.sh in the current directory. It should grep retro.md for these required sections: "## What Went Well", "## What Didn't", "## Action Items", "## Metrics". Print "OK" if all four are present. For each missing section, print "FAIL: missing <section name>" on its own line and exit non-zero. Make the script executable.
 
-> Always run python -m pytest after every code change. Never skip tests.
+Attendees can sanity-check it by typing `!./check.sh` in the prompt (bash mode) — should print `OK`.
 
-This writes the rule directly into CLAUDE.md so it survives compaction and session restarts.
+**Step 3 — Add a persistent rule using `#`:**
 
-**Create a skill:**
+Type `#` as the first character of a brand-new prompt, then:
 
-Create `.claude/skills/explain-code/SKILL.md`:
+> After any change to retro.md, always run ./check.sh and confirm it passes before responding.
 
-```markdown
-# Explain Code
+Claude will ask which CLAUDE.md to save it to — choose the **project-level** one. This writes the rule directly into CLAUDE.md so it survives compaction and session restarts.
 
-Read the specified file and produce a plain-language explanation suitable for
-a non-technical stakeholder. Include: what the code does, key decisions made,
-and any risks or limitations.
-```
+**Step 4 — Create a skill:**
+
+> Create a skill file at .claude/skills/explain-doc/SKILL.md. It must start with YAML front matter between --- fences, with two fields: name: explain-doc and description: Summarizes a document by identifying the thesis, key decisions, and open questions. After the closing ---, add markdown instructions: identify the main thesis in one sentence, list up to three key decisions the document makes, flag any unanswered questions, and suggest one concrete improvement.
+
+Claude handles the `mkdir` for `.claude/skills/explain-doc/` itself.
+
+> **Do not restart Claude to "prove" the skill loaded.** Skills are scanned at session start only — there is no hot-reload in this build. The pedagogical point is that the skill is now on disk and will be available the next time attendees launch `claude`. Mention this as a footnote and keep moving.
 
 **One sentence on hierarchy**: CLAUDE.md has 4 levels — org-managed, user, project, and local — each scoped differently. Keep each under 200 lines. Every instruction competes for context window space.
 
 ---
 
-### 14:00–15:00 — Verify (1 min)
+#### 14:00–15:00 — Verify (1 min)
 
 Ask Claude:
 
-> Refactor validate_date to use a dataclass for configuration.
+> Reorganize retro.md: move "Action Items" to the top of the document, and rename the "What Didn't" section to "Pain Points".
 
-**Watch what happens.** Because of the CLAUDE.md rule, Claude runs `python -m pytest` after the refactor — automatically.
+**Watch what happens.** Because of the CLAUDE.md rule, Claude runs `./check.sh` after the edit. The check **fails** — renaming `## What Didn't` to `## Pain Points` triggers `FAIL: missing ## What Didn't`. Claude sees the failure in the script output and self-corrects: renames the section back, updates `check.sh`, or asks which the user meant.
 
-**Key message**: Advisory instructions (CLAUDE.md rules) land about 80% of the time. Deterministic verification (tests, linters, hooks) lands 100% of the time. Use both.
+**Key message**: Advisory instructions (CLAUDE.md rules) land about 80% of the time. Deterministic verification (tests, linters, hooks, scripts) lands 100% of the time — and when it fails, Claude can *see* the failure and fix it. That visceral self-correction moment is the payoff of the entire warmup.
 
 ---
 
@@ -372,7 +386,7 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 ## Build & Test
 - Language: [Python/Node.js/Bash]
 - Run: [python main.py / node index.js / bash generate.sh]
-- Test: [python -m pytest / npm test / bash test.sh]
+- Test: [python3 -m unittest discover -s tests / npm test / bash test.sh]
 - Run tests after every code change. Never skip.
 
 ## Conventions

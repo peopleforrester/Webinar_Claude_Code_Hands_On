@@ -20,7 +20,7 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 - This is a Python log analysis tool. No external dependencies (stdlib only).
 - Input: JSON log files. Output: Markdown report.
 - Handle malformed entries gracefully — log warnings, don't crash.
-- Run python -m pytest after every change. Never skip.
+- Run `python3 -m unittest discover -s tests` after every change. Never skip.
 
 > **Pillar 3 in action:** You just externalized your project conventions. Claude loads this every session.
 
@@ -68,7 +68,7 @@ Let Claude build each piece, then verify the output before moving to the next.
 Run tests after each component:
 
 ```bash
-python -m pytest tests/ -v
+python3 -m unittest discover -s tests -v
 ```
 
 > **Pillar 4 in action:** Tests verify each analysis function's output. When a test fails, Claude self-corrects before moving on.

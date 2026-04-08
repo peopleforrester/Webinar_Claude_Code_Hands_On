@@ -134,7 +134,7 @@ mkdir -p .claude/skills/
 cp /path/to/this/repo/skills-examples/explain-code/SKILL.md .claude/skills/explain-code/SKILL.md
 ```
 
-Skills hot-reload — edit the file and changes apply immediately, no restart needed.
+Skills are scanned at session start — after creating or editing a `SKILL.md`, exit and relaunch `claude` to pick up changes. There is no hot-reload in this build.
 
 ---
 

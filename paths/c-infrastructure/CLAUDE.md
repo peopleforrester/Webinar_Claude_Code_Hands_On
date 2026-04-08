@@ -3,7 +3,7 @@
 ## Build & Test
 - Language: Python 3 (stdlib only)
 - Run: python generate.py --app myapp --lang python --port 8080 --db postgres
-- Test: python -m pytest tests/
+- Test: python3 -m unittest discover -s tests
 - Output: ./generated/ directory
 
 ## Conventions

@@ -89,7 +89,7 @@ The build exercises in this workshop follow this pattern:
 3. **Verify** — Run the tests, check the output, fix failures
 4. **Iterate** — Repeat from step 2 with enhancements
 
-Tell Claude your test command in CLAUDE.md (e.g., `python -m pytest tests/`) and it will run tests automatically after implementation steps.
+Tell Claude your test command in CLAUDE.md (e.g., `python3 -m unittest discover -s tests`) and it will run tests automatically after implementation steps.
 
 ### Why This Matters
 

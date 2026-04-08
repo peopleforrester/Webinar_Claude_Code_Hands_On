@@ -5,11 +5,13 @@
 1. All commands work in a Bedrock-backed environment
 2. Effort level differences are visible and meaningful
 3. Plan Mode produces noticeably better output than unplanned
-4. CLAUDE.md rules are picked up (especially the "run tests" rule)
+4. CLAUDE.md rules are picked up (especially the "run check.sh" rule)
 5. Guided build can complete in allotted time
 6. Context usage stays manageable
 
 **How to use:** Open a terminal. Run each step in order. Check the **VERIFY** note after each. Log issues in the checkboxes provided.
+
+**Flow rule:** The warmup lives inside **one Claude session** and **one directory**. No exits, no restarts, no `cd` until Phase 5. If you find yourself reaching for a new terminal, stop — you are off script.
 
 **Estimated time:** 45–60 minutes for a full dry run.
 
@@ -38,9 +40,9 @@ claude /status
 
 ---
 
-## PHASE 1: Effort Levels Exercise (5 min)
+## PHASE 1: Effort Levels Exercise (3 min)
 
-> **This phase mirrors `warmup-exercises.md` Exercise 1 verbatim.** Run the canonical script — do not improvise prompts.
+> **This phase mirrors `warmup-exercises.md` Exercise 1 verbatim.** Run the canonical script — do not improvise prompts. Start the session you'll use for the rest of the warmup here and **do not exit it** until after Phase 4.
 
 ```bash
 mkdir -p ~/workshop-dryrun/warmup && cd ~/workshop-dryrun/warmup
@@ -52,9 +54,9 @@ claude
 /effort low
 ```
 Paste this prompt (the exact one from `warmup-exercises.md`):
-> Write a Python function that validates a theme park reservation date. Rules: no past dates, no more than 60 days out, no blackout dates (Dec 24-25, Dec 31, Jul 4). Return a tuple of (bool, error_message).
+> Write a short retrospective document for a 1-hour hands-on workshop. Cover what went well, what didn't, and what to change next time.
 
-- [ ] **VERIFY:** Minimal output — short function, few comments, no extras
+- [ ] **VERIFY:** Minimal output — short bullets, no structure beyond the three sections
 - [ ] Note response time: ______ seconds
 - [ ] Note response length: ______ lines
 
@@ -62,14 +64,14 @@ Paste this prompt (the exact one from `warmup-exercises.md`):
 ```
 /effort high
 ```
-Paste the same prompt again.
+Paste the **same** prompt again.
 
-- [ ] **VERIFY:** More thorough output — docstrings, edge case handling, better structure
+- [ ] **VERIFY:** More thorough output — executive framing, nuanced observations, concrete suggestions
 - [ ] Note response time: ______ seconds
 - [ ] Note response length: ______ lines
 - [ ] **CRITICAL:** Is the difference visible enough to use in a live demo? (yes / no)
 
-**Step 1.3 — Reset:**
+**Step 1.3 — Reset the dial:**
 ```
 /effort medium
 ```
@@ -80,70 +82,30 @@ Paste the same prompt again.
 
 ---
 
-## PHASE 2: Plan Mode Exercise (4 min)
+## PHASE 2: Plan Mode Exercise (3 min)
 
-> **CRITICAL — start in a fresh directory.** If you stay in the Phase 1 directory and Claude's high-effort run already produced tests + CLI, this exercise becomes a no-op and the contrast disappears. **Exit your Phase 1 session first** (`Ctrl+D` or `/exit`).
+> Stay in the same Claude session from Phase 1. No new directory, no restart.
 
-```bash
-mkdir -p ~/workshop-dryrun/warmup-plan && cd ~/workshop-dryrun/warmup-plan
-```
+Ask Claude to create the baseline retrospective file:
+> Create a file retro.md in the current directory with these four sections and two or three bullet points in each: "## What Went Well", "## What Didn't", "## Action Items", "## Metrics". Treat it as a retrospective for a 1-hour hands-on Claude Code workshop.
 
-Seed the baseline with one paste (matches `warmup-exercises.md` Exercise 2):
-
-```bash
-cat > validate.py <<'PY'
-from datetime import date, timedelta
-
-BLACKOUT = {(12, 24), (12, 25), (12, 31), (7, 4)}
-
-def validate_date(d):
-    today = date.today()
-    if d < today:
-        return False, "past date"
-    if (d - today).days > 60:
-        return False, "more than 60 days out"
-    if (d.month, d.day) in BLACKOUT:
-        return False, "blackout date"
-    return True, ""
-PY
-
-cat > test_validate.py <<'PY'
-import unittest
-from datetime import date, timedelta
-from validate import validate_date
-
-class TestValidateDate(unittest.TestCase):
-    def test_future_date_valid(self):
-        ok, _ = validate_date(date.today() + timedelta(days=10))
-        self.assertTrue(ok)
-
-    def test_past_date_rejected(self):
-        ok, _ = validate_date(date.today() - timedelta(days=1))
-        self.assertFalse(ok)
-
-if __name__ == "__main__":
-    unittest.main()
-PY
-
-claude
-```
-
-- [ ] **VERIFY:** `validate.py` and `test_validate.py` exist before continuing
+- [ ] **VERIFY:** `retro.md` exists in the current directory
+- [ ] **VERIFY:** All four section headers are present in the file
 
 **Step 2.1 — WITHOUT Plan Mode:**
 
 Ask Claude:
-> Add error handling for malformed input, more thorough unit tests covering every rule, and a CLI wrapper to the reservation validator. The CLI should accept a date string as an argument and print whether it's valid.
+> Rewrite retro.md: add an executive summary at the top, fill in the Action Items with realistic owners and deadlines, populate the Metrics section with sensible numbers, and tighten the language everywhere. Do not remove or rename any of the existing section headers.
 
 Watch it for ~30 seconds — **do not let it finish**. Press `Esc` to interrupt. The point is to see Claude diving in, not the final output.
 
-- [ ] **VERIFY:** Claude started writing files immediately, without reading first
+- [ ] **VERIFY:** Claude started editing the file immediately, without a plan
 - [ ] Notes: _________________________________
 
 **Step 2.2 — WITH Plan Mode:**
 
-Press `Shift+Tab` until `plan mode` shows in the input bar (or type `/plan`). Ask:
-> Before making any changes, analyze what's here. What files exist? What would need to change to add malformed-input handling, more thorough unit tests covering every rule, and a CLI wrapper? What's the right order of operations? What could go wrong?
+Press `Shift+Tab` until `plan mode` shows in the input bar (or type `/plan`). Ask the **same** thing:
+> Rewrite retro.md: add an executive summary at the top, fill in the Action Items with realistic owners and deadlines, populate the Metrics section with sensible numbers, and tighten the language everywhere. Do not remove or rename any of the existing section headers.
 
 - [ ] **VERIFY:** Claude read the file but did **NOT** modify it
 - [ ] **VERIFY:** Plan includes file breakdown and implementation order
@@ -162,7 +124,7 @@ Press `Shift+Tab` again until `plan mode` disappears from the input bar, then te
 
 ## PHASE 3: Externalize Exercise (3 min)
 
-> Stay in `~/workshop-dryrun/warmup-plan` from Phase 2. Do not change directories.
+> Still in the same session, same directory. Do not exit Claude.
 
 **Step 3.1 — /init:**
 ```
@@ -170,29 +132,32 @@ Press `Shift+Tab` again until `plan mode` disappears from the input bar, then te
 ```
 - [ ] **VERIFY:** `CLAUDE.md` file generated in current directory
 
-**Step 3.2 — # shortcut to add a rule:**
+**Step 3.2 — Create the verification script first** so the CLAUDE.md rule in Step 3.3 has something to point at:
+
+Ask Claude:
+> Create a shell script check.sh in the current directory. It should grep retro.md for these required sections: "## What Went Well", "## What Didn't", "## Action Items", "## Metrics". Print "OK" if all four are present. For each missing section, print "FAIL: missing <section name>" on its own line and exit non-zero. Make the script executable.
+
+- [ ] **VERIFY:** `check.sh` exists and is executable
+- [ ] Test it from bash mode by typing `!./check.sh` in the prompt — it should print `OK`
+
+**Step 3.3 — `#` shortcut to add the rule:**
 
 Type `#` as the **first character of a brand-new prompt**, then paste the canonical warmup rule:
-> # Always run python -m pytest after every code change. Never skip tests.
+> # After any change to retro.md, always run ./check.sh and confirm it passes before responding.
 
 Claude will ask which CLAUDE.md to save it to — choose the **project-level** one.
 
 - [ ] **VERIFY:** Memory-target picker appeared (not just inline text)
 - [ ] **VERIFY:** Rule added to `CLAUDE.md`
 
-**Step 3.3 — Create a skill:**
+**Step 3.4 — Create a skill:**
 
-Skills must live in their own named subdirectory under `.claude/skills/`. A bare `.claude/skills/SKILL.md` is **not** loaded by the registry.
+Ask Claude to create the skill file (Claude handles the directory):
+> Create a skill file at .claude/skills/explain-doc/SKILL.md. It must start with YAML front matter between --- fences, with two fields: name: explain-doc and description: Summarizes a document by identifying the thesis, key decisions, and open questions. After the closing ---, add markdown instructions: identify the main thesis in one sentence, list up to three key decisions the document makes, flag any unanswered questions, and suggest one concrete improvement.
 
-```bash
-mkdir -p .claude/skills/explain-code
-```
-Then ask Claude to create the skill file:
-> Create a skill file at .claude/skills/explain-code/SKILL.md. It must start with YAML front matter between --- fences, with two fields: name: explain-code and description: Explains code with diagrams and analogies. After the closing ---, add markdown instructions: start with an everyday analogy, draw an ASCII diagram, walk through step-by-step, highlight one common gotcha.
-
-- [ ] **VERIFY:** File exists at `.claude/skills/explain-code/SKILL.md` (note the subdirectory)
+- [ ] **VERIFY:** File exists at `.claude/skills/explain-doc/SKILL.md` (note the subdirectory)
 - [ ] **VERIFY:** File begins with `---` and has both `name:` and `description:` inside the front matter block
-- [ ] **VERIFY:** After exiting and restarting `claude`, the skill is in the available list (skills are scanned at session start — there is no hot-reload in this build)
+- [ ] **Do not** restart Claude to "prove" the skill loaded — skills are scanned at session start only. The demonstration point is that we wrote it to a file, not that the current session is using it. Mention this to attendees as a footnote.
 
 ### Issue Log — Phase 3
 - [ ] _________________________________
@@ -200,22 +165,22 @@ Then ask Claude to create the skill file:
 
 ---
 
-## PHASE 4: Verify Exercise (2 min)
+## PHASE 4: Verify Exercise (1 min)
 
-> Stay in `~/workshop-dryrun/warmup-plan` — that's where the validator + tests + the new CLAUDE.md rule live. After the Phase 3 restart, you should be back in this directory with a fresh `claude` session.
+> Still in the same session, same directory. Do not exit Claude. All of `retro.md`, `check.sh`, and the CLAUDE.md rule were created above and live on disk.
 
-**Sanity check first:**
-```bash
-ls test_*.py
+**Sanity check first** from bash mode — type this in the prompt:
 ```
-- [ ] **VERIFY:** At least one test file exists. If not, paste Phase 2's "Implement the plan" prompt again before continuing — Phase 4's whole point collapses without tests on disk.
+!ls retro.md check.sh && ./check.sh
+```
+- [ ] **VERIFY:** Both files exist and `check.sh` prints `OK` against the current `retro.md`. If not, fix the baseline before continuing.
 
 Ask Claude:
-> Refactor the validator function to return a dataclass instead of a tuple. Update the tests to match.
+> Reorganize retro.md: move "Action Items" to the top of the document, and rename the "What Didn't" section to "Pain Points".
 
-- [ ] **VERIFY:** **CRITICAL** — Did Claude run `python -m pytest` (or equivalent) after making the change, *because of the CLAUDE.md rule*?
-- [ ] Tests pass? (yes / no)
-- [ ] If tests failed, did Claude attempt to fix them and re-run? (yes / no)
+- [ ] **VERIFY:** **CRITICAL** — Did Claude run `./check.sh` after making the change, *because of the CLAUDE.md rule*?
+- [ ] **VERIFY:** Did the check fail with "FAIL: missing ## What Didn't" (or similar)?
+- [ ] **VERIFY:** Did Claude then self-correct — rename the section back, update `check.sh`, or ask for clarification?
 
 ### Issue Log — Phase 4
 - [ ] _________________________________
@@ -225,7 +190,7 @@ Ask Claude:
 
 ## PHASE 5: Guided Build — Pick ONE Path (20 min)
 
-> **Recommended:** Path B (Backend API) — it has the most verification steps.
+> **Recommended:** Path B (Backend API) — it has the most verification steps. This phase is a **separate, fresh Claude session** in a new directory. Exit the warmup session (`/exit` or `Ctrl+D`) and start over here.
 
 ### Setup
 ```bash
@@ -238,7 +203,7 @@ claude
 /init
 ```
 Use `#` to add context rules:
-- Always run tests after changes
+- Always run `python3 -m unittest discover -s tests` after changes
 - Use stdlib only — no external dependencies
 - All output goes to `./output/`
 
@@ -246,7 +211,7 @@ Use `#` to add context rules:
 
 **Step 5.2 — Plan Mode — paste the full API spec:**
 
-Enter Plan Mode (Shift+Tab twice), then paste:
+Enter Plan Mode (Shift+Tab until `plan mode` shows), then paste:
 > Build a reservation API with these endpoints:
 > - POST /reservations — create a reservation (name, date, party_size, park)
 > - GET /reservations/{id} — retrieve a reservation
@@ -262,7 +227,7 @@ Enter Plan Mode (Shift+Tab twice), then paste:
 Exit Plan Mode, tell Claude to implement the plan.
 
 - [ ] **VERIFY:** All expected files created (server, models, tests, etc.)
-- [ ] **VERIFY:** Tests pass
+- [ ] **VERIFY:** Tests pass (via `python3 -m unittest discover -s tests`)
 - [ ] **VERIFY:** Tests ran automatically (not manually triggered)
 - [ ] Implementation time: ______ seconds
 
@@ -339,9 +304,10 @@ Ask Claude:
 |-------|------|------|
 | Effort level differences visible | [ ] | [ ] |
 | Plan Mode quality improvement clear | [ ] | [ ] |
-| CLAUDE.md rules picked up | [ ] | [ ] |
-| Tests run automatically (per CLAUDE.md rule) | [ ] | [ ] |
-| Skill loaded after restart (in correct subdir) | [ ] | [ ] |
+| CLAUDE.md rule picked up (check.sh fired) | [ ] | [ ] |
+| check.sh failure triggered self-correction | [ ] | [ ] |
+| Skill file created in correct subdir | [ ] | [ ] |
+| Warmup stayed in one session start-to-finish | [ ] | [ ] |
 | Guided build fits in 28 min | [ ] | [ ] |
 | Context usage below 65% | [ ] | [ ] |
 | Keyboard shortcuts work (Shift+Tab) | [ ] | [ ] |
@@ -360,12 +326,12 @@ Ask Claude:
 
 | Section | Target | Actual | Verdict |
 |---------|--------|--------|---------|
-| Effort levels | 5 min | ______ | ______ |
-| Plan Mode | 4 min | ______ | ______ |
+| Effort levels | 3 min | ______ | ______ |
+| Plan Mode | 3 min | ______ | ______ |
 | Externalize | 3 min | ______ | ______ |
-| Verify | 2 min | ______ | ______ |
+| Verify | 1 min | ______ | ______ |
 | Guided build | 28 min | ______ | ______ |
-| **Total** | **~42 min** | ______ | ______ |
+| **Total** | **~39 min** | ______ | ______ |
 
 ### Adjustments Needed
 

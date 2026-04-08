@@ -3,7 +3,7 @@
 ## Build & Test
 - Language: Python 3 (stdlib only)
 - Run: `python analyzer.py --input logs.json --output report.md`
-- Test: `python -m pytest tests/`
+- Test: `python3 -m unittest discover -s tests`
 - Generate sample data: `python generate_data.py`
 
 ## Conventions

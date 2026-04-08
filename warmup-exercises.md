@@ -1,17 +1,23 @@
 # Warmup Exercises — Feel the Difference
 
-Four rapid exercises before the main build. Each one demonstrates a pattern you'll use throughout the workshop.
+Four rapid exercises before the main build. Each one demonstrates a pattern you'll use throughout the workshop — no coding background required.
+
+**Important:** You stay inside one Claude session for all four exercises. No exiting, no restarting, no switching directories. Start it once, finish all four, then move on to your build path.
+
+Open a terminal and start a session:
+
+```bash
+mkdir -p ~/workshop-warmup && cd ~/workshop-warmup
+claude
+```
+
+Leave that session running until Exercise 4 is done.
 
 ---
 
 ## Exercise 1: Effort Levels (3 min)
 
-Create a scratch directory and start a session:
-
-```bash
-mkdir ~/workshop-warmup && cd ~/workshop-warmup
-claude
-```
+Claude has a reasoning dial. You control it.
 
 **Step 1:** Set effort to low:
 
@@ -22,9 +28,8 @@ claude
 Then paste this prompt:
 
 ```
-Write a Python function that validates a theme park reservation date.
-Rules: no past dates, no more than 60 days out, no blackout dates
-(Dec 24-25, Dec 31, Jul 4). Return a tuple of (bool, error_message).
+Write a short retrospective document for a 1-hour hands-on workshop.
+Cover what went well, what didn't, and what to change next time.
 ```
 
 **Step 2:** Now set effort to high and paste the **exact same prompt**:
@@ -33,9 +38,13 @@ Rules: no past dates, no more than 60 days out, no blackout dates
 /effort high
 ```
 
-**Step 3:** Compare. At low effort, you get a bare function — correct but minimal. At high effort, Claude thinks harder — better edge case handling, docstrings, more thoughtful logic.
+**Step 3:** Compare the two responses in your chat window. At low effort, you get a bare bullet list — correct but minimal. At high effort, Claude thinks harder and produces structured sections, nuanced observations, and specific suggestions.
 
-The default is **medium**. You control the dial. For max reasoning on a single turn, type `ultrathink` in your prompt.
+No files were written. The contrast is purely in the generated text.
+
+The default is **medium**. You control the dial. For max reasoning on a single turn, type `ultrathink` inside your prompt.
+
+Set yourself back to medium before moving on:
 
 ```
 /effort medium
@@ -43,87 +52,54 @@ The default is **medium**. You control the dial. For max reasoning on a single t
 
 ---
 
-## Exercise 2: Plan Mode (4 min)
+## Exercise 2: Plan Mode (3 min)
 
-**Exit your Exercise 1 session first** (`Ctrl+D` or `/exit`). Then start fresh in a new directory so leftover state from Exercise 1 doesn't make this a no-op:
-
-```bash
-mkdir ~/workshop-warmup-plan && cd ~/workshop-warmup-plan
-```
-
-Seed a minimal baseline with one paste so we can spend Exercise 2's time on the Plan Mode contrast, not on regenerating Exercise 1:
-
-```bash
-cat > validate.py <<'PY'
-from datetime import date, timedelta
-
-BLACKOUT = {(12, 24), (12, 25), (12, 31), (7, 4)}
-
-def validate_date(d):
-    today = date.today()
-    if d < today:
-        return False, "past date"
-    if (d - today).days > 60:
-        return False, "more than 60 days out"
-    if (d.month, d.day) in BLACKOUT:
-        return False, "blackout date"
-    return True, ""
-PY
-
-cat > test_validate.py <<'PY'
-import unittest
-from datetime import date, timedelta
-from validate import validate_date
-
-class TestValidateDate(unittest.TestCase):
-    def test_future_date_valid(self):
-        ok, _ = validate_date(date.today() + timedelta(days=10))
-        self.assertTrue(ok)
-
-    def test_past_date_rejected(self):
-        ok, _ = validate_date(date.today() - timedelta(days=1))
-        self.assertFalse(ok)
-
-if __name__ == "__main__":
-    unittest.main()
-PY
-
-claude
-```
-
-**Step 1:** Without Plan Mode, ask Claude:
+Same session, same directory. We need a baseline file for Claude to work on, so ask it to create one:
 
 ```
-Add error handling for malformed input, more thorough unit tests
-covering every rule, and a CLI wrapper to the reservation validator.
-The CLI should accept a date string as an argument and print whether
-it's valid.
+Create a file retro.md in the current directory with these four sections
+and two or three bullet points in each: "## What Went Well",
+"## What Didn't", "## Action Items", "## Metrics". Treat it as a
+retrospective for a 1-hour hands-on Claude Code workshop.
 ```
 
-Watch it for ~30 seconds — you don't have to wait for it to finish. The point is to see Claude diving in without a plan, not the final output. Interrupt with `Esc` once you've seen enough.
+Claude writes `retro.md`. That's your baseline.
 
-**Step 2:** Enter Plan Mode by pressing `Shift+Tab` until you see `plan mode` indicated in the input bar (or type `/plan`). Ask:
+**Step 1 — Without Plan Mode**, ask Claude:
 
 ```
-Before making any changes, analyze what's here. What files exist?
-What would need to change to add malformed-input handling, more
-thorough unit tests covering every rule, and a CLI wrapper? What's
-the right order of operations? What could go wrong?
+Rewrite retro.md: add an executive summary at the top, fill in the
+Action Items with realistic owners and deadlines, populate the Metrics
+section with sensible numbers, and tighten the language everywhere.
+Do not remove or rename any of the existing section headers.
 ```
 
-Read the plan. Press `Shift+Tab` again to leave Plan Mode (watch the input bar — when `plan mode` disappears, you're out). Then:
+Watch for about 30 seconds. You don't have to wait for Claude to finish — the point is to see Claude diving in without a plan. Interrupt with `Esc` once you've seen enough.
+
+**Step 2 — With Plan Mode**, press `Shift+Tab` until you see `plan mode` in the input bar (or type `/plan`). Ask the exact same thing again:
+
+```
+Rewrite retro.md: add an executive summary at the top, fill in the
+Action Items with realistic owners and deadlines, populate the Metrics
+section with sensible numbers, and tighten the language everywhere.
+Do not remove or rename any of the existing section headers.
+```
+
+Read the plan Claude produces. It should list what it found in the file, the order it intends to make changes, and any assumptions.
+
+Press `Shift+Tab` again until `plan mode` disappears from the input bar, then:
 
 ```
 Implement the plan you just described.
 ```
 
-Compare. Without planning, Claude dives in and may miss dependencies. With Plan Mode, it reads first, thinks about order, then executes a coordinated plan.
+Compare. Without planning, Claude dives in and may miss pieces or order things badly. With Plan Mode, it reads the file first, reasons about order, then executes a coordinated pass.
 
 ---
 
-## Exercise 3: Externalize (2 min)
+## Exercise 3: Externalize (3 min)
 
-This one is mechanical — no waiting on Claude to think. Move quickly.
+Still in the same session. We're going to write three things to disk that will outlive the conversation: a CLAUDE.md, a verification script, and a skill.
 
 **Step 1:** Bootstrap a CLAUDE.md:
 
@@ -131,53 +107,65 @@ This one is mechanical — no waiting on Claude to think. Move quickly.
 /init
 ```
 
-**Step 2:** Add a rule using the `#` memory shortcut. Type `#` as the **first character of a brand-new prompt** (not pasted into the middle of another message), then this text:
+Claude will read the current directory and generate a starter `CLAUDE.md`.
+
+**Step 2:** Ask Claude to create a verification script. The CLAUDE.md rule in Step 3 is going to point at it, so this comes first:
 
 ```
-# Always run python -m pytest after every code change. Never skip tests.
+Create a shell script check.sh in the current directory. It should
+grep retro.md for these required sections: "## What Went Well",
+"## What Didn't", "## Action Items", "## Metrics". Print "OK" if all
+four are present. For each missing section, print "FAIL: missing
+<section name>" on its own line and exit non-zero. Make the script
+executable.
+```
+
+Claude writes `check.sh` and makes it executable. Run it once yourself from bash mode by typing `!./check.sh` in the prompt — you should see `OK`.
+
+**Step 3:** Add a persistent rule using the `#` memory shortcut. Type `#` as the **first character of a brand-new prompt** (not pasted into the middle of another message), then this text:
+
+```
+# After any change to retro.md, always run ./check.sh and confirm it passes before responding.
 ```
 
 Claude will ask which CLAUDE.md to save it to — choose the **project-level** one.
 
 That rule is now in a file. It survives `/compact`, `/clear`, and session resets. The conversation is temporary. The file is permanent.
 
-**Step 3:** Create a skill. Skills live in their own named subdirectory under `.claude/skills/` — a bare `SKILL.md` directly in `.claude/skills/` will not be loaded.
-
-```bash
-mkdir -p .claude/skills/explain-code
-```
-
-Then ask Claude to create `.claude/skills/explain-code/SKILL.md`:
+**Step 4:** Create a skill. Skills live in their own named subdirectory under `.claude/skills/` — a bare `SKILL.md` directly in `.claude/skills/` will not be loaded. Ask Claude to do the directory and the file in one shot:
 
 ```
-Create a skill file at .claude/skills/explain-code/SKILL.md. It must
+Create a skill file at .claude/skills/explain-doc/SKILL.md. It must
 start with YAML front matter between --- fences, with two fields:
-  name: explain-code
-  description: Explains code with diagrams and analogies
-After the closing ---, add markdown instructions: start with an
-everyday analogy, draw an ASCII diagram, walk through step-by-step,
-highlight one common gotcha.
+  name: explain-doc
+  description: Summarizes a document by identifying the thesis, key decisions, and open questions
+After the closing ---, add markdown instructions: identify the main
+thesis in one sentence, list up to three key decisions the document
+makes, flag any unanswered questions, and suggest one concrete
+improvement.
 ```
 
-Skills are discovered when a session starts. After creating a new skill, exit and restart `claude` so the registry picks it up. Anything you teach Claude in conversation gets compacted away. Anything you write to a file persists.
+Claude creates the directory and writes the file.
+
+> **Note on skills:** Skills are scanned once at session start. There is no hot-reload in this build — the skill you just created will be available the next time you launch `claude`, not in this current session. That's fine for the workshop; we wrote it to *demonstrate* externalization, not to use it right now.
 
 ---
 
 ## Exercise 4: Verify (1 min)
 
-Still in `~/workshop-warmup-plan` with a fresh `claude` session (you just restarted it at the end of Exercise 3 to load the skill). Confirm there's a test file on disk before continuing — `ls test_*.py` should show at least one. If not, paste Exercise 2's "Implement the plan" prompt again first.
+Still in the same session. You now have `retro.md`, `check.sh`, and a CLAUDE.md rule telling Claude to run the check after any change to `retro.md`.
 
-Then ask Claude:
+Ask Claude:
 
 ```
-Refactor the validator function to return a dataclass instead of a
-tuple. Update the tests to match.
+Reorganize retro.md: move "Action Items" to the top of the document,
+and rename the "What Didn't" section to "Pain Points".
 ```
 
-Watch what happens. Claude should run the tests after the change because of the rule you added to CLAUDE.md. When a test fails, Claude sees the failure and fixes it. When there are no tests, Claude guesses.
+Watch what happens. Because of the CLAUDE.md rule, Claude runs `./check.sh` after the edit. The check **fails** — renaming `## What Didn't` to `## Pain Points` made `check.sh` report a missing section. Claude sees the failure in the script's output and self-corrects: it will either rename the section back, update `check.sh` to match, or ask you which you meant.
 
-**The key insight:** Advisory instructions (CLAUDE.md) work about 80% of the time. Deterministic verification (tests, linters) works 100%.
+**The key insight:** Advisory instructions (CLAUDE.md rules) work about 80% of the time. Deterministic verification (scripts, linters, hooks) works 100% — and when it fails, Claude can *see* the failure in the output and fix it.
 
 ---
 
-*After these exercises, you'll choose a build path and apply all four patterns on a real project.*
+*You just touched every pillar: you controlled reasoning depth (Exercise 1), planned before building (Exercise 2), externalized rules and skills to files (Exercise 3), and watched Claude verify and self-correct against a deterministic check (Exercise 4). Next up: pick a build path and apply these patterns on a real project.*

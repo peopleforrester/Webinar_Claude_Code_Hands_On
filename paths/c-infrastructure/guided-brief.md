@@ -21,7 +21,7 @@ When Claude generates `CLAUDE.md`, add project context by pressing `#` in Claude
 - It outputs files — it does NOT run Docker or deploy anything
 - Support: Dockerfile, docker-compose.yml, and a basic CI pipeline config
 - Use Python with no external dependencies (stdlib only)
-- Run python -m pytest after every change. Never skip.
+- Run `python3 -m unittest discover -s tests` after every change. Never skip.
 
 This gives Claude the constraints it needs to stay on track.
 
@@ -67,7 +67,7 @@ Example test prompt after the Dockerfile generator is done:
 Run tests after each generator:
 
 ```bash
-python -m pytest tests/ -v
+python3 -m unittest discover -s tests -v
 ```
 
 > **Pillar 4 in action:** Tests verify each generator's output. When a test fails, Claude self-corrects before moving on.

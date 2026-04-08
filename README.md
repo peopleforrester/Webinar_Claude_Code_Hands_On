@@ -48,7 +48,7 @@ Pick the path that matches your role:
 | A backend/API developer | **B: Backend** — Reservation Validation API | `paths/b-backend/` |
 | DevOps / SRE / platform | **C: Infrastructure** — Deployment Config Generator | `paths/c-infrastructure/` |
 | Data engineer / analyst | **D: Data/Analysis** — Operations Log Analyzer | `paths/d-data/` |
-| PM / business lead / ops | **E: Business** — Stakeholder Status Report Generator | `paths/e-business/` |
+| PM / business lead / ops | **E: Business** — Meeting Prep Kit (no code) | `paths/e-business/` |
 
 ### 5. Follow the guided build
 Each path has its own `guided-brief.md` with step-by-step build instructions. Open your path's `README.md` for an overview, then follow `guided-brief.md` along with the instructor.
@@ -93,13 +93,13 @@ Disney_Claude_Code_Course/
 │   │   ├── independent-brief.md  ← Guest Flow Simulator challenge
 │   │   └── sample-data/
 │   │       └── operations-logs.json
-│   └── e-business/               ← Path E: Stakeholder Status Report Generator
+│   └── e-business/               ← Path E: Meeting Prep Kit (no code)
 │       ├── README.md             ← Path overview & quick start
 │       ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │       ├── CLAUDE.md             ← Path-specific project CLAUDE.md
-│       ├── independent-brief.md  ← Weekly Report Comparator challenge
+│       ├── independent-brief.md  ← Multi-Meeting Changelog challenge
 │       └── sample-data/
-│           └── project-status.json
+│           └── meeting-transcript.md
 ├── reference/                    ← Quick reference handouts
 │   ├── command-card.md           ← Compact command & shortcut card
 │   ├── four-pillars.md           ← The four pillars of effectiveness
@@ -115,7 +115,7 @@ Disney_Claude_Code_Course/
     ├── api-scaffold/SKILL.md     ← Path B: API scaffold conventions
     ├── docker-review/SKILL.md    ← Path C: Dockerfile review checklist
     ├── data-report/SKILL.md      ← Path D: Data report conventions
-    └── report-voice/SKILL.md     ← Path E: Business report tone and structure
+    └── meeting-prep-kit/SKILL.md ← Path E: Meeting transcript → 5-file prep kit (no code)
 ```
 
 ---

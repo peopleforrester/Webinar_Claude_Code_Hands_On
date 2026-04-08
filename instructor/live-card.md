@@ -310,13 +310,13 @@ and rename the "What Didn't" section to "Pain Points".
 | **B** | Backend | Reservation Validation API (Python/Node stdlib) |
 | **C** | Infrastructure | Deployment Config Generator (Python stdlib) |
 | **D** | Data/Analysis | Operations Log Analyzer (Python stdlib) |
-| **E** | Business | Stakeholder Status Report Generator (non-coders welcome) |
+| **E** | Business | Meeting Prep Kit — **no code at all** |
 
 **Tell them:**
 
 > Open `paths/<your-path>/guided-brief.md`. The brief has step-by-step instructions you'll follow along with me. We start the guided build in 30 seconds.
 
-**For non-developers in the room**, steer explicitly to Path E. **Say the key unlock out loud** so nobody self-selects out: *"If you pick Path E, you do not write Python. You prompt Claude to write it. Your job is business judgment — what should a status report contain, how should risks be framed. Claude handles the code."* Without this framing, PMs and business folks will assume Path E is "too technical" and default to sitting it out.
+**For non-developers in the room**, steer explicitly to Path E. **Say the key unlock out loud** so nobody self-selects out: *"Path E is zero code. You write no Python, no JavaScript, nothing. You copy one skill file into your project, point Claude at a meeting transcript, and Claude generates five stakeholder artifacts — exec summary, decisions, action items, follow-up email, and a timeline with sentiment. The model IS the tool. Your job is judgment — what makes a good prep kit, not how to parse text."* Without this framing, PMs and business folks will assume Path E is "too technical" and default to sitting it out.
 
 ---
 

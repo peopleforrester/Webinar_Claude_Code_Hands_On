@@ -1,42 +1,42 @@
-# Stakeholder Status Report Generator
+# Meeting Prep Kit
+
+## What this project is
+A no-code workflow: Claude reads a raw meeting transcript and generates a set of stakeholder-ready artifacts. There is no Python, no JavaScript, no parser. Claude is the tool; a Skill file encodes the format and voice rules; a shell script verifies the output.
 
 ## Build & Test
-- Language: Python 3 (stdlib only)
-- Run: `python3 report.py --input project-status.json --output output/status-report.md`
-- Test: `python3 -m unittest discover -s tests`
-- Verify: `./verify.sh output/status-report.md` (runs automatically per the rule below)
+- Language: none (Claude writes markdown and CSV directly)
+- Input: a meeting transcript file in markdown or plain text
+- Output: five files in `./output/` — `summary.md`, `decisions.md`, `action-items.csv`, `followup-email.md`, `timeline.md`
+- Verify: `./verify.sh` (runs automatically per the rule below)
 
 ## Conventions
-- No external dependencies — stdlib only (no Jinja2, no pandas, no markdown libraries)
-- Use Python `json` module for parsing, f-strings for templating
-- CLI arguments via `argparse`
-- Output goes to `./output/` directory (create if missing)
-- Each section is a separate function: `render_header()`, `render_summary()`, `render_workstreams()`, `render_risks()`, `render_asks()`, `render_milestones()`
-- Validate input JSON against the schema before generating — fail loudly with a specific error if a required field is missing
-- Status values normalized to: `on_track`, `at_risk`, `blocked`, `complete`
+- Do not write any code (Python, JavaScript, etc.) to do the extraction. Claude reads the transcript and writes the artifacts directly. The point of this project is that the model is the tool.
+- Output directory: `./output/` (create if missing)
+- All five required files must exist after a successful run. Names are exact.
+- Preserve names, dollar amounts, and dates verbatim from the transcript. No rounding, no approximation, no renaming.
+- Active voice only. No weasel words: `may`, `might`, `could`, `perhaps`, `possibly`, `we discussed`, `it was mentioned`, `there was talk of`, `moving forward`.
+- Attribute action items to the person who committed to them, not the person who requested them.
+- Never invent content. If the transcript does not support a claim, either flag the gap (`Not stated in transcript`, `TBD`, `Unassigned`) or leave it out.
 
-## Report Structure
-1. **Header** — Project name, report date, reporting period, executive sponsor
-2. **Overall Status** — Single line with status indicator (on track / at risk / blocked)
-3. **Executive Summary** — Auto-generated prose paragraph, under 200 words
-4. **Workstream Status Table** — Markdown table with owner, status, progress %, notes
-5. **Risks & Mitigations** — Ordered by impact × likelihood, every risk has a mitigation
-6. **Asks** — What we need from stakeholders, with owners and due dates
-7. **Upcoming Milestones** — Next 30 days, with dates and status
+## Output Structure
+1. **summary.md** — Under 300 words. One-sentence purpose, top 3 takeaways, one-sentence tone, one-sentence key pivot (if any).
+2. **decisions.md** — Every concrete decision as `## Decision: {title}` with **What**, **Why**, **Owner**, **Effective date**.
+3. **action-items.csv** — Header: `owner,action,due_date,status,source_quote`. Every commitment is one row. `due_date` ISO format or `TBD`. `source_quote` is a verbatim snippet from the transcript proving the commitment.
+4. **followup-email.md** — Draft email with `Subject:` line, one-paragraph recap, `## Decisions`, `## Action items`, `## Open questions`, sign-off `[Your name]`.
+5. **timeline.md** — Topic-by-topic walk through the meeting in order, each with `Raised by`, `What happened`, `Resolution`, `Sentiment`, `Position shifts`.
 
-## Input JSON Schema
-See `sample-data/project-status.json` for the canonical example. Required top-level fields:
-`project`, `report_date`, `reporting_period`, `executive_sponsor`, `overall_status`, `workstreams`, `risks`, `asks`, `milestones`.
+## Skill
+The `meeting-prep-kit` skill at `.claude/skills/meeting-prep-kit/SKILL.md` encodes the full workflow. Invoke it whenever you process a transcript.
 
 ## Verification Rule
-- After any change to a generated report, run `./verify.sh <report-path>` and confirm it passes before responding.
-- `verify.sh` checks: all required sections present, every workstream has an owner, every risk has a mitigation, executive summary under 200 words, overall status is one of the allowed values.
-- Run `python3 -m unittest discover -s tests` after any code change. Never skip.
+- After generating or updating any output file, run `./verify.sh` and confirm it passes before responding to the user.
+- `verify.sh` checks: all five required files exist, `action-items.csv` has the correct header, every CSV row has a non-empty owner and a due_date (or `TBD`), `summary.md` is under 300 words, no weasel words appear in any output file.
 
 ## Don't
-- Don't install any packages (no `pip install`)
-- Don't use markdown libraries, templating engines, or data frames
-- Don't make network requests
-- Don't use hardcoded absolute paths
-- Don't crash on missing optional fields — warn and continue, but fail on missing required fields
-- Don't use weasel words in generated report prose ("may", "could", "perhaps") — active voice only
+- Don't write Python, JavaScript, or any other code to do extraction.
+- Don't install any packages.
+- Don't make network requests.
+- Don't invent action items, decisions, or quotes that aren't in the transcript.
+- Don't write outside `./output/`.
+- Don't skip the verify step.
+- Don't use weasel words anywhere in the output.

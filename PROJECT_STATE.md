@@ -1,6 +1,6 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v5.5 — Generic Warmup + Path E (Business)
+## Current Status: v5.6 — Path E Pivot to Meeting Prep Kit (no code)
 
 **Last updated:** 2026-04-08
 **Branch:** staging
@@ -69,9 +69,19 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
 - [x] pytest → python3 -m unittest swap across all path files
 - [x] README skills hot-reload myth killed
 - [x] instructor/live-card.md added (at-podium operational script)
-- [x] Path E (Business — Stakeholder Status Report Generator) added with full brief, CLAUDE.md, independent challenge, sample data
-- [x] skills-examples/report-voice/SKILL.md added (tone/voice rules for business reports)
+- [x] Path E v1 (Stakeholder Status Report Generator, Python-based) added and then replaced in v5.6
 - [x] All cross-references updated for 5 paths (root README, instructor-guide, live-card)
+
+### Phase 10: v5.6 Path E Pivot to Meeting Prep Kit (Complete)
+- [x] Path E rebuilt as zero-code workflow: Claude IS the tool
+- [x] Sample data replaced: meeting-transcript.md (messy Q2 planning dialogue with decisions, action items, tangents, sentiment signals)
+- [x] skills-examples/report-voice/ replaced with skills-examples/meeting-prep-kit/ (skill encodes 5-file output format and voice rules)
+- [x] Path E CLAUDE.md rewritten: no code, 5-file output, verify.sh rule
+- [x] Path E guided-brief.md rewritten: Skill-driven, verify-driven, no Python anywhere
+- [x] Path E independent-brief.md rewritten: multi-meeting changelog challenge
+- [x] instructor-guide.md Path E section rewritten around "no code" framing
+- [x] live-card.md Path E cue updated for explicit "zero code" unlock
+- [x] README.md paths table and skills-examples listing updated
 
 ### Remaining Before Workshop
 - [ ] Personal dry-run of warmup exercises (single session, ~10 min)

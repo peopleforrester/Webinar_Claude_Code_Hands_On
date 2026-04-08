@@ -197,11 +197,11 @@ Ask Claude:
 | **B — Backend** | Reservation Validation API | Python or Node, stdlib only |
 | **C — Infrastructure** | Deployment Config Generator | Python stdlib CLI |
 | **D — Data/Analysis** | Operations Log Analyzer | Python stdlib |
-| **E — Business** | Stakeholder Status Report Generator | Python stdlib (non-coders welcome) |
+| **E — Business** | Meeting Prep Kit (no code — Claude IS the tool) | Markdown + shell verify only |
 
 30 seconds to pick. Open the `guided-brief.md` for your chosen path.
 
-**For non-developers in the room:** steer to Path E. The attendee doesn't write Python — they prompt Claude to write it. They bring business judgment; Claude handles the code. It's the most accessible of the five paths for non-engineers.
+**For non-developers in the room:** steer to Path E. **Path E is deliberately zero-code** — the attendee does not write Python, JavaScript, or anything else. They copy a Skill file into their project, point Claude at a meeting transcript, and Claude generates five stakeholder artifacts (summary, decisions, action items CSV, follow-up email, timeline). The model is the tool. Say this out loud when they pick paths, or PMs will assume Path E is "too technical" and default to sitting it out.
 
 ---
 
@@ -260,16 +260,18 @@ Log file analyzer that parses JSON-formatted operations logs, computes summary s
 
 ---
 
-#### Path E: Business — Stakeholder Status Report Generator
+#### Path E: Business — Meeting Prep Kit
 
-Python CLI (stdlib only) that reads a project status JSON file and generates a professional stakeholder status report in markdown. Executive summary, workstream status table, risks and mitigations, asks, upcoming milestones. Sample data includes a realistic cross-functional Q2 initiative with 5 workstreams, 4 risks, and 6 milestones.
+**The zero-code path.** Attendee copies a Skill file into their project, points Claude at a messy meeting transcript, and Claude generates five stakeholder-ready artifacts: executive summary, decisions log, action items CSV (with source-quote audit trail), draft follow-up email, and a topic-by-topic timeline with sentiment. No Python, no JavaScript, no extraction library. The model IS the tool. Sample data is a realistic 47-minute Q2 planning meeting with decisions, slippage, tangents, a late joiner, parked items, and one unresolved launch-date question.
 
-**The key framing for non-developer attendees:** they do not write Python. They prompt Claude. Their job is business judgment (what should a status report contain, how should risks be framed); Claude's job is code. Sell this explicitly when attendees pick this path — some PMs will assume it's "too technical" and default to nothing.
+**The key framing for non-developer attendees:** they write no code at all. Their job is judgment — what should a good meeting prep kit contain, how should action items be attributed, what's the right tone for a follow-up email. Claude handles the reasoning and writing. Sell this explicitly when attendees pick paths.
 
-**Verification story** mirrors the warmup's `check.sh` pattern: a `verify.sh` script checks every workstream has an owner, every risk has a mitigation, executive summary is under 200 words. The CLAUDE.md rule auto-runs it. When a generated report violates a business rule, Claude sees the failure and self-corrects — same visceral moment as the warmup, different vocabulary.
+**Why this path exists:** Most Claude Code demos show code generation. That's real but it undersells the tool. Path E demonstrates that Claude Code is equally useful for skilled knowledge work where the bottleneck is judgment, not syntax. For the PM / chief of staff / business lead in the room, this is the path they can take directly to Monday morning.
 
-**Guided build** walks through parsing, section renderers, verify script, and iteration (audience variants, compare-to-previous, CSV export).
-**Independent challenge**: 4-week trend comparator across multiple report files.
+**Verification story** mirrors the warmup's `check.sh` pattern: a `verify.sh` script checks all five output files exist, CSV header is correct, every action row has an owner and date, summary is under 300 words, and no weasel words appear anywhere. CLAUDE.md rule auto-runs it after every output change. When a rule is violated, Claude sees the failure and self-corrects — same visceral moment as the warmup, applied to document work.
+
+**Guided build** walks through: copying the Skill, Plan Mode review of the extraction approach, running the Skill, iterating with per-audience variants (exec 100-word version, Slack version, per-person commitments, risk radar), and creating a personal org-specific skill.
+**Independent challenge**: multi-meeting changelog — compare two transcripts of the same project a week apart, surface what changed, what slipped, and what should have changed but didn't.
 
 ---
 
@@ -386,7 +388,7 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 
 ### Adapting to Your Audience
 
-- **Mostly non-developers**: Steer toward Path E (Business). Attendees don't write Python — they prompt Claude to write it, bringing business judgment about status report content and structure. Path D (Data/Analysis) is a strong second choice for analysts who are comfortable reading code but not writing it.
+- **Mostly non-developers**: Steer hard toward Path E (Business — Meeting Prep Kit). It is genuinely zero-code — attendees don't write or even read Python. They copy a Skill file, point Claude at a transcript, and get five stakeholder-ready artifacts. Path D (Data/Analysis) is a strong second for analysts comfortable reading code but not writing it.
 - **All senior devs**: Move faster through the warmup, allocate more time for the independent build, and point them toward hooks (`.claude/hooks/`) as a post-workshop exploration topic.
 - **Mixed audience**: Let people self-select paths. The path structure handles the skill spread naturally.
 

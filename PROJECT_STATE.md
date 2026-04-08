@@ -1,11 +1,11 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v5.4 Full Spec Reconciliation Complete
+## Current Status: v5.5 — Generic Warmup + Path E (Business)
 
-**Last updated:** 2026-04-07
+**Last updated:** 2026-04-08
 **Branch:** staging
-**Workshop date:** Wednesday, April 8, 2026 (12:00-1:00 PM ET)
-**Next step:** Dry-run exercises in Bedrock-like config, then grant attendees repo access
+**Workshop date:** Thursday, April 9, 2026 (12:00-1:00 PM ET)
+**Next step:** Personal dry-run of warmup + Path E before webinar, then grant attendees repo access
 **Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git
 
 ## Confirmed Environment (from IT team, pre-workshop)
@@ -64,10 +64,21 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
 - [x] README.md updated with new files, corrected timings, warmup reference
 - [x] All content genericized (no client-specific references)
 
+### Phase 9: v5.5 Generic Warmup + Path E (Complete)
+- [x] Warmup rewritten: single-session, single-directory, non-code retro-doc task
+- [x] pytest → python3 -m unittest swap across all path files
+- [x] README skills hot-reload myth killed
+- [x] instructor/live-card.md added (at-podium operational script)
+- [x] Path E (Business — Stakeholder Status Report Generator) added with full brief, CLAUDE.md, independent challenge, sample data
+- [x] skills-examples/report-voice/SKILL.md added (tone/voice rules for business reports)
+- [x] All cross-references updated for 5 paths (root README, instructor-guide, live-card)
+
 ### Remaining Before Workshop
-- [ ] Dry-run exercises in Bedrock-like environment
+- [ ] Personal dry-run of warmup exercises (single session, ~10 min)
+- [ ] Personal dry-run of Path E guided build (~28 min)
+- [ ] Temporarily disable skill installation policy in user CLAUDE.md for the webinar
 - [ ] Grant attendees access to GitHub repo
-- [ ] Add presentation deck to slides/ directory (separate project)
+- [ ] Add presentation deck to slides/ directory (separate project, optional)
 
 ## Decisions Made
 - .gitignore allows .claude/settings.json through (negation pattern)

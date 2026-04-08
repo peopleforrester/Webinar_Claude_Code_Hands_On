@@ -48,6 +48,7 @@ Pick the path that matches your role:
 | A backend/API developer | **B: Backend** — Reservation Validation API | `paths/b-backend/` |
 | DevOps / SRE / platform | **C: Infrastructure** — Deployment Config Generator | `paths/c-infrastructure/` |
 | Data engineer / analyst | **D: Data/Analysis** — Operations Log Analyzer | `paths/d-data/` |
+| PM / business lead / ops | **E: Business** — Stakeholder Status Report Generator | `paths/e-business/` |
 
 ### 5. Follow the guided build
 Each path has its own `guided-brief.md` with step-by-step build instructions. Open your path's `README.md` for an overview, then follow `guided-brief.md` along with the instructor.
@@ -85,13 +86,20 @@ Disney_Claude_Code_Course/
 │   │   ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
 │   │   └── independent-brief.md  ← Health Dashboard Configs challenge
-│   └── d-data/                   ← Path D: Operations Log Analyzer
+│   ├── d-data/                   ← Path D: Operations Log Analyzer
+│   │   ├── README.md             ← Path overview & quick start
+│   │   ├── guided-brief.md       ← Step-by-step guided build (28 min)
+│   │   ├── CLAUDE.md             ← Path-specific project CLAUDE.md
+│   │   ├── independent-brief.md  ← Guest Flow Simulator challenge
+│   │   └── sample-data/
+│   │       └── operations-logs.json
+│   └── e-business/               ← Path E: Stakeholder Status Report Generator
 │       ├── README.md             ← Path overview & quick start
 │       ├── guided-brief.md       ← Step-by-step guided build (28 min)
 │       ├── CLAUDE.md             ← Path-specific project CLAUDE.md
-│       ├── independent-brief.md  ← Guest Flow Simulator challenge
+│       ├── independent-brief.md  ← Weekly Report Comparator challenge
 │       └── sample-data/
-│           └── operations-logs.json
+│           └── project-status.json
 ├── reference/                    ← Quick reference handouts
 │   ├── command-card.md           ← Compact command & shortcut card
 │   ├── four-pillars.md           ← The four pillars of effectiveness
@@ -106,7 +114,8 @@ Disney_Claude_Code_Course/
     ├── ui-component/SKILL.md     ← Path A: UI component conventions
     ├── api-scaffold/SKILL.md     ← Path B: API scaffold conventions
     ├── docker-review/SKILL.md    ← Path C: Dockerfile review checklist
-    └── data-report/SKILL.md      ← Path D: Data report conventions
+    ├── data-report/SKILL.md      ← Path D: Data report conventions
+    └── report-voice/SKILL.md     ← Path E: Business report tone and structure
 ```
 
 ---

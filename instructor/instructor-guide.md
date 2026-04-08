@@ -197,8 +197,11 @@ Ask Claude:
 | **B — Backend** | Reservation Validation API | Python or Node, stdlib only |
 | **C — Infrastructure** | Deployment Config Generator | Python stdlib CLI |
 | **D — Data/Analysis** | Operations Log Analyzer | Python stdlib |
+| **E — Business** | Stakeholder Status Report Generator | Python stdlib (non-coders welcome) |
 
 30 seconds to pick. Open the `guided-brief.md` for your chosen path.
+
+**For non-developers in the room:** steer to Path E. The attendee doesn't write Python — they prompt Claude to write it. They bring business judgment; Claude handles the code. It's the most accessible of the five paths for non-engineers.
 
 ---
 
@@ -206,7 +209,7 @@ Ask Claude:
 
 > **Note**: This block is 28 minutes — 5 more than previous versions. Let attendees absorb. Don't rush.
 
-All four paths follow the same structure. The four pillars are woven in as explicit callouts during each phase.
+All five paths follow the same structure. The four pillars are woven in as explicit callouts during each phase.
 
 **Common structure for every path:**
 
@@ -254,6 +257,19 @@ Log file analyzer that parses JSON-formatted operations logs, computes summary s
 
 **Guided build** walks through parsing, aggregation, and report formatting.
 **Independent challenge**: Add time-window analysis or comparative reporting.
+
+---
+
+#### Path E: Business — Stakeholder Status Report Generator
+
+Python CLI (stdlib only) that reads a project status JSON file and generates a professional stakeholder status report in markdown. Executive summary, workstream status table, risks and mitigations, asks, upcoming milestones. Sample data includes a realistic cross-functional Q2 initiative with 5 workstreams, 4 risks, and 6 milestones.
+
+**The key framing for non-developer attendees:** they do not write Python. They prompt Claude. Their job is business judgment (what should a status report contain, how should risks be framed); Claude's job is code. Sell this explicitly when attendees pick this path — some PMs will assume it's "too technical" and default to nothing.
+
+**Verification story** mirrors the warmup's `check.sh` pattern: a `verify.sh` script checks every workstream has an owner, every risk has a mitigation, executive summary is under 200 words. The CLAUDE.md rule auto-runs it. When a generated report violates a business rule, Claude sees the failure and self-corrects — same visceral moment as the warmup, different vocabulary.
+
+**Guided build** walks through parsing, section renderers, verify script, and iteration (audience variants, compare-to-previous, CSV export).
+**Independent challenge**: 4-week trend comparator across multiple report files.
 
 ---
 
@@ -370,7 +386,7 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 
 ### Adapting to Your Audience
 
-- **Mostly non-developers**: Steer toward Path D (Data/Analysis). It's the most accessible — JSON parsing and markdown output, no server or HTML knowledge needed.
+- **Mostly non-developers**: Steer toward Path E (Business). Attendees don't write Python — they prompt Claude to write it, bringing business judgment about status report content and structure. Path D (Data/Analysis) is a strong second choice for analysts who are comfortable reading code but not writing it.
 - **All senior devs**: Move faster through the warmup, allocate more time for the independent build, and point them toward hooks (`.claude/hooks/`) as a post-workshop exploration topic.
 - **Mixed audience**: Let people self-select paths. The path structure handles the skill spread naturally.
 

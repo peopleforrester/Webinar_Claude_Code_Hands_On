@@ -1,0 +1,119 @@
+{
+  "project": "Q2 Customer Portal Redesign",
+  "report_date": "2026-04-08",
+  "reporting_period": "2026-03-25 to 2026-04-07",
+  "executive_sponsor": "Sarah Chen, VP Product",
+  "overall_status": "at_risk",
+  "workstreams": [
+    {
+      "name": "Frontend Rebuild",
+      "owner": "Alex Kim",
+      "status": "on_track",
+      "progress_pct": 72,
+      "notes": "Component library 90% complete. Accessibility audit scheduled for next week."
+    },
+    {
+      "name": "API Migration",
+      "owner": "Priya Patel",
+      "status": "at_risk",
+      "progress_pct": 48,
+      "notes": "Authentication service refactor is 2 weeks behind due to scope expansion from security review."
+    },
+    {
+      "name": "Design System",
+      "owner": "Marcus Johnson",
+      "status": "on_track",
+      "progress_pct": 85,
+      "notes": "Final review with brand team on Thursday. On track to ship v1.0 next sprint."
+    },
+    {
+      "name": "User Testing",
+      "owner": "Linh Tran",
+      "status": "blocked",
+      "progress_pct": 15,
+      "notes": "Cannot recruit test participants without approved incentive budget. Awaiting finance approval since 2026-03-20."
+    },
+    {
+      "name": "Data Migration",
+      "owner": "Jordan Reyes",
+      "status": "on_track",
+      "progress_pct": 60,
+      "notes": "Schema mapping complete. Production dry-run scheduled for 2026-04-15."
+    }
+  ],
+  "risks": [
+    {
+      "description": "Auth service refactor delay will cascade into integration testing window",
+      "impact": "high",
+      "likelihood": "high",
+      "mitigation": "Parallelize by having two engineers own auth refactor; pull forward integration test fixtures so they're ready the moment auth lands."
+    },
+    {
+      "description": "User testing blocker may invalidate launch-readiness criteria",
+      "impact": "high",
+      "likelihood": "medium",
+      "mitigation": "Escalate incentive budget to VP Finance this week; in parallel, use internal dogfood testing as a fallback signal."
+    },
+    {
+      "description": "Design system brand review may require color palette changes",
+      "impact": "medium",
+      "likelihood": "low",
+      "mitigation": "Pre-reviewed swatches with brand lead on 2026-04-01; low probability of surprise but holding a 2-day buffer in the sprint."
+    },
+    {
+      "description": "Data migration dry-run may surface unexpected production data volume issues",
+      "impact": "medium",
+      "likelihood": "medium",
+      "mitigation": "Sampled production data into staging environment last week; no anomalies detected yet."
+    }
+  ],
+  "asks": [
+    {
+      "from": "VP Finance",
+      "need": "Approve $12K user testing incentive budget to unblock the User Testing workstream",
+      "by": "2026-04-12"
+    },
+    {
+      "from": "Security team",
+      "need": "Confirm whether the expanded auth scope is a hard requirement for launch or can be deferred to post-launch hardening",
+      "by": "2026-04-10"
+    },
+    {
+      "from": "Executive sponsor",
+      "need": "Decision on whether to hold launch date or slip by one week to absorb auth delay without compressing integration testing",
+      "by": "2026-04-14"
+    }
+  ],
+  "milestones": [
+    {
+      "name": "Design system v1.0 ship",
+      "date": "2026-04-11",
+      "status": "in_progress"
+    },
+    {
+      "name": "Data migration production dry-run",
+      "date": "2026-04-15",
+      "status": "upcoming"
+    },
+    {
+      "name": "Auth service refactor complete",
+      "date": "2026-04-18",
+      "status": "in_progress"
+    },
+    {
+      "name": "End-to-end integration testing begins",
+      "date": "2026-04-22",
+      "status": "upcoming"
+    },
+    {
+      "name": "User testing round 1 complete",
+      "date": "2026-03-30",
+      "status": "missed"
+    },
+    {
+      "name": "Launch readiness review",
+      "date": "2026-05-05",
+      "status": "upcoming"
+    }
+  ]
+}

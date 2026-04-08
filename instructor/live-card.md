@@ -302,7 +302,7 @@ and rename the "What Didn't" section to "Pain Points".
 
 **Say:**
 
-> 30 seconds. No deliberation. Pick what's closest to your day job.
+> 30 seconds. No deliberation. Pick what's closest to your day job. Five paths — one of them is for non-developers, so if you don't write code, Path E is for you.
 
 | Pick | Path | Project |
 |---|---|---|
@@ -310,12 +310,13 @@ and rename the "What Didn't" section to "Pain Points".
 | **B** | Backend | Reservation Validation API (Python/Node stdlib) |
 | **C** | Infrastructure | Deployment Config Generator (Python stdlib) |
 | **D** | Data/Analysis | Operations Log Analyzer (Python stdlib) |
+| **E** | Business | Stakeholder Status Report Generator (non-coders welcome) |
 
 **Tell them:**
 
 > Open `paths/<your-path>/guided-brief.md`. The brief has step-by-step instructions you'll follow along with me. We start the guided build in 30 seconds.
 
-**For mostly non-developers in the room**, steer explicitly to Path D. It's the most accessible — JSON parsing and markdown output, no server or HTML knowledge needed.
+**For non-developers in the room**, steer explicitly to Path E. **Say the key unlock out loud** so nobody self-selects out: *"If you pick Path E, you do not write Python. You prompt Claude to write it. Your job is business judgment — what should a status report contain, how should risks be framed. Claude handles the code."* Without this framing, PMs and business folks will assume Path E is "too technical" and default to sitting it out.
 
 ---
 

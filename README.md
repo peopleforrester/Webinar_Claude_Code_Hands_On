@@ -32,8 +32,8 @@ When you launch `claude` interactively later, the startup banner shows the activ
 
 ### 1. Clone the repo
 ```bash
-git clone <repo-url>
-cd Disney_Claude_Code_Course
+git clone git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git
+cd Webinar_Claude_Code_Hands_On
 ```
 
 ### 2. Read the root CLAUDE.md
@@ -64,7 +64,7 @@ After the guided build, each path has an `independent-brief.md` with a standalon
 ## Repo Structure
 
 ```
-Disney_Claude_Code_Course/
+Webinar_Claude_Code_Hands_On/
 ├── README.md                     ← You are here
 ├── CLAUDE.md                     ← Workshop-wide conventions (loaded by Claude Code)
 ├── warmup-exercises.md           ← Four rapid exercises (effort, planning, externalize, verify)

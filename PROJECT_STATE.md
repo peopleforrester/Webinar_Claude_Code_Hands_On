@@ -6,7 +6,7 @@
 **Branch:** staging
 **Workshop date:** Thursday, April 9, 2026 (12:00-1:00 PM ET)
 **Next step:** Personal dry-run of warmup + Path E before webinar, then grant attendees repo access
-**Remote:** git@github.com:peopleforrester/Disney_Claude_Code_Course.git
+**Remote:** git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git
 
 ## Confirmed Environment (from IT team, pre-workshop)
 

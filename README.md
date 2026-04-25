@@ -110,8 +110,6 @@ Webinar_Claude_Code_Hands_On/
 ├── instructor/                   ← Instructor-only materials
 │   ├── instructor-guide.md       ← Full workshop script with timing and notes
 │   └── dry-run.md                ← Pre-workshop testing checklist
-├── slides/                       ← Instructor slide deck (added before workshop)
-│   └── README.md
 └── skills-examples/              ← Example Skills to copy into your project
     ├── explain-code/SKILL.md     ← General purpose: code explanation
     ├── ui-component/SKILL.md     ← Path A: UI component conventions

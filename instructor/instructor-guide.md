@@ -1,5 +1,5 @@
 # Build with Claude Code: No Pitches, Just Practice
-## v5.4 — Workshop Instructor Guide
+## v5.6 — Workshop Instructor Guide
 
 ---
 
@@ -21,11 +21,11 @@
 |-----------|---------------|
 | Claude Code CLI full feature set | claude.ai web |
 | Plan Mode (Shift+Tab twice or `/plan`) | Claude Code web |
-| `/effort` (low / medium / high / ultrathink) | `/teleport` |
-| `/debug`, `/insights` | Internet MCP servers |
-| CLAUDE.md — all 4 levels | 1M context window |
-| Skills, hooks, subagents | Auto-Memory (disabled for workshop) |
-| Local filesystem access | Web search |
+| `/effort` (low / medium / high / ultrathink) | Internet MCP servers |
+| `/debug`, `/insights` | 1M context window |
+| CLAUDE.md — all 4 levels | Auto-Memory (disabled for workshop) |
+| Skills, hooks, subagents | Web search |
+| Local filesystem access | |
 | Opus 4.6 + Sonnet 4.6 via Bedrock (200K context) | |
 
 **Confirmed capacity**: Both Opus 4.6 and Sonnet 4.6 available via Bedrock with 200K context. No rate limit for 30 concurrent users.
@@ -441,5 +441,5 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 
 ---
 
-*v5.4 | Claude Code Hands-On Workshop*
+*v5.6 | Claude Code Hands-On Workshop*
 *Experience-first structure. Four pillars revealed through exercises, named at the end.*

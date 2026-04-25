@@ -2,6 +2,8 @@
 
 Printable command and shortcut reference for the Claude Code hands-on workshop.
 
+> Need full detail and prose explanations? See [`command-reference.md`](../command-reference.md).
+
 ---
 
 ## Keyboard Shortcuts

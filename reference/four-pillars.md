@@ -58,9 +58,7 @@ Conversations are ephemeral. Files are permanent. Every decision that stays only
 
 ### A Note on Auto-Memory
 
-When enabled, Claude Code automatically writes notes to itself as it works — build commands, debugging patterns, architecture insights. These are saved to `~/.claude/projects/<project>/memory/MEMORY.md` and loaded at the start of every session. Run `/memory` to see what Claude has learned.
-
-**Note:** Auto-memory may be disabled in some enterprise environments. Even when disabled, the other externalization tools (CLAUDE.md, Skills, PLAN.md) work the same way — those are the tools you control directly.
+When enabled, auto-memory captures build commands, debugging patterns, and architecture insights as Claude works, then loads them at the start of every session. Run `/memory` to see what has been learned. This is the row in the table above — called out separately because it may be disabled in enterprise environments. When disabled, the other externalization tools (CLAUDE.md, Skills, PLAN.md) still work the same way; those are the tools you control directly.
 
 ---
 

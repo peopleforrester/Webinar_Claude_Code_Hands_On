@@ -2,6 +2,8 @@
 
 A printable cheat sheet for the Claude Code hands-on workshop.
 
+> Looking for the one-page printable version? See [`reference/command-card.md`](reference/command-card.md).
+
 ---
 
 ## Starting a Session
@@ -177,7 +179,7 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 
 ## Effort Levels
 
-> For detailed guidance on choosing effort levels, see [reference/effort-guide.md](reference/effort-guide.md).
+> For detailed guidance on choosing effort levels, see [reference/effort-guide.md](https://github.com/peopleforrester/Webinar_Claude_Code_Hands_On/blob/main/reference/effort-guide.md).
 
 | Setting | When to Use |
 |---------|-------------|

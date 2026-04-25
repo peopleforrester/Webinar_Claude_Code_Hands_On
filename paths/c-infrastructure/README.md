@@ -16,7 +16,7 @@ This is a **file generator**, not a deployment tool. It does not require Docker 
 
 | File | Purpose |
 |------|---------|
-| [guided-brief.md](guided-brief.md) | Step-by-step guided build (20 min, instructor-led) |
+| [guided-brief.md](guided-brief.md) | Step-by-step guided build (28 min, instructor-led) |
 | [independent-brief.md](independent-brief.md) | Self-directed challenge: Service Health Dashboard Config Generator |
 | [CLAUDE.md](CLAUDE.md) | Path-specific project conventions — copy into your build directory |
 

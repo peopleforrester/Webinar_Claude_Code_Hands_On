@@ -188,7 +188,7 @@ Ask Claude:
 
 ---
 
-## PHASE 5: Guided Build — Pick ONE Path (20 min)
+## PHASE 5: Guided Build — Pick ONE Path (28 min)
 
 > **Recommended:** Path B (Backend API) — it has the most verification steps. This phase is a **separate, fresh Claude session** in a new directory. Exit the warmup session (`/exit` or `Ctrl+D`) and start over here.
 

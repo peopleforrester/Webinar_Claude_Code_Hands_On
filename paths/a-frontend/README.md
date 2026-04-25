@@ -14,7 +14,7 @@ Build a single-page **Guest Feedback Dashboard** using plain HTML, CSS, and Java
 
 | File | Purpose |
 |------|---------|
-| [guided-brief.md](guided-brief.md) | Step-by-step guided build (20 min, instructor-led) |
+| [guided-brief.md](guided-brief.md) | Step-by-step guided build (28 min, instructor-led) |
 | [independent-brief.md](independent-brief.md) | Self-directed challenge: Park Wait Times Display Board |
 | [CLAUDE.md](CLAUDE.md) | Path-specific project conventions — copy into your build directory |
 | [sample-data/guest-feedback.json](sample-data/guest-feedback.json) | 15 sample feedback entries to use as seed data |

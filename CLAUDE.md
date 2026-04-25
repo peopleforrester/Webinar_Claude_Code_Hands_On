@@ -26,6 +26,8 @@ your-project/
     └── skills/
 ```
 
+> Layout shown is illustrative for code-producing paths (A–D). Path E is a zero-code prep kit and diverges — see `paths/e-business/README.md` for its structure.
+
 ## CLAUDE.md Hierarchy (Teaching Reference)
 
 | Level | Location | Scope |

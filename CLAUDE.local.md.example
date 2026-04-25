@@ -4,11 +4,15 @@
 # CLAUDE.local.md is gitignored — it won't affect other team members.
 #
 # Examples of what goes here:
-# - Your preferred language (Python vs JavaScript)
 # - Editor-specific conventions
 # - Local file paths or environment quirks
+# - Workflow preferences (e.g., always show diffs before committing)
+#
+# For paths that offer a language choice (B, C, D), you can record that
+# preference here too — but Path A is JS-only and Path E has no code,
+# so language preferences don't apply universally.
 
 ## My Preferences
 
-- I prefer Python for all exercises
 - When generating output, include timestamps in filenames
+- Before any git commit, show me the diff and wait for confirmation

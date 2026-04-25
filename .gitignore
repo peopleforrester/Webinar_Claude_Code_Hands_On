@@ -1,6 +1,3 @@
-# Instructor-only docs (not for distribution)
-docs/
-
 # Claude Code local config (except starter settings.json)
 .claude/*
 !.claude/settings.json

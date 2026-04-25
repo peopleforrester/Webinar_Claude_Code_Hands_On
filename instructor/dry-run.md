@@ -25,14 +25,12 @@ claude --version
 - [ ] Version shows **2.1.x**
 
 ```bash
-claude /model
+claude -p "say hi"
 ```
-- [ ] Model list includes **Opus 4.6** and **Sonnet 4.6**
+- [ ] Returns a one-line response and exits cleanly (does **not** drop into the REPL)
+- [ ] Confirms backend is connected and the model is responsive
 
-```bash
-claude /status
-```
-- [ ] Shows connected backend (Bedrock or direct API)
+> Avoid `claude /model` or `claude /status` here — those drop you into the REPL with the slash command queued, which breaks the one-shot verification flow. Use `--version` and `-p` for pre-flight; check `/model` and `/status` from inside a session if you need them.
 
 ### Issue Log — Phase 0
 - [ ] _________________________________

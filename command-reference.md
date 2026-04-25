@@ -157,7 +157,7 @@ description: What this skill does (shown in /help output)
 Your skill instructions here...
 ```
 
-Skills hot-reload — edit the file and changes apply immediately, no restart needed.
+Skills are scanned at session start — after creating or editing a `SKILL.md`, exit and relaunch `claude` to pick up changes. There is no hot-reload in this build.
 
 ---
 

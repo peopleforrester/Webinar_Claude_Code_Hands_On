@@ -21,7 +21,7 @@
   "operation": "gate_scan",
   "duration_ms": 145,
   "status": "success",
-  "location": "Magic Kingdom"
+  "location": "Coral Kingdom"
 }
 ```
 

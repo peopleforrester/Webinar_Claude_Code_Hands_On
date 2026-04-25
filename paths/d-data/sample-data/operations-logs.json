@@ -1,12 +1,12 @@
 [
-  {"timestamp": "2026-03-15T08:12:33Z", "operation": "gate_scan", "duration_ms": 145, "status": "success", "location": "Magic Kingdom"},
-  {"timestamp": "2026-03-15T08:12:35Z", "operation": "gate_scan", "duration_ms": 2340, "status": "timeout", "location": "Magic Kingdom"},
-  {"timestamp": "2026-03-15T09:01:12Z", "operation": "ride_dispatch", "duration_ms": 890, "status": "success", "location": "EPCOT"},
-  {"timestamp": "2026-03-15T09:15:44Z", "operation": "payment_process", "duration_ms": 320, "status": "success", "location": "Hollywood Studios"},
-  {"timestamp": "2026-03-15T09:15:47Z", "operation": "payment_process", "duration_ms": 15200, "status": "error", "location": "Hollywood Studios"},
-  {"timestamp": "2026-03-15T10:30:00Z", "operation": "inventory_check", "duration_ms": 560, "status": "success", "location": "Animal Kingdom"},
-  {"timestamp": "2026-03-15T10:30:22Z", "operation": "ride_dispatch", "duration_ms": 445, "status": "success", "location": "Magic Kingdom"},
-  {"timestamp": "2026-03-15T11:45:33Z", "operation": "reservation_lookup", "duration_ms": 210, "status": "success", "location": "EPCOT"},
-  {"timestamp": "2026-03-15T12:00:01Z", "operation": "gate_scan", "duration_ms": 8900, "status": "error", "location": "Animal Kingdom"},
-  {"timestamp": "2026-03-15T12:30:15Z", "operation": "payment_process", "duration_ms": 290, "status": "success", "location": "Magic Kingdom"}
+  {"timestamp": "2026-03-15T08:12:33Z", "operation": "gate_scan", "duration_ms": 145, "status": "success", "location": "Coral Kingdom"},
+  {"timestamp": "2026-03-15T08:12:35Z", "operation": "gate_scan", "duration_ms": 2340, "status": "timeout", "location": "Coral Kingdom"},
+  {"timestamp": "2026-03-15T09:01:12Z", "operation": "ride_dispatch", "duration_ms": 890, "status": "success", "location": "Skyward Summit"},
+  {"timestamp": "2026-03-15T09:15:44Z", "operation": "payment_process", "duration_ms": 320, "status": "success", "location": "Harbor Gardens"},
+  {"timestamp": "2026-03-15T09:15:47Z", "operation": "payment_process", "duration_ms": 15200, "status": "error", "location": "Harbor Gardens"},
+  {"timestamp": "2026-03-15T10:30:00Z", "operation": "inventory_check", "duration_ms": 560, "status": "success", "location": "Meadow Haven"},
+  {"timestamp": "2026-03-15T10:30:22Z", "operation": "ride_dispatch", "duration_ms": 445, "status": "success", "location": "Coral Kingdom"},
+  {"timestamp": "2026-03-15T11:45:33Z", "operation": "reservation_lookup", "duration_ms": 210, "status": "success", "location": "Skyward Summit"},
+  {"timestamp": "2026-03-15T12:00:01Z", "operation": "gate_scan", "duration_ms": 8900, "status": "error", "location": "Meadow Haven"},
+  {"timestamp": "2026-03-15T12:30:15Z", "operation": "payment_process", "duration_ms": 290, "status": "success", "location": "Coral Kingdom"}
 ]

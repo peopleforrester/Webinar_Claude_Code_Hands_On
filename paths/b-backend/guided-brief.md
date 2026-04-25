@@ -44,7 +44,7 @@ Enter **Plan Mode** (use `Shift+Tab` to cycle to Plan Mode, or type `/plan`). Gi
 > - No reservations more than 60 days out
 > - No reservations in the past
 > - Max 3 active reservations per guest email
-> - Park must be one of: Magic Kingdom, EPCOT, Hollywood Studios, Animal Kingdom
+> - Park must be one of: Coral Kingdom, Skyward Summit, Harbor Gardens, Meadow Haven
 >
 > Plan the project structure, data models, validation logic, and error response format. Don't write any code yet.
 
@@ -86,7 +86,7 @@ python main.py   # or: node index.js
 # In another terminal, create a reservation
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"EPCOT","date":"2026-04-20","partySize":4}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-04-20","partySize":4}'
 
 # List reservations
 curl http://localhost:3000/reservations
@@ -94,7 +94,7 @@ curl http://localhost:3000/reservations
 # Try an invalid request (party size too large)
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"EPCOT","date":"2026-04-20","partySize":25}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-04-20","partySize":25}'
 ```
 
 ---

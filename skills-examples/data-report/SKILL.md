@@ -19,8 +19,8 @@ When generating a data report:
 ```
 | Location          | Count | Avg (ms) | P95 (ms) |
 |-------------------|-------|----------|----------|
-| Magic Kingdom     |   142 |    234.5 |    890.2 |
-| EPCOT             |    98 |    198.3 |    756.1 |
+| Coral Kingdom     |   142 |    234.5 |    890.2 |
+| Skyward Summit    |    98 |    198.3 |    756.1 |
 ```
 
 ## Methodology Notes

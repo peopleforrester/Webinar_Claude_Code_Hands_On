@@ -16,7 +16,7 @@
 - Input validation on every endpoint before processing
 
 ## Business Rules
-- Valid parks: Magic Kingdom, EPCOT, Hollywood Studios, Animal Kingdom
+- Valid parks: Coral Kingdom, Skyward Summit, Harbor Gardens, Meadow Haven
 - Party size: 1-20
 - Date range: today through 60 days from now
 - Max 3 active reservations per guest email

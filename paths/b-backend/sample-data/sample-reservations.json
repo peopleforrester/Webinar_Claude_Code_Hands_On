@@ -1,70 +1,70 @@
 [
   {
     "guestEmail": "anna.smith@example.com",
-    "park": "Magic Kingdom",
+    "park": "Coral Kingdom",
     "date": "2026-04-20",
     "partySize": 4,
     "_note": "Valid reservation"
   },
   {
     "guestEmail": "bob.jones@example.com",
-    "park": "EPCOT",
+    "park": "Skyward Summit",
     "date": "2026-04-25",
     "partySize": 2,
     "_note": "Valid reservation"
   },
   {
     "guestEmail": "carlos.reyes@example.com",
-    "park": "Hollywood Studios",
+    "park": "Harbor Gardens",
     "date": "2026-05-01",
     "partySize": 8,
     "_note": "Valid reservation"
   },
   {
     "guestEmail": "diana.lee@example.com",
-    "park": "Animal Kingdom",
+    "park": "Meadow Haven",
     "date": "2026-04-15",
     "partySize": 1,
     "_note": "Valid reservation — solo guest"
   },
   {
     "guestEmail": "emma.clark@example.com",
-    "park": "Magic Kingdom",
+    "park": "Coral Kingdom",
     "date": "2026-04-22",
     "partySize": 25,
     "_note": "INVALID — party size exceeds max of 20"
   },
   {
     "guestEmail": "frank.wu@example.com",
-    "park": "EPCOT",
+    "park": "Skyward Summit",
     "date": "2026-01-15",
     "partySize": 3,
     "_note": "INVALID — date is in the past"
   },
   {
     "guestEmail": "grace.patel@example.com",
-    "park": "Disneyland",
+    "park": "Shadow Isle",
     "date": "2026-04-30",
     "partySize": 6,
     "_note": "INVALID — park not in valid list"
   },
   {
     "guestEmail": "henry.kim@example.com",
-    "park": "Hollywood Studios",
+    "park": "Harbor Gardens",
     "date": "2026-08-15",
     "partySize": 4,
     "_note": "INVALID — date more than 60 days out"
   },
   {
     "guestEmail": "anna.smith@example.com",
-    "park": "EPCOT",
+    "park": "Skyward Summit",
     "date": "2026-04-21",
     "partySize": 3,
     "_note": "Valid — same guest, second reservation (max 3 allowed)"
   },
   {
     "guestEmail": "bob.jones@example.com",
-    "park": "Animal Kingdom",
+    "park": "Meadow Haven",
     "date": "2026-04-28",
     "partySize": 0,
     "_note": "INVALID — party size below minimum of 1"

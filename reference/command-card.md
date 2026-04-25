@@ -56,6 +56,18 @@ Printable command and shortcut reference for the Claude Code hands-on workshop.
 | `/simplify` | Simplify selected code |
 | `/batch` | Batch operations on multiple files |
 | `/powerup` | Interactive lessons on Claude Code features |
+| `/release-notes` | Show what's new in this Claude Code version |
+
+### Extensibility & Discovery *(honorable mentions)*
+
+| Command | What It Does |
+|---------|-------------|
+| `/plugins` | Manage installed plugins |
+| `/skills` | List skills available in the current session |
+| `/agents` | Browse and manage subagents |
+| `/mcp` | View MCP server status, tools, and auth |
+
+*Not part of the walkthrough — run each one just to see what your environment exposes.*
 
 ---
 

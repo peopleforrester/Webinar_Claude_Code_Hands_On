@@ -70,6 +70,19 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 | Command | Purpose |
 |---------|---------|
 | `/powerup` | Interactive lessons on Claude Code features |
+| `/release-notes` | Show the changelog for the currently installed Claude Code version |
+
+### Extensibility & Management
+*Honorable mentions — not part of the core workshop walkthrough, but these are the discovery commands for extending Claude Code beyond what's built in.*
+
+| Command | Purpose |
+|---------|---------|
+| `/plugins` | Browse and manage installed plugins |
+| `/skills` | List skills available in the current session |
+| `/agents` | Browse and manage subagents |
+| `/mcp` | View MCP server status, tools, and authentication |
+
+> In this workshop's enterprise environment, plugin and MCP surface area may be restricted by the managed policy. Run each command once just to see what's available — it's the fastest way to discover what your setup allows.
 
 ### Diagnostics
 | Command | Purpose |

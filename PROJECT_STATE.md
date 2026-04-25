@@ -1,104 +1,69 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v5.6 — Path E Pivot to Meeting Prep Kit (no code)
+## Current Status: v5.7 — Post-Workshop Ship-Ready Sweep (2026-04-19)
 
-**Last updated:** 2026-04-08
-**Branch:** staging
-**Workshop date:** Thursday, April 9, 2026 (12:00-1:00 PM ET)
-**Next step:** Personal dry-run of warmup + Path E before webinar, then grant attendees repo access
-**Remote:** git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git
+**Workshop delivered:** 2026-04-09 (Thursday, 12:00–1:00 PM ET).
+**Repo state:** Public-ready. Maintenance mode.
+**Branch:** `staging` (do not merge to `main` without explicit go-ahead).
+**Remote:** `git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git`
 
-## Confirmed Environment (from IT team, pre-workshop)
+This sweep addressed every Critical, High, Medium, and Low priority item from the senior review on 2026-04-18 and rebranded sample data from Disney parks to a fictional set so the artifact is publishable without trademark concerns.
+
+## Verification Method
+
+- **Direct file edit + grep verification.** No live workshop dry-run was run for these changes — the workshop has already occurred.
+- **JSON files** were validated with `python3 -c "import json; json.load(open(...))"` after rebrand.
+- **Internal link integrity** verified by spot-check; cross-links between `command-reference.md` and `reference/command-card.md` added in this sweep.
+- **What is NOT verified:** None of the changes were exercised in a fresh Claude Code session against the participant flow. If a future workshop re-runs from this repo, redo the dry-run before delivery.
+
+## What This Sweep Changed (v5.7)
+
+| # | Phase | Files |
+|---|---|---|
+| 1 | Cheat-sheet additions: `/release-notes` + Extensibility/Discovery commands | `command-reference.md`, `reference/command-card.md` |
+| 2 | Timing reconciliation: 20 → 28 min across 4 path READMEs + dry-run header | `paths/{a,b,c,d}/README.md`, `instructor/dry-run.md` |
+| 3 | Skill hot-reload myth fix; dry-run pre-flight commands | `command-reference.md`, `instructor/dry-run.md` |
+| 4 | Instructor-guide v5.4 → v5.6 + `/teleport` row removed | `instructor/instructor-guide.md` |
+| 5 | Config hygiene: dead `docs/` removed, language-specific local example replaced, Path E layout caveat | `.gitignore`, `CLAUDE.local.md.example`, `CLAUDE.md` |
+| 6 | Cross-link command refs, dedupe four-pillars auto-memory, frame explain-code as minimal | `command-reference.md`, `reference/command-card.md`, `reference/four-pillars.md`, `skills-examples/explain-code/SKILL.md` |
+| 7 | Removed empty `slides/` placeholder | `slides/`, `README.md` |
+| 8 | Park rebrand: Coral Kingdom / Skyward Summit / Harbor Gardens / Meadow Haven, invalid case Shadow Isle | Path B + Path D CLAUDE.md, sample data, brief; data-report skill |
+
+## Prior Version Changelog (one-liner each)
+
+- **v5.0** — Initial workshop scaffold: 4 paths, briefs, sample data, skills, reference handouts.
+- **v5.1** — Auto-memory qualified as "when enabled"; Path B sample data added.
+- **v5.2** — Release-notes reconciliation: `/effort max` removed; Shift+Tab cycles modes.
+- **v5.3** — Fact-check pass: Alt+T for thinking toggle; Ctrl+X Ctrl+K to kill agents; ultrathink as per-turn override.
+- **v5.4** — Spec reconciliation: 28-min guided builds; pillar callouts in all briefs; instructor + dry-run docs created.
+- **v5.5** — Generic warmup; pytest → unittest; instructor live-card added.
+- **v5.6** — Path E pivot from Python report generator to zero-code Meeting Prep Kit.
+- **v5.7** — Post-workshop ship-ready sweep + Disney-to-fictional park rebrand (this version).
+
+## Confirmed Workshop Environment (historical)
 
 ```bash
-CLAUDE_CODE_DISABLE_AUTO_MEMORY=true      # Auto-memory is OFF
-CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=true  # Agent Teams is ON
-CLAUDE_CODE_DISABLE_1M_CONTEXT=true        # Context capped at 200K
+CLAUDE_CODE_DISABLE_AUTO_MEMORY=true
+CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=true
+CLAUDE_CODE_DISABLE_1M_CONTEXT=true
 ```
 
-- Opus 4.6 + Sonnet 4.6 via Bedrock (200K context)
-- No internet/egress — all exercises self-contained
-- No rate limit concerns for 30 simultaneous users
-- Some observers expected without CLI access
+- Opus 4.6 + Sonnet 4.6 via Bedrock (200K context).
+- No internet/egress.
+- No rate limit concerns for ~30 simultaneous users.
 
-## Task Checklist
+## Long-standing Decisions
 
-### Phase 1-4: v5 Content (Complete)
-- [x] README.md, config hierarchy doc, settings.json, command-reference.md, .gitignore
-- [x] All 4 path directories: README, guided-brief, project config, independent-brief
-- [x] Sample data: guest-feedback.json (Path A), operations-logs.json (Path D)
-- [x] Skills examples: explain-code, ui-component, api-scaffold, docker-review, data-report
-- [x] Reference handouts: command-card, four-pillars, effort-guide
-- [x] slides/README.md placeholder
+- `.gitignore` allows `.claude/settings.json` through (negation pattern).
+- Per-path READMEs are landing pages pointing to `guided-brief.md`.
+- Skills live in `skills-examples/` (not `.claude/skills/`) — attendees copy what they need.
+- No finished project code in the repo — briefs, data, and conventions only.
+- `reference/` for quick handouts; `instructor/` for instructor-only material.
+- `warmup-exercises.md` at repo root — attendees reference during the 5:00–15:00 block.
+- Auto-memory mentioned as "exists outside enterprise config," not demoed live.
+- Agent Teams ON in the env — mentioned briefly, no exercise built around it.
+- All content genericized; sample data uses fictional park names (post-v5.7).
 
-### Phase 5: v5.1 Environment Alignment (Complete)
-- [x] Auto-memory references qualified as "when enabled" across all files
-- [x] Path B sample data added (sample-reservations.json)
-- [x] All shortcuts clarified and corrected
+## Next Action
 
-### Phase 6: v5.2 Release Notes Reconciliation (Complete)
-- [x] `/effort max` removed — levels are now low/medium/high/auto
-- [x] Shift+Tab updated to "cycle modes" (Default → Accept Edits → Plan → Auto)
-- [x] All guided briefs updated for mode cycling
-- [x] effort-guide.md rewritten for 3 levels + auto
-- [x] settings.json deny list expanded
-
-### Phase 7: v5.3 Fact-Check Reconciliation (Complete)
-- [x] Alt+T for thinking toggle (not Tab)
-- [x] Ctrl+X then Ctrl+K for kill agents (not Ctrl+F)
-- [x] Default effort documented as medium
-- [x] Ultrathink re-introduced as per-turn override
-- [x] 4-level config hierarchy with Managed policy
-- [x] /btw and /compact focus hints documented
-
-### Phase 8: v5.4 Full Spec Reconciliation (Complete)
-- [x] Guided brief timing updated: 20 min → 28 min across all 4 paths
-- [x] Step names aligned with spec: "Set Up + Externalize", "Build + Verify", "Iterate + Verify"
-- [x] Pillar callouts added to all 4 guided briefs
-- [x] Missing # context notes added (test-after-change for B/C/D, list-files for A)
-- [x] /powerup added to command-card.md and command-reference.md
-- [x] ultrathink added to command-card.md
-- [x] warmup-exercises.md created (4 rapid exercises for 5:00-15:00 block)
-- [x] instructor/instructor-guide.md created (genericized full workshop spec)
-- [x] instructor/dry-run.md created (genericized pre-workshop testing script)
-- [x] README.md updated with new files, corrected timings, warmup reference
-- [x] All content genericized (no client-specific references)
-
-### Phase 9: v5.5 Generic Warmup + Path E (Complete)
-- [x] Warmup rewritten: single-session, single-directory, non-code retro-doc task
-- [x] pytest → python3 -m unittest swap across all path files
-- [x] README skills hot-reload myth killed
-- [x] instructor/live-card.md added (at-podium operational script)
-- [x] Path E v1 (Stakeholder Status Report Generator, Python-based) added and then replaced in v5.6
-- [x] All cross-references updated for 5 paths (root README, instructor-guide, live-card)
-
-### Phase 10: v5.6 Path E Pivot to Meeting Prep Kit (Complete)
-- [x] Path E rebuilt as zero-code workflow: Claude IS the tool
-- [x] Sample data replaced: meeting-transcript.md (messy Q2 planning dialogue with decisions, action items, tangents, sentiment signals)
-- [x] skills-examples/report-voice/ replaced with skills-examples/meeting-prep-kit/ (skill encodes 5-file output format and voice rules)
-- [x] Path E CLAUDE.md rewritten: no code, 5-file output, verify.sh rule
-- [x] Path E guided-brief.md rewritten: Skill-driven, verify-driven, no Python anywhere
-- [x] Path E independent-brief.md rewritten: multi-meeting changelog challenge
-- [x] instructor-guide.md Path E section rewritten around "no code" framing
-- [x] live-card.md Path E cue updated for explicit "zero code" unlock
-- [x] README.md paths table and skills-examples listing updated
-
-### Remaining Before Workshop
-- [ ] Personal dry-run of warmup exercises (single session, ~10 min)
-- [ ] Personal dry-run of Path E guided build (~28 min)
-- [ ] Temporarily disable skill installation policy in user CLAUDE.md for the webinar
-- [ ] Grant attendees access to GitHub repo
-- [ ] Add presentation deck to slides/ directory (separate project, optional)
-
-## Decisions Made
-- .gitignore allows .claude/settings.json through (negation pattern)
-- Per-path READMEs: landing pages pointing to guided-brief.md
-- Skills in skills-examples/ (not .claude/skills/) — attendees copy what they need
-- No finished project code — briefs, data, and conventions only
-- reference/ directory for quick reference handouts
-- instructor/ directory for instructor-only materials (guide + dry run)
-- warmup-exercises.md at repo root — attendees reference during 5:00-15:00 block
-- Auto-memory: mentioned as "exists outside enterprise config" — not demoed live
-- Agent Teams: ON in their env — mention briefly, don't build instruction around it
-- Observers: acknowledged in instructor docs — repo content is self-explanatory
-- All content genericized for public use — no client-specific branding
+None. Repo is in maintenance mode. If a follow-up workshop is scheduled, run a fresh personal dry-run of warmup + chosen path before delivery.

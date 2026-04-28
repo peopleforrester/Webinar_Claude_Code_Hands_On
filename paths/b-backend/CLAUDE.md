@@ -7,7 +7,7 @@
 - Port: 3000
 
 ## Conventions
-- No external dependencies -- stdlib only (no Express, no Flask, no pip/npm install)
+- No external dependencies — stdlib only (no Express, no Flask, no pip/npm install)
 - In-memory data storage (dictionary/object, no database)
 - RESTful endpoint naming: plural nouns (/reservations, not /reservation)
 - JSON request and response bodies

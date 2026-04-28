@@ -55,8 +55,8 @@ Printable command and shortcut reference for the Claude Code hands-on workshop.
 | `/debug` | Troubleshoot session issues |
 | `/insights` | Usage analytics |
 | `/copy` | Copy code blocks from last response to clipboard |
-| `/simplify` | Simplify selected code |
-| `/batch` | Batch operations on multiple files |
+| `/simplify` | Review changed code for reuse, quality, and efficiency |
+| `/batch` | Run a prompt across multiple files |
 | `/powerup` | Interactive lessons on Claude Code features |
 | `/release-notes` | Show what's new in this Claude Code version |
 

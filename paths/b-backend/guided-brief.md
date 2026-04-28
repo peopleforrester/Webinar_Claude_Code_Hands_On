@@ -86,7 +86,7 @@ python main.py   # or: node index.js
 # In another terminal, create a reservation
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-04-20","partySize":4}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-15","partySize":4}'
 
 # List reservations
 curl http://localhost:3000/reservations
@@ -94,7 +94,7 @@ curl http://localhost:3000/reservations
 # Try an invalid request (party size too large)
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-04-20","partySize":25}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-15","partySize":25}'
 ```
 
 ---

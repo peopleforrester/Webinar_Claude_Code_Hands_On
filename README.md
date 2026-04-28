@@ -12,7 +12,7 @@ A hands-on workshop focused entirely on Claude Code CLI in a restricted enterpri
 |-------------|---------|
 | **Claude Code CLI** | Version 2.1.x or later |
 | **Backend** | Amazon Bedrock (configured by your IT team) |
-| **Model** | Opus 4.6 via Bedrock |
+| **Model** | Opus 4.7 via Bedrock (Sonnet 4.6 also available — `Alt+P` to switch) |
 | **Network** | No internet required — all exercises are self-contained |
 | **Dependencies** | None — stdlib only, no package installs |
 
@@ -22,7 +22,7 @@ claude --version              # CLI version — should show 2.1.x (prints and ex
 claude -p "reply with OK"     # End-to-end ping — confirms auth, backend, and model in one shot
 ```
 
-When you launch `claude` interactively later, the startup banner shows the active model and backend — glance at it to confirm Opus 4.6 + Bedrock.
+When you launch `claude` interactively later, the startup banner shows the active model and backend — glance at it to confirm Opus 4.7 + Bedrock.
 
 > Note: `/model`, `/status`, and other slash commands only work **inside** an active Claude session — running `claude /model` on the shell drops you into the REPL with the command queued, which breaks one-shot verification flow. Use `--version` and `-p` for pre-session checks.
 

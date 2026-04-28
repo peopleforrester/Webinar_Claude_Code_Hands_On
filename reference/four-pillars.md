@@ -51,14 +51,14 @@ Conversations are ephemeral. Files are permanent. Every decision that stays only
 |------|-------|-----|
 | Project standards | `CLAUDE.md` (under 200 lines) | Loaded every session automatically |
 | Reusable workflows | `.claude/skills/*/SKILL.md` | Loaded on-demand when invoked |
-| Current task state | `PLAN.md` | Survives `/clear` and context resets |
+| Current task state | `PROJECT_STATE.md` | Survives `/clear` and context resets |
 | Decisions made | `DECISIONS.md` or commit messages | Permanent record |
 | Claude's learnings | `~/.claude/projects/<project>/memory/` | Auto-saved, loaded next session (when enabled) |
 | Org-wide policy | `/etc/claude-code/CLAUDE.md` | Managed, cannot be overridden |
 
 ### A Note on Auto-Memory
 
-When enabled, auto-memory captures build commands, debugging patterns, and architecture insights as Claude works, then loads them at the start of every session. Run `/memory` to see what has been learned. This is the row in the table above — called out separately because it may be disabled in enterprise environments. When disabled, the other externalization tools (CLAUDE.md, Skills, PLAN.md) still work the same way; those are the tools you control directly.
+When enabled, auto-memory captures build commands, debugging patterns, and architecture insights as Claude works, then loads them at the start of every session. Run `/memory` to see what has been learned. This is the row in the table above — called out separately because it may be disabled in enterprise environments. When disabled, the other externalization tools (CLAUDE.md, Skills, PROJECT_STATE.md) still work the same way; those are the tools you control directly.
 
 ---
 

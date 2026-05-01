@@ -1,5 +1,5 @@
 # Build with Claude Code: No Pitches, Just Practice
-## v5.6 — Workshop Instructor Guide
+## v5.7 — Workshop Instructor Guide
 
 ---
 
@@ -26,9 +26,9 @@
 | CLAUDE.md — all 4 levels | Auto-Memory (disabled for workshop) |
 | Skills, hooks, subagents | Web search |
 | Local filesystem access | |
-| Opus 4.6 + Sonnet 4.6 via Bedrock (200K context) | |
+| Opus 4.7 + Sonnet 4.6 via Bedrock (200K context) | |
 
-**Confirmed capacity**: Both Opus 4.6 and Sonnet 4.6 available via Bedrock with 200K context. No rate limit for 30 concurrent users.
+**Confirmed capacity**: Both Opus 4.7 and Sonnet 4.6 available via Bedrock with 200K context. No rate limit for 30 concurrent users.
 
 **Setup wizard**: v2.1.92 added an interactive Bedrock setup wizard (`/setup-bedrock`). Use this if anyone needs to reconfigure auth during the session.
 
@@ -347,7 +347,7 @@ Now — and only now — name the four pillars.
 |----------|--------|
 | "Does Claude see my whole codebase?" | It reads files on demand, not all at once. Run `/context` to see what's currently loaded. |
 | "Is my code sent to Anthropic?" | In this setup, Bedrock traffic goes to AWS — not to Anthropic. Set `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` for full isolation. |
-| "What model are we using?" | Opus 4.6. Sonnet 4.6 is also available — switch with Alt+P. |
+| "What model are we using?" | Opus 4.7. Sonnet 4.6 is also available — switch with Alt+P. |
 | "How is this different from Copilot?" | Copilot autocompletes lines. Claude Code executes multi-step tasks autonomously — it reads, plans, writes, tests, and iterates. |
 | "What about Agent Teams?" | Enabled in this environment (experimental). Allows spawning sub-agents for parallel work. Worth exploring after you're comfortable with the basics. |
 | "Does it remember between sessions?" | Auto-memory is disabled in this environment. It's on by default elsewhere (since v2.1.59). That's why we externalize to CLAUDE.md and Skills — files persist, conversations don't. |
@@ -441,5 +441,5 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 
 ---
 
-*v5.6 | Claude Code Hands-On Workshop*
+*v5.7 | Claude Code Hands-On Workshop*
 *Experience-first structure. Four pillars revealed through exercises, named at the end.*

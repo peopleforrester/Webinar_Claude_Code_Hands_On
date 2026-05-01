@@ -43,7 +43,7 @@ claude -p "reply with OK"
 
 **Say:**
 
-> `--version` should show 2.1.x. The second command sends a test prompt to the model and prints the response — if you see `OK`, your auth, backend, and model routing are all working. When we launch `claude` in a minute for the warmup, the startup banner will show Opus 4.6 and Bedrock — glance at it then. If either command fails, chat us and we'll fix it after.
+> `--version` should show 2.1.x. The second command sends a test prompt to the model and prints the response — if you see `OK`, your auth, backend, and model routing are all working. When we launch `claude` in a minute for the warmup, the startup banner will show Opus 4.7 and Bedrock — glance at it then. If either command fails, chat us and we'll fix it after.
 
 > **Important — do not tell them to run `claude /model` or `claude /status` on the shell.** Those drop them into the interactive REPL with the slash command queued, and the flow of this orientation block falls apart. Use `--version` and `-p` only for pre-session checks. Slash commands belong inside an active session.
 
@@ -422,7 +422,7 @@ and rename the "What Didn't" section to "Pain Points".
 |---|---|
 | "Does Claude see my whole codebase?" | It reads files on demand, not all at once. Run `/context` to see what's currently loaded. |
 | "Is my code sent to Anthropic?" | In this setup, Bedrock traffic goes to AWS — not to Anthropic. Set `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` for full isolation. |
-| "What model are we using?" | Opus 4.6. Sonnet 4.6 is also available — switch with Alt+P. |
+| "What model are we using?" | Opus 4.7. Sonnet 4.6 is also available — switch with Alt+P. |
 | "How is this different from Copilot?" | Copilot autocompletes lines. Claude Code executes multi-step tasks autonomously — it reads, plans, writes, runs commands, and iterates. |
 | "What about Agent Teams?" | Enabled in this environment (experimental). Allows spawning sub-agents for parallel work. Worth exploring after you're comfortable with the four pillars. |
 | "Does it remember between sessions?" | Auto-memory is disabled in this environment. It's on by default elsewhere. That's why we externalize to CLAUDE.md and Skills — files persist, conversations don't. |

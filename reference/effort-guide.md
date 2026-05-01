@@ -6,7 +6,7 @@ Control how deeply Claude reasons about your request using the `/effort` command
 
 ## Thinking Is On by Default
 
-Claude Code includes extended thinking in every response. The default effort level is **medium** for Opus 4.6 and Sonnet 4.6. Use `/effort` to control reasoning depth — set `/effort high` at the start of a session when you need thorough reasoning.
+Claude Code includes extended thinking in every response. The default effort level is **medium** for Opus 4.7 and Sonnet 4.6. Use `/effort` to control reasoning depth — set `/effort high` at the start of a session when you need thorough reasoning.
 
 The keyword `ultrathink` triggers max effort for a single turn. `/effort` is the persistent control; `ultrathink` is the per-turn override.
 

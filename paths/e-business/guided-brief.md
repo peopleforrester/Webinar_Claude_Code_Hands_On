@@ -12,9 +12,11 @@ Transform a messy meeting transcript into a set of stakeholder-ready artifacts â
 
 Create your project directory and copy the sample transcript in:
 
+From the cloned repo root, create your project directory one level down so the relative paths in this brief resolve. Then copy the sample transcript in:
+
 ```bash
 mkdir meeting-prep-kit && cd meeting-prep-kit
-cp <repo>/paths/e-business/sample-data/meeting-transcript.md .
+cp ../paths/e-business/sample-data/meeting-transcript.md .
 ```
 
 Launch Claude and initialize:
@@ -41,7 +43,7 @@ Now copy the `meeting-prep-kit` Skill into your project:
 
 ```bash
 !mkdir -p .claude/skills/meeting-prep-kit
-!cp <repo>/skills-examples/meeting-prep-kit/SKILL.md .claude/skills/meeting-prep-kit/SKILL.md
+!cp ../skills-examples/meeting-prep-kit/SKILL.md .claude/skills/meeting-prep-kit/SKILL.md
 ```
 
 > **Pillar 3 in action:** You just externalized your workflow into a Skill file. The format rules, voice rules, and done-criteria now live on disk and will be there the next time you launch Claude in this directory. Skills are scanned at session start â€” the Skill you just copied will be available after a restart, but for the guided build you'll reference its rules directly in your prompts.

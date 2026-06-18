@@ -1,13 +1,24 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v5.8 — Senior-Review Cleanup Sweep
+## Current Status: v5.9 — June 2026 Version Refresh
 
 **Workshop delivered:** 2026-04-09 (Thursday, 12:00–1:00 PM ET) and again in May.
 **Repo state:** Public-ready. Maintenance mode.
 **Branch:** `staging` (do not merge to `main` without explicit go-ahead).
 **Remote:** `git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git`
 
-A second senior review caught material defects that v5.7 claimed were done but were not: Path A sample data still contained Disney IP, the `docs/` directory was still untracked on disk (not actually removed), and the Opus version bump in the previous commit only touched README. v5.8 closes those gaps.
+v5.9 is a version-accuracy refresh against the June 2026 landscape. Verified the Claude Code CLI floor (still 2.1.x — latest ~2.1.18x), bumped the named model from Opus 4.7 to Opus 4.8 (GA on Bedrock 2026-05-28) across all forward-facing docs, and moved the Path B Node prerequisite off the EOL Node 18 to Node 20 LTS.
+
+## What This Sweep Changed (v5.9)
+
+| Item | Finding | Files |
+|---|---|---|
+| Model bump | Opus 4.8 GA on Bedrock (2026-05-28, 1M context, 128K output); repo named 4.7. Bumped forward-facing docs. Sonnet 4.6 still current — unchanged. | `README.md`, `instructor/instructor-guide.md`, `instructor/live-card.md`, `reference/effort-guide.md` |
+| Node floor | Node 18 reached end-of-life 2025-04; prerequisite said "18+". Bumped to "20 LTS+". | `paths/b-backend/README.md` |
+| CLI floor | Verified: "2.1.x or later" still accurate (latest ~2.1.18x, locally 2.1.181). No change. | — |
+| Python floor | Verified: "3.10+" still reasonable (3.9 EOL 2025-10). No change. | — |
+
+**Open design note:** the named model version has now been bumped four times (4.6 → 4.7 → 4.8). Each bump goes stale within weeks. Consider replacing the hard-pinned version in forward-facing docs with "the latest Opus model available in your Bedrock environment" to end the churn. Not done in v5.9 — flagged for decision.
 
 ## Verification Method
 
@@ -50,7 +61,8 @@ A second senior review caught material defects that v5.7 claimed were done but w
 - **v5.5** — Generic warmup; pytest → unittest; instructor live-card added.
 - **v5.6** — Path E pivot from Python report generator to zero-code Meeting Prep Kit.
 - **v5.7** — Post-workshop ship-ready sweep + Disney-to-fictional park rebrand (Path B + D).
-- **v5.8** — Closed v5.7 gaps: Path A rebrand, `docs/` properly gitignored, Opus 4.7 propagated to all references, Path E guided-brief paths fixed, Path E CLAUDE.md trimmed (this version).
+- **v5.8** — Closed v5.7 gaps: Path A rebrand, `docs/` properly gitignored, Opus 4.7 propagated to all references, Path E guided-brief paths fixed, Path E CLAUDE.md trimmed.
+- **v5.9** — June 2026 version refresh: Opus 4.7 → 4.8 (Bedrock GA 2026-05-28); Node 18+ → 20 LTS+; CLI/Python floors verified current (this version).
 
 ## Confirmed Workshop Environment (historical)
 

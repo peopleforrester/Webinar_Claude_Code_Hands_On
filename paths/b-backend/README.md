@@ -6,7 +6,7 @@ Build a REST API that validates theme park reservation requests. The API enforce
 
 **Best for:** Backend developers, API engineers, anyone who wants to see Claude Code drive a server-side build from plan to working tests.
 
-**Prerequisites:** Python 3.10+ **or** Node.js 18+ installed, plus Claude Code CLI.
+**Prerequisites:** Python 3.10+ **or** Node.js 20 LTS+ installed, plus Claude Code CLI.
 
 ---
 

@@ -1,5 +1,5 @@
 # Build with Claude Code: No Pitches, Just Practice
-## v5.7 — Workshop Instructor Guide
+## v5.9 — Workshop Instructor Guide
 
 ---
 
@@ -441,5 +441,5 @@ Previous versions front-loaded lectures. Adults don't internalize frameworks fro
 
 ---
 
-*v5.7 | Claude Code Hands-On Workshop*
+*v5.9 | Claude Code Hands-On Workshop*
 *Experience-first structure. Four pillars revealed through exercises, named at the end.*

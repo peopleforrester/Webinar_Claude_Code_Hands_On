@@ -17,6 +17,7 @@ v5.9 is a version-accuracy refresh against the June 2026 landscape. Verified the
 | Node floor | Node 18 reached end-of-life 2025-04; prerequisite said "18+". Bumped to "20 LTS+". | `paths/b-backend/README.md` |
 | CLI floor | Verified: "2.1.x or later" still accurate (latest ~2.1.18x, locally 2.1.181). No change. | — |
 | Python floor | Verified: "3.10+" still reasonable (3.9 EOL 2025-10). No change. | — |
+| Banner drift | Instructor-guide version banner was stuck at v5.7 (header + footer), one behind PROJECT_STATE; bumped to v5.9 to match. | `instructor/instructor-guide.md` |
 
 **Open design note:** the named model version has now been bumped four times (4.6 → 4.7 → 4.8). Each bump goes stale within weeks. Consider replacing the hard-pinned version in forward-facing docs with "the latest Opus model available in your Bedrock environment" to end the churn. Not done in v5.9 — flagged for decision.
 

@@ -35,6 +35,6 @@ The keyword `ultrathink` triggers max effort for a single turn. `/effort` is the
 
 ## Pro Tip: Model Switching
 
-Sonnet 5 is available on Bedrock (Alt+P to switch). Use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
+Sonnet 5 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 The combination of the right model and the right effort level gives you the best balance of speed, quality, and cost.

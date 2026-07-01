@@ -1,13 +1,24 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v5.9 — June 2026 Version Refresh
+## Current Status: v6.0 — Q3 2026 Quarterly Freshness Review
 
 **Workshop delivered:** 2026-04-09 (Thursday, 12:00–1:00 PM ET) and again in May.
 **Repo state:** Public-ready. Maintenance mode.
 **Branch:** `staging` (do not merge to `main` without explicit go-ahead).
 **Remote:** `git@github.com:peopleforrester/Webinar_Claude_Code_Hands_On.git`
 
-v5.9 is a version-accuracy refresh against the June 2026 landscape. Verified the Claude Code CLI floor (still 2.1.x — latest ~2.1.18x), bumped the named model from Opus 4.7 to Opus 4.8 (GA on Bedrock 2026-05-28) across all forward-facing docs, and moved the Path B Node prerequisite off the EOL Node 18 to Node 20 LTS.
+v6.0 is the 2026-07-01 quarterly freshness review. Sonnet 5 launched on Amazon Bedrock on 2026-07-01, superseding Sonnet 4.6. Updated all forward-facing and instructor-facing references. CLI floor (2.1.x, latest 2.1.197), Opus 4.8 GA status, slash commands, and brief dates all verified current — no other changes needed.
+
+## What This Sweep Changed (v6.0)
+
+| Item | Finding | Files |
+|---|---|---|
+| Sonnet model bump | Sonnet 5 GA on Bedrock (2026-07-01); repo named 4.6. Bumped all forward-facing and instructor-facing docs. | `README.md`, `command-reference.md`, `reference/effort-guide.md`, `instructor/instructor-guide.md`, `instructor/live-card.md` |
+| `Alt+P` backtick | Keyboard shortcut in `effort-guide.md` prose was missing backtick formatting — fixed for consistency. | `reference/effort-guide.md` |
+| CLI floor | Verified: "2.1.x or later" still accurate (latest 2.1.197). No change. | — |
+| Opus floor | Verified: Opus 4.8 still current GA on Bedrock. No change. | — |
+| Slash commands | Verified: all documented commands valid in v2.1.197. No change. | — |
+| Brief dates | Verified: only date strings are `2026-12-15` (~167 days out). No change. | — |
 
 ## What This Sweep Changed (v5.9)
 
@@ -63,7 +74,8 @@ v5.9 is a version-accuracy refresh against the June 2026 landscape. Verified the
 - **v5.6** — Path E pivot from Python report generator to zero-code Meeting Prep Kit.
 - **v5.7** — Post-workshop ship-ready sweep + Disney-to-fictional park rebrand (Path B + D).
 - **v5.8** — Closed v5.7 gaps: Path A rebrand, `docs/` properly gitignored, Opus 4.7 propagated to all references, Path E guided-brief paths fixed, Path E CLAUDE.md trimmed.
-- **v5.9** — June 2026 version refresh: Opus 4.7 → 4.8 (Bedrock GA 2026-05-28); Node 18+ → 20 LTS+; CLI/Python floors verified current (this version).
+- **v5.9** — June 2026 version refresh: Opus 4.7 → 4.8 (Bedrock GA 2026-05-28); Node 18+ → 20 LTS+; CLI/Python floors verified current.
+- **v6.0** — Q3 2026 freshness review: Sonnet 4.6 → Sonnet 5 (Bedrock GA 2026-07-01) across all forward-facing and instructor docs; `Alt+P` backtick fix; all other floors verified current.
 
 ## Confirmed Workshop Environment (historical)
 

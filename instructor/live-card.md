@@ -422,7 +422,7 @@ and rename the "What Didn't" section to "Pain Points".
 |---|---|
 | "Does Claude see my whole codebase?" | It reads files on demand, not all at once. Run `/context` to see what's currently loaded. |
 | "Is my code sent to Anthropic?" | In this setup, Bedrock traffic goes to AWS — not to Anthropic. Set `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` for full isolation. |
-| "What model are we using?" | Opus 4.8. Sonnet 4.6 is also available — switch with Alt+P. |
+| "What model are we using?" | Opus 4.8. Sonnet 5 is also available — switch with Alt+P. |
 | "How is this different from Copilot?" | Copilot autocompletes lines. Claude Code executes multi-step tasks autonomously — it reads, plans, writes, runs commands, and iterates. |
 | "What about Agent Teams?" | Enabled in this environment (experimental). Allows spawning sub-agents for parallel work. Worth exploring after you're comfortable with the four pillars. |
 | "Does it remember between sessions?" | Auto-memory is disabled in this environment. It's on by default elsewhere. That's why we externalize to CLAUDE.md and Skills — files persist, conversations don't. |

@@ -6,7 +6,7 @@ Control how deeply Claude reasons about your request using the `/effort` command
 
 ## Thinking Is On by Default
 
-Claude Code includes extended thinking in every response. The default effort level is **medium** for Opus 4.8 and Sonnet 4.6. Use `/effort` to control reasoning depth — set `/effort high` at the start of a session when you need thorough reasoning.
+Claude Code includes extended thinking in every response. The default effort level is **medium** for Opus 4.8 and Sonnet 5. Use `/effort` to control reasoning depth — set `/effort high` at the start of a session when you need thorough reasoning.
 
 The keyword `ultrathink` triggers max effort for a single turn. `/effort` is the persistent control; `ultrathink` is the per-turn override.
 
@@ -35,6 +35,6 @@ The keyword `ultrathink` triggers max effort for a single turn. `/effort` is the
 
 ## Pro Tip: Model Switching
 
-Sonnet 4.6 is available on Bedrock (Alt+P to switch). Use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
+Sonnet 5 is available on Bedrock (Alt+P to switch). Use it for routine tasks — near-Opus quality, faster response times, lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 The combination of the right model and the right effort level gives you the best balance of speed, quality, and cost.

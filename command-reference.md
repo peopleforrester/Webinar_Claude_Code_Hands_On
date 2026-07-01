@@ -190,7 +190,7 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 
 Thinking is on by default at **medium** effort. Set `/effort high` at the start of a session for more thorough reasoning. The keyword `ultrathink` in your prompt triggers max effort for a single turn.
 
-**Pro tip:** Sonnet 4.6 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
+**Pro tip:** Sonnet 5 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 ---
 

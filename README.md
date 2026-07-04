@@ -12,7 +12,7 @@ A hands-on workshop focused entirely on Claude Code CLI in a restricted enterpri
 |-------------|---------|
 | **Claude Code CLI** | Version 2.1.x or later |
 | **Backend** | Amazon Bedrock (configured by your IT team) |
-| **Model** | Opus 4.8 via Bedrock (Sonnet 4.6 also available — `Alt+P` to switch) |
+| **Model** | Opus 4.8 via Bedrock (Sonnet 5 also available — `Alt+P` to switch) |
 | **Network** | No internet required — all exercises are self-contained |
 | **Dependencies** | None — stdlib only, no package installs |
 

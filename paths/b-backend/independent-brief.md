@@ -51,7 +51,7 @@ Build a microservice that stores guest dining preferences and recommends restaur
    ```json
    {
      "id": "r1",
-     "name": "Coral Reef Restaurant",
+     "name": "Coral Kingdom Grill",
      "cuisineTags": ["Seafood", "American"],
      "dietaryOptions": ["gluten-free", "vegetarian"]
    }

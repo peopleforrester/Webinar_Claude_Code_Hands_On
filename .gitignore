@@ -45,3 +45,7 @@ claude-ai-context/
 
 # Local Claude Code session history (do not push)
 .claude-history/
+
+# Transcription-pipeline inbox — client-engagement content, local-only, never publish (public repo)
+transcripts/
+ACTION_ITEMS.md

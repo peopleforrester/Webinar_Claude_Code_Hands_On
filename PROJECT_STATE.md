@@ -1,6 +1,17 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v6.0 — Q3 2026 Quarterly Freshness Review
+## Current Status: v6.1 — Hygiene Close-Out and Inbox Scrub
+
+v6.1 (2026-08-17) closes the open housekeeping queue:
+
+- **Transcript inbox scrub.** An Aug 2 commit that adopted the AGENTS.md symlink also swept the transcription-pipeline inbox (`transcripts/` with client-named training sessions, plus `ACTION_ITEMS.md`) onto public staging, where it sat ~15 days. Fixed by rewriting the staging tip: the replacement commit carries only the symlink adoption and gitignore hardening, so the files never appear in reachable branch history. Files remain on disk as the local inbox; `transcripts/` and `ACTION_ITEMS.md` are now gitignored. Residual risk: forks/clones made during the exposure window, and GitHub-cached orphan objects until GC (a support ticket can force-purge if desired).
+- **AGENTS.md canonical.** CLAUDE.md is now a symlink to AGENTS.md so all local coding agents share one guidance file.
+- **Branch protection on `main`** (added 2026-07-04): PR required, force-pushes and deletions blocked, admin bypass available.
+- **Coral Kingdom Grill** (2026-07-04): last real-world trademarked location name replaced; full-IP sweep clean.
+- **GitHub topics added** per hygiene issue #2.
+- Dependabot: zero alerts (no dependency surface — stdlib-only repo).
+
+## Current Status (prior): v6.0 — Q3 2026 Quarterly Freshness Review
 
 **Workshop delivered:** 2026-04-09 (Thursday, 12:00–1:00 PM ET) and again in May.
 **Repo state:** Public-ready. Maintenance mode.

@@ -1,6 +1,21 @@
 # PROJECT STATE — Claude Code Workshop Companion Repo
 
-## Current Status: v6.1 — Hygiene Close-Out and Inbox Scrub
+## Current Status: v6.2 — September 2026 Freshness Review
+
+v6.2 (2026-09-17) is a version-currency pass verified against live sources:
+
+| Item | Finding | Files |
+|---|---|---|
+| Opus model bump | Opus 5 GA on Bedrock (2026-07-24, per AWS); repo named Opus 4.8. Bumped all forward-facing and instructor-facing references. Corroborated by the global model-selection rule that already defaults to Opus 5. | `README.md`, `reference/effort-guide.md`, `instructor/instructor-guide.md`, `instructor/live-card.md` |
+| Python floor | Python 3.10 reaches EOL 2026-10-31 (verified endoflife.date); the `3.10+` floor was about to point at an EOL version. Bumped Path B to `3.11+`. | `paths/b-backend/README.md` |
+| Node floor | Node 20 is in Maintenance LTS (active support ended); Node 22 is current Active LTS (verified endoflife.date). Bumped Path B floor `20 LTS+` to `22 LTS+`. | `paths/b-backend/README.md` |
+| Sonnet | Verified: Sonnet 5 still current GA on Bedrock. No change. | — |
+| CLI floor | Verified: "2.1.x or later" still accurate (latest 2.1.273, 2026-09-15). No change. | — |
+| Dates / structure | Verified: sample-data dates and the `2026-12-15` future example still valid; README path references all resolve; AGENTS.md/CLAUDE.md symlink current. No change. | — |
+
+**Recurring-churn note (now 5 bumps: 4.6 → 4.7 → 4.8 → Opus 5):** the v5.9 design note to de-pin the exact model in forward-facing docs ("the latest Opus in your Bedrock environment") remains unadopted and is the standing fix to end this quarterly churn. Flagged for Michael's decision, not applied in v6.2.
+
+## Current Status (prior): v6.1 — Hygiene Close-Out and Inbox Scrub
 
 v6.1 (2026-08-17) closes the open housekeeping queue:
 

@@ -9,7 +9,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 ## Starting a Session
 
 | Action | Command |
-|--------|---------|
+|--------|--------|
 | Start Claude Code | `claude` (in any project directory) |
 | Check version | `claude --version` |
 | Check backend status | `claude /status` |
@@ -21,7 +21,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 ## Keyboard Shortcuts
 
 | Shortcut | Action |
-|----------|--------|
+|----------|---------|
 | `Shift+Tab` | Cycle modes: Default → Accept Edits → Plan (→ Auto, if enabled) |
 | `Alt+T` (`Option+T` on Mac) | Toggle extended thinking display |
 | `Shift+Enter` | New line in input |
@@ -36,7 +36,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 
 ### Context Management
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/context` | See what's loaded and context usage |
 | `/compact` | Compress conversation, keep critical details (supports focus hints: `/compact retain the error handling patterns`) |
 | `/clear` | Full conversation reset |
@@ -44,7 +44,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 
 ### Planning & Reasoning
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/plan` | Enter Plan Mode (read everything, modify nothing) |
 | `/effort low` | Simple edits, formatting, typos |
 | `/effort medium` | Standard development tasks |
@@ -53,24 +53,24 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 
 ### Memory & Output
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/memory` | View auto-memory (when enabled — may be disabled in enterprise environments) |
 | `/copy` | Copy code blocks from last response to clipboard |
 
 ### Project Setup
 | Command | Purpose |
-|---------|---------|
-| `/init` | Bootstrap a CLAUDE.md for the current project |
+|---------|--------|
+| `/init` | Bootstrap a CLAUDE.md |
 
 ### Code Quality
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/simplify` | Review changed code for reuse, quality, and efficiency |
 | `/batch` | Run a prompt across multiple files |
 
 ### Learning
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/powerup` | Interactive lessons on Claude Code features |
 | `/release-notes` | Show the changelog for the currently installed Claude Code version |
 
@@ -78,7 +78,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 *Honorable mentions — not part of the core workshop walkthrough, but these are the discovery commands for extending Claude Code beyond what's built in.*
 
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/plugins` | Browse and manage installed plugins |
 | `/skills` | List skills available in the current session |
 | `/agents` | Browse and manage subagents |
@@ -88,7 +88,7 @@ A printable cheat sheet for the Claude Code hands-on workshop.
 
 ### Diagnostics
 | Command | Purpose |
-|---------|---------|
+|---------|--------|
 | `/debug` | Troubleshoot session issues |
 | `/insights` | Usage analytics (run monthly) |
 
@@ -126,7 +126,7 @@ Auto-memory is part of Pillar 3 (Externalize Decisions) — Claude learns your p
 ## CLAUDE.md Hierarchy
 
 | Level | Location | Scope |
-|-------|----------|-------|
+|-------|----------|---------|
 | Managed policy | `/etc/claude-code/CLAUDE.md` (Linux) | Organization-wide, cannot be overridden |
 | User | `~/.claude/CLAUDE.md` | All your projects |
 | Project | `./CLAUDE.md` | Team-shared (commit this) |
@@ -190,7 +190,7 @@ In Plan Mode, Claude can **read everything** but **modify nothing**. It becomes 
 
 Thinking is on by default at **medium** effort. Set `/effort high` at the start of a session for more thorough reasoning. The keyword `ultrathink` in your prompt triggers max effort for a single turn.
 
-**Pro tip:** Sonnet 5 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
+**Pro tip:** Sonnet 5.5 is available on Bedrock (`Alt+P` to switch). Use it for routine tasks — near-Opus quality, faster response times, and lower token usage. Switch to Opus for architecture decisions and hard debugging.
 
 ---
 

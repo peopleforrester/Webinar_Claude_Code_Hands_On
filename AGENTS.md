@@ -38,3 +38,5 @@ your-project/
 | Local | `./CLAUDE.local.md` | Personal (gitignored) |
 
 Keep each CLAUDE.md under 200 lines. Every instruction competes for attention.
+
+Test command: `python3 -m unittest discover -s tests`

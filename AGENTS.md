@@ -40,3 +40,6 @@ your-project/
 Keep each CLAUDE.md under 200 lines. Every instruction competes for attention.
 
 Test command: `python3 -m unittest discover -s tests`
+
+No E2E command: the repo has no browser, service or integration tests, so the
+heavy gate runs the Test command (see [decisions.md](decisions.md)).

@@ -103,6 +103,22 @@ class TestMarkdown(unittest.TestCase):
         self.assertTrue(os.path.samefile(claude, agents))
 
 
+class TestGateCommands(unittest.TestCase):
+    def setUp(self):
+        with open(os.path.join(ROOT, "AGENTS.md"), encoding="utf-8") as f:
+            self.lines = f.read().splitlines()
+
+    def test_agents_md_declares_one_test_command(self):
+        declared = [l for l in self.lines if l.startswith("Test command: `")]
+        self.assertEqual(len(declared), 1)
+
+    def test_agents_md_declares_no_e2e_command(self):
+        # decisions.md, 2026-11-20: the repo has no tests against real
+        # services, so the heavy gate runs the Test command.
+        declared = [l for l in self.lines if l.startswith("E2E command:")]
+        self.assertEqual(declared, [])
+
+
 class TestNoHardcodedRepoPaths(unittest.TestCase):
     # The maintainer's home "repos" tree gets restructured (issue #4); a path
     # into it from a rule, skill or script goes dead silently. The workshop

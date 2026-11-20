@@ -127,6 +127,7 @@ CLAUDE_CODE_DISABLE_1M_CONTEXT=true
 - Agent Teams ON in the env — mentioned briefly, no exercise built around it.
 - All content genericized; sample data uses fictional park names across all paths (post-v5.8 — Path A finished in v5.8).
 - `docs/` is gitignored, not deleted: it holds instructor-only planning history (real names, internal pre-workshop notes) that should never publish but is useful to keep locally.
+- No shipped file points into the maintainer's home `repos` tree. A November 2026 audit after that tree was restructured (issue #4) found no such paths, and `TestNoHardcodedRepoPaths` in `tests/test_repo_content.py` now fails if one is added.
 
 ## Next Action
 

@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {
     ".git", ".claude", "docs", "transcripts", "claude-ai-context", ".claude-history",
     "node_modules", "output", "__pycache__",
+    "tmp",  # scratch space for automated runs, never shipped
 }
 SKIP_FILES = {"ACTION_ITEMS.md", "CLAUDE.local.md"}
 
@@ -100,6 +101,39 @@ class TestMarkdown(unittest.TestCase):
         agents = os.path.join(ROOT, "AGENTS.md")
         self.assertTrue(os.path.isfile(agents))
         self.assertTrue(os.path.samefile(claude, agents))
+
+
+class TestNoHardcodedRepoPaths(unittest.TestCase):
+    # The maintainer's home "repos" tree gets restructured (issue #4); a path
+    # into it from a rule, skill or script goes dead silently. The workshop
+    # also forbids hardcoded absolute paths, so none may appear at all.
+    REPO_PATH_RE = re.compile(
+        r"(~|\$HOME|\$\{HOME\}|/home/[A-Za-z0-9_.-]+)/repos(?![A-Za-z0-9_-])")
+
+    def test_pattern_catches_each_home_spelling(self):
+        tail = "/" + "repos/mrf/second-brain"
+        for home in ["~", "$HOME", "${HOME}", "/home/michael"]:
+            with self.subTest(home=home):
+                self.assertTrue(self.REPO_PATH_RE.search(home + tail))
+        self.assertIsNone(self.REPO_PATH_RE.search("~/" + "repository"))
+        self.assertIsNone(
+            self.REPO_PATH_RE.search("https://api.github.com/" + "repos/x"))
+
+    def test_no_file_references_a_path_under_home_repos(self):
+        # .claude/settings.json is the only shipped file under .claude/.
+        files = repo_files("") + [os.path.join(ROOT, ".claude", "settings.json")]
+        hits = []
+        for path in files:
+            try:
+                with open(path, encoding="utf-8") as f:
+                    lines = f.readlines()
+            except UnicodeDecodeError:
+                continue
+            for number, line in enumerate(lines, 1):
+                match = self.REPO_PATH_RE.search(line)
+                if match:
+                    hits.append(f"{rel(path)}:{number}: {match.group(0)}")
+        self.assertEqual(hits, [])
 
 
 class TestPaths(unittest.TestCase):

@@ -285,6 +285,28 @@ class TestReservationSample(unittest.TestCase):
             ((workshop + datetime.timedelta(days=earliest)).isoformat(),
              (workshop + datetime.timedelta(days=latest)).isoformat()))
 
+    def test_guided_brief_dates_valid_across_window(self):
+        # The guided brief's curl examples create reservations, so their
+        # dates must pass "today through 60 days" on every workshop day in
+        # the README's window (issue #11).
+        base = os.path.join(ROOT, "paths", "b-backend")
+        with open(os.path.join(base, "README.md"), encoding="utf-8") as f:
+            window = re.search(r"\*\*Works as labelled for a workshop held:\*\* "
+                               r"(\d{4}-\d{2}-\d{2}) through (\d{4}-\d{2}-\d{2})",
+                               f.read())
+        self.assertIsNotNone(window, "README must state the delivery window")
+        first = datetime.date.fromisoformat(window.group(1))
+        last = datetime.date.fromisoformat(window.group(2))
+        with open(os.path.join(base, "guided-brief.md"), encoding="utf-8") as f:
+            brief = f.read()
+        dates = re.findall(r'"date"\s*:\s*"(\d{4}-\d{2}-\d{2})"', brief)
+        self.assertTrue(dates, "guided brief has no example dates")
+        for d in dates:
+            with self.subTest(date=d):
+                date = datetime.date.fromisoformat(d)
+                self.assertGreaterEqual(date, last)
+                self.assertLessEqual(date, first + datetime.timedelta(days=60))
+
 
 class TestOperationsLogSample(unittest.TestCase):
     def test_entries_match_log_format(self):

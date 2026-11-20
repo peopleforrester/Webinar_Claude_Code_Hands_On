@@ -26,7 +26,7 @@ The date rules ("no reservations in the past", "no more than 60 days out") depen
 - **Workshop day:** 2026-12-01
 - **Works as labelled for a workshop held:** 2026-11-07 through 2026-12-22
 
-For a delivery outside that window, move every date in the file forward by the number of days between 2026-12-01 and the new workshop day, then update the two dates above. The offsets in the notes stay the same. Asking Claude to do this is a quick warm-up exercise.
+For a delivery outside that window, move every date in the file forward by the number of days between 2026-12-01 and the new workshop day, then update the two dates above. The offsets in the notes stay the same. Move the date in the [guided-brief.md](guided-brief.md) curl examples (workshop day +21) by the same number of days. Asking Claude to do this is a quick warm-up exercise.
 
 ## Quick Start
 

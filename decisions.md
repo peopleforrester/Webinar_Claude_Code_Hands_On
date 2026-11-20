@@ -69,3 +69,18 @@ The tests still never read today's date, as before. Instead
 stated workshop day plus its offset, that the offsets agree with the notes,
 and that the README window matches what the offsets allow. Shifting the dates
 means updating the README's workshop day and window in the same change.
+
+## 2026-11-20 · Path B guided brief curl date follows the workshop day
+
+Issue #11: the Step 3 curl examples in `paths/b-backend/guided-brief.md`
+created a reservation for a fixed 2026-12-15. That date is in the past for a
+workshop between 2026-12-16 and 2026-12-22, which is still inside the README's
+delivery window, so the "create a reservation" example would fail.
+
+Decision: both fixes the issue offered. The examples now use the workshop day
+plus 21 days (2026-12-22), the earliest offset that holds for the whole
+2026-11-07 through 2026-12-22 window, so the window is unchanged. The brief
+also tells attendees outside the window to pick any date from today to 60 days
+out, and the README's re-dating note now covers the brief too.
+`test_guided_brief_dates_valid_across_window` checks that every date in the
+brief is valid on both the first and last day of the README's window.

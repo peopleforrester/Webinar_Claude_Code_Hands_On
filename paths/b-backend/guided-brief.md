@@ -77,7 +77,7 @@ Watch Claude work through the build. Key things to observe:
 
 > **Pillar 4 in action:** Claude runs tests after each change because of the rule you externalized. When a test fails, Claude self-corrects.
 
-Test the API yourself once Claude finishes:
+Test the API yourself once Claude finishes. The examples below use 2026-12-22, the workshop day in [README.md](README.md) plus 21 days. That date passes the "no reservations in the past" and "no more than 60 days out" rules for any workshop in the README's window. If you are outside that window, replace it with any date from today to 60 days from today. For example, two weeks from today works.
 
 ```bash
 # Start the server (in one terminal)
@@ -86,7 +86,7 @@ python main.py   # or: node index.js
 # In another terminal, create a reservation
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-15","partySize":4}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-22","partySize":4}'
 
 # List reservations
 curl http://localhost:3000/reservations
@@ -94,7 +94,7 @@ curl http://localhost:3000/reservations
 # Try an invalid request (party size too large)
 curl -X POST http://localhost:3000/reservations \
   -H "Content-Type: application/json" \
-  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-15","partySize":25}'
+  -d '{"guestEmail":"guest@example.com","park":"Skyward Summit","date":"2026-12-22","partySize":25}'
 ```
 
 ---

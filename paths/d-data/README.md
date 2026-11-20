@@ -17,7 +17,7 @@ Build a Python tool that parses structured log data from theme park operations, 
 | [guided-brief.md](guided-brief.md) | Step-by-step guided build (28 min, instructor-led) |
 | [independent-brief.md](independent-brief.md) | Self-directed challenge: Guest Flow Simulator |
 | [CLAUDE.md](CLAUDE.md) | Path-specific project conventions — copy into your build directory |
-| [sample-data/operations-logs.json](sample-data/operations-logs.json) | 10 sample log entries to use as seed data |
+| [sample-data/operations-logs.json](sample-data/operations-logs.json) | 56 sample log entries to use as seed data |
 
 ## Quick Start
 

@@ -254,6 +254,16 @@ class TestOperationsLogSample(unittest.TestCase):
                 self.assertIn(e["status"], {"success", "error", "timeout"})
                 self.assertIn(e["location"], PARKS)
 
+    def test_readme_states_actual_entry_count(self):
+        logs = load_json(
+            "paths", "d-data", "sample-data", "operations-logs.json")
+        with open(os.path.join(ROOT, "paths", "d-data", "README.md"),
+                  encoding="utf-8") as f:
+            readme = f.read()
+        m = re.search(r"\b(\d+) sample log entries\b", readme)
+        self.assertIsNotNone(m, "Path D README no longer states a log count")
+        self.assertEqual(int(m.group(1)), len(logs))
+
 
 if __name__ == "__main__":
     unittest.main()

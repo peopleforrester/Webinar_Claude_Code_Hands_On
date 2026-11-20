@@ -288,22 +288,34 @@ class TestReservationSample(unittest.TestCase):
     def test_guided_brief_dates_valid_across_window(self):
         # The guided brief's curl examples create reservations, so their
         # dates must pass "today through 60 days" on every workshop day in
-        # the README's window (issue #11).
+        # the README's window (issue #11). Every date in the brief, prose
+        # included, must also be the workshop day plus the offset the README
+        # gives for it, so re-dating by the README's note keeps them in step.
         base = os.path.join(ROOT, "paths", "b-backend")
         with open(os.path.join(base, "README.md"), encoding="utf-8") as f:
-            window = re.search(r"\*\*Works as labelled for a workshop held:\*\* "
-                               r"(\d{4}-\d{2}-\d{2}) through (\d{4}-\d{2}-\d{2})",
-                               f.read())
+            readme = f.read()
+        day = re.search(r"\*\*Workshop day:\*\* (\d{4}-\d{2}-\d{2})", readme)
+        window = re.search(r"\*\*Works as labelled for a workshop held:\*\* "
+                           r"(\d{4}-\d{2}-\d{2}) through (\d{4}-\d{2}-\d{2})",
+                           readme)
+        offset = re.search(r"guided-brief\.md\)[^.]*\(workshop day \+(\d+)\)",
+                           readme)
+        self.assertIsNotNone(day, "README must state the workshop day")
         self.assertIsNotNone(window, "README must state the delivery window")
+        self.assertIsNotNone(offset, "README must state the brief's offset")
+        expected = (datetime.date.fromisoformat(day.group(1))
+                    + datetime.timedelta(days=int(offset.group(1))))
         first = datetime.date.fromisoformat(window.group(1))
         last = datetime.date.fromisoformat(window.group(2))
         with open(os.path.join(base, "guided-brief.md"), encoding="utf-8") as f:
             brief = f.read()
-        dates = re.findall(r'"date"\s*:\s*"(\d{4}-\d{2}-\d{2})"', brief)
-        self.assertTrue(dates, "guided brief has no example dates")
-        for d in dates:
+        self.assertRegex(brief, r'"date"\s*:\s*"\d{4}-\d{2}-\d{2}"',
+                         "guided brief has no example dates")
+        self.assertIn("plus %s days" % offset.group(1), brief)
+        for d in re.findall(r"\d{4}-\d{2}-\d{2}", brief):
             with self.subTest(date=d):
                 date = datetime.date.fromisoformat(d)
+                self.assertEqual(date, expected)
                 self.assertGreaterEqual(date, last)
                 self.assertLessEqual(date, first + datetime.timedelta(days=60))
 

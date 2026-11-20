@@ -84,3 +84,5 @@ also tells attendees outside the window to pick any date from today to 60 days
 out, and the README's re-dating note now covers the brief too.
 `test_guided_brief_dates_valid_across_window` checks that every date in the
 brief is valid on both the first and last day of the README's window.
+It also checks that every date in the brief, prose included, is the README's
+workshop day plus the +21 the README states, so re-dating stays in step.

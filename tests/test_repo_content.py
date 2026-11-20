@@ -237,6 +237,54 @@ class TestReservationSample(unittest.TestCase):
                 elif "park" in note:
                     self.assertFalse(park_ok)
 
+    def test_dates_follow_workshop_day_offsets(self):
+        # The date rules depend on "today", so instead of reading the clock
+        # this checks the file against the workshop day the README states:
+        # each date is that day plus the offset in its note, the offsets
+        # agree with the notes, and the README's delivery window is the one
+        # the offsets allow (issue #9).
+        with open(os.path.join(ROOT, "paths", "b-backend", "README.md"),
+                  encoding="utf-8") as f:
+            readme = f.read()
+        day = re.search(r"\*\*Workshop day:\*\* (\d{4}-\d{2}-\d{2})", readme)
+        window = re.search(r"\*\*Works as labelled for a workshop held:\*\* "
+                           r"(\d{4}-\d{2}-\d{2}) through (\d{4}-\d{2}-\d{2})",
+                           readme)
+        self.assertIsNotNone(day, "README must state the workshop day")
+        self.assertIsNotNone(window, "README must state the delivery window")
+        workshop = datetime.date.fromisoformat(day.group(1))
+
+        # Each bound is the latest/earliest workshop day, as an offset from
+        # the stated one, at which every note still holds.
+        earliest, latest = -10**6, 10**6
+        for r in self.requests:
+            note = r["_note"]
+            with self.subTest(note=note, guest=r["guestEmail"]):
+                m = re.search(r"\(workshop day ([+-]\d+)\)$", note)
+                self.assertIsNotNone(m, "note must end with its offset")
+                offset = int(m.group(1))
+                date = datetime.date.fromisoformat(r["date"])
+                self.assertEqual(
+                    date, workshop + datetime.timedelta(days=offset))
+                if "in the past" in note:
+                    self.assertLess(offset, 0)
+                    earliest = max(earliest, offset + 1)
+                elif "60 days out" in note:
+                    self.assertGreater(offset, 60)
+                    latest = min(latest, offset - 61)
+                else:
+                    # Valid, or invalid for a date-independent reason:
+                    # the date itself must pass "today through 60 days".
+                    self.assertTrue(0 <= offset <= 60)
+                    earliest = max(earliest, offset - 60)
+                    latest = min(latest, offset)
+        self.assertLessEqual(earliest, 0)
+        self.assertGreaterEqual(latest, 0)
+        self.assertEqual(
+            (window.group(1), window.group(2)),
+            ((workshop + datetime.timedelta(days=earliest)).isoformat(),
+             (workshop + datetime.timedelta(days=latest)).isoformat()))
+
 
 class TestOperationsLogSample(unittest.TestCase):
     def test_entries_match_log_format(self):

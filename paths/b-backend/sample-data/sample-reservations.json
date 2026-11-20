@@ -2,71 +2,71 @@
   {
     "guestEmail": "anna.smith@example.com",
     "park": "Coral Kingdom",
-    "date": "2026-04-20",
+    "date": "2026-12-26",
     "partySize": 4,
-    "_note": "Valid reservation"
+    "_note": "Valid reservation (workshop day +25)"
   },
   {
     "guestEmail": "bob.jones@example.com",
     "park": "Skyward Summit",
-    "date": "2026-04-25",
+    "date": "2026-12-31",
     "partySize": 2,
-    "_note": "Valid reservation"
+    "_note": "Valid reservation (workshop day +30)"
   },
   {
     "guestEmail": "carlos.reyes@example.com",
     "park": "Harbor Gardens",
-    "date": "2026-05-01",
+    "date": "2027-01-06",
     "partySize": 8,
-    "_note": "Valid reservation"
+    "_note": "Valid reservation (workshop day +36)"
   },
   {
     "guestEmail": "diana.lee@example.com",
     "park": "Meadow Haven",
-    "date": "2026-04-15",
+    "date": "2026-12-22",
     "partySize": 1,
-    "_note": "Valid reservation — solo guest"
+    "_note": "Valid reservation — solo guest (workshop day +21)"
   },
   {
     "guestEmail": "emma.clark@example.com",
     "park": "Coral Kingdom",
-    "date": "2026-04-22",
+    "date": "2026-12-28",
     "partySize": 25,
-    "_note": "INVALID — party size exceeds max of 20"
+    "_note": "INVALID — party size exceeds max of 20 (workshop day +27)"
   },
   {
     "guestEmail": "frank.wu@example.com",
     "park": "Skyward Summit",
-    "date": "2026-01-15",
+    "date": "2026-11-01",
     "partySize": 3,
-    "_note": "INVALID — date is in the past"
+    "_note": "INVALID — date is in the past (workshop day -30)"
   },
   {
     "guestEmail": "grace.patel@example.com",
     "park": "Shadow Isle",
-    "date": "2026-04-30",
+    "date": "2027-01-05",
     "partySize": 6,
-    "_note": "INVALID — park not in valid list"
+    "_note": "INVALID — park not in valid list (workshop day +35)"
   },
   {
     "guestEmail": "henry.kim@example.com",
     "park": "Harbor Gardens",
-    "date": "2026-08-15",
+    "date": "2027-03-01",
     "partySize": 4,
-    "_note": "INVALID — date more than 60 days out"
+    "_note": "INVALID — date more than 60 days out (workshop day +90)"
   },
   {
     "guestEmail": "anna.smith@example.com",
     "park": "Skyward Summit",
-    "date": "2026-04-21",
+    "date": "2026-12-27",
     "partySize": 3,
-    "_note": "Valid — same guest, second reservation (max 3 allowed)"
+    "_note": "Valid — same guest, second reservation (max 3 allowed) (workshop day +26)"
   },
   {
     "guestEmail": "bob.jones@example.com",
     "park": "Meadow Haven",
-    "date": "2026-04-28",
+    "date": "2027-01-03",
     "partySize": 0,
-    "_note": "INVALID — party size below minimum of 1"
+    "_note": "INVALID — party size below minimum of 1 (workshop day +33)"
   }
 ]

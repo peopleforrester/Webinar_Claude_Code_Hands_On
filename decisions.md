@@ -48,3 +48,24 @@ public workshop repo has no use for a link to a private conference repo.
 Revisit this if the repo starts holding conference material, such as a CFP
 draft for this workshop or travel for a delivery at an event. Read and change
 that information in conference-knowledge, by filing an `agent-task` issue there.
+
+## 2026-11-20 · Path B sample dates are relative to a workshop day
+
+Issue #9: every date in `paths/b-backend/sample-data/sample-reservations.json`
+had slipped into the past, so the "Valid", "in the past" and "more than 60
+days out" notes no longer described their dates. The issue offered two fixes:
+refresh the dates, or describe them relative to the workshop date.
+
+Decision: both. Each `_note` now ends with its offset from a workshop day, such
+as `(workshop day +25)`, and the dates are set for a workshop day of
+2026-12-01. The Path B README states that day, the delivery window the offsets
+allow (2026-11-07 through 2026-12-22), and how to shift the dates for a later
+delivery. Offsets alone, without real dates, would break the file's use as
+POST bodies. Dates alone would go stale again with no hint of what they were
+meant to show.
+
+The tests still never read today's date, as before. Instead
+`test_dates_follow_workshop_day_offsets` checks that each date equals the
+stated workshop day plus its offset, that the offsets agree with the notes,
+and that the README window matches what the offsets allow. Shifting the dates
+means updating the README's workshop day and window in the same change.
